@@ -6,7 +6,8 @@
     "category": "Doodles",
     "featured": true,
     "selected": false,
-    "order": 1
+    "order": 1,
+    "thumbnail": "assets/images/artworks/thumbnails/1.webp"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "category": "Doodles",
     "featured": true,
     "selected": false,
-    "order": 2
+    "order": 2,
+    "thumbnail": "assets/images/artworks/thumbnails/2.webp"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "category": "Doodles",
     "featured": true,
     "selected": false,
-    "order": 3
+    "order": 3,
+    "thumbnail": "assets/images/artworks/thumbnails/3.webp"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "category": "Doodles",
     "featured": false,
     "selected": true,
-    "order": 4
+    "order": 4,
+    "thumbnail": "assets/images/artworks/thumbnails/4.webp"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "category": "Doodles",
     "featured": false,
     "selected": true,
-    "order": 5
+    "order": 5,
+    "thumbnail": "assets/images/artworks/thumbnails/5.webp"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "category": "Doodles",
     "featured": false,
     "selected": true,
-    "order": 6
+    "order": 6,
+    "thumbnail": "assets/images/artworks/thumbnails/6.webp"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "category": "Doodles",
     "featured": false,
     "selected": true,
-    "order": 7
+    "order": 7,
+    "thumbnail": "assets/images/artworks/thumbnails/7.webp"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "category": "Doodles",
     "featured": false,
     "selected": false,
-    "order": 8
+    "order": 8,
+    "thumbnail": "assets/images/artworks/thumbnails/8.webp"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "category": "Doodles",
     "featured": false,
     "selected": false,
-    "order": 9
+    "order": 9,
+    "thumbnail": "assets/images/artworks/thumbnails/9.webp"
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "category": "Doodles",
     "featured": false,
     "selected": false,
-    "order": 10
+    "order": 10,
+    "thumbnail": "assets/images/artworks/thumbnails/10.webp"
   },
   {
     "id": 11,
@@ -96,6 +106,7 @@
     "category": "Doodles",
     "featured": false,
     "selected": false,
-    "order": 11
+    "order": 11,
+    "thumbnail": "assets/images/artworks/thumbnails/11.webp"
   }
 ]
