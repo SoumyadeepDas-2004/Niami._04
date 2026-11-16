@@ -818,3 +818,28 @@ body:has(dialog[open]) {
     grid-template-columns: 1fr;
   }
 }
+/* Gallery loading placeholders */
+.art-skeleton {
+  cursor: default;
+  pointer-events: none;
+}
+
+.art-skeleton .frame {
+  background: #e8e1d6;
+}
+
+.art-skeleton .cap b,
+.art-skeleton .cap i {
+  display: block;
+  height: 10px;
+  border-radius: 4px;
+  background: var(--line);
+}
+
+.art-skeleton .cap b {
+  width: 42%;
+}
+
+.art-skeleton .cap i {
+  width: 25%;
+}
