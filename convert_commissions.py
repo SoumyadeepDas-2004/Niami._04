@@ -2,7 +2,7 @@
 from pathlib import Path
 from PIL import Image
 
-folder = Path("assets/images/payments")
+folder = Path("assets/images/pfp")
 
 for png_path in folder.glob("*.png"):
     webp_path = png_path.with_suffix(".webp")
