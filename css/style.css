@@ -784,10 +784,7 @@ body:has(dialog[open]) {
 /* Keep artwork cards smaller on both Home and Gallery pages */
 [data-preview],
 [data-gallery] {
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, 240px), 280px)
-  );
+  grid-template-columns: repeat(3, minmax(0, 280px));
   justify-content: center;
   gap: 24px;
 }
@@ -797,3 +794,27 @@ body:has(dialog[open]) {
   width: 100%;
 }
 
+/* Tablet */
+@media (max-width: 900px) {
+  [data-preview],
+  [data-gallery] {
+    grid-template-columns: repeat(2, minmax(0, 280px));
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  [data-preview],
+  [data-gallery] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 359px) {
+  [data-preview],
+  [data-gallery] {
+    grid-template-columns: 1fr;
+  }
+}

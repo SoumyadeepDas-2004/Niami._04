@@ -73,13 +73,14 @@
     >
       <span class="frame">
         <img
-          src="${esc(artwork.image)}"
+        
+          src="${esc(artwork.thumbnail || artwork.image)}"
           alt="${esc(alt(artwork))}"
-          ${artwork.width && artwork.height
-            ? `width="${artwork.width}" height="${artwork.height}"`
-            : ''}
-          ${index > 2 ? 'loading="lazy"' : ''}
-          decoding="async"
+          width="480"
+height="640"
+${index === 0 ? 'fetchpriority="high"' : ''}
+${index > 1 ? 'loading="lazy"' : ''}
+decoding="async"
           onerror="this.closest('.art').hidden = true"
         >
       </span>
@@ -101,9 +102,11 @@
   const fill = (element, artworks) => {
     if (!element) return;
 
-    lists.set(element, artworks);
+   lists.set(element, artworks);
 
-    element.innerHTML = artworks.length
+element.setAttribute('aria-busy', 'false');
+
+element.innerHTML = artworks.length
       ? artworks.map((artwork, index) =>
           card(artwork, index)
         ).join('')
