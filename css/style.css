@@ -212,8 +212,11 @@ nav a[aria-current] {
 .row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   gap: 1rem;
-  margin-top: 2rem;
+  margin: 2rem auto 0;
 }
 
 @keyframes rise {
