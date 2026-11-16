@@ -227,25 +227,24 @@ nav a[aria-current] {
    8. BUTTONS AND LINKS
    ========================================= */
 
-.btn {
+.btn,
+.btn.ghost {
   display: inline-block;
   border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--bg);
-  padding: .8rem 1.6rem;
+  border-radius: 30px;
+  background: transparent;
+  color: var(--ink);
+  padding: .8rem 1.8rem;
   text-decoration: none;
-  transition: background .3s, color .3s;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .btn:hover,
-.btn.ghost {
+.btn.ghost:hover {
   background: transparent;
   color: var(--ink);
-}
-
-.btn.ghost:hover {
-  background: var(--ink);
-  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(32, 29, 25, .12);
 }
 
 .link {
@@ -849,8 +848,8 @@ footer.site .wrap {
   height: 220px;
   margin-bottom: 2rem;
 }
-
 .hero-profile img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
