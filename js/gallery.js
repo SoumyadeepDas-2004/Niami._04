@@ -78,8 +78,8 @@
           alt="${esc(alt(artwork))}"
           width="480"
 height="640"
-${index === 3 ? 'fetchpriority="high"' : ''}
-${index > 3 ? 'loading="lazy"' : ''}
+${index === 0 ? 'fetchpriority="high"' : ''}
+${index > 1 ? 'loading="lazy"' : ''}
 decoding="async"
           onerror="this.closest('.art').hidden = true"
         >
