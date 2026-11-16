@@ -1,5 +1,5 @@
 // Edit these three values once; they update the header, footer and every data-site link.
-const SITE={name:'Nia',instagram:'https://www.instagram.com/niami._04/',email:'nianami04@gmail.com'};
+const SITE={name:'Niami._04',instagram:'https://www.instagram.com/niami._04/',email:'nianami04@gmail.com'};
 // Commission status — change these values when needed.
 const COMMISSION = {
   status: 'open',
