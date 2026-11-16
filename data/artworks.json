@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Artwork 1",
-    "image": "assets/images/artworks/1.png",
+    "image": "assets/images/artworks/1.webp",
     "category": "Doodles",
     "featured": true,
     "selected": false,
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "title": "Artwork 2",
-    "image": "assets/images/artworks/2.png",
+    "image": "assets/images/artworks/2.webp",
     "category": "Doodles",
     "featured": true,
     "selected": false,
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "title": "Artwork 3",
-    "image": "assets/images/artworks/3.png",
+    "image": "assets/images/artworks/3.webp",
     "category": "Doodles",
     "featured": true,
     "selected": false,
@@ -29,7 +29,7 @@
   {
     "id": 4,
     "title": "Artwork 4",
-    "image": "assets/images/artworks/4.png",
+    "image": "assets/images/artworks/4.webp",
     "category": "Doodles",
     "featured": false,
     "selected": true,
@@ -38,7 +38,7 @@
   {
     "id": 5,
     "title": "Artwork 5",
-    "image": "assets/images/artworks/5.png",
+    "image": "assets/images/artworks/5.webp",
     "category": "Doodles",
     "featured": false,
     "selected": true,
@@ -47,7 +47,7 @@
   {
     "id": 6,
     "title": "Artwork 6",
-    "image": "assets/images/artworks/6.png",
+    "image": "assets/images/artworks/6.webp",
     "category": "Doodles",
     "featured": false,
     "selected": true,
@@ -56,7 +56,7 @@
   {
     "id": 7,
     "title": "Artwork 7",
-    "image": "assets/images/artworks/7.png",
+    "image": "assets/images/artworks/7.webp",
     "category": "Doodles",
     "featured": false,
     "selected": true,
@@ -65,7 +65,7 @@
   {
     "id": 8,
     "title": "Artwork 8",
-    "image": "assets/images/artworks/8.png",
+    "image": "assets/images/artworks/8.webp",
     "category": "Doodles",
     "featured": false,
     "selected": false,
@@ -74,7 +74,7 @@
   {
     "id": 9,
     "title": "Artwork 9",
-    "image": "assets/images/artworks/9.png",
+    "image": "assets/images/artworks/9.webp",
     "category": "Doodles",
     "featured": false,
     "selected": false,
@@ -83,7 +83,7 @@
   {
     "id": 10,
     "title": "Artwork 10",
-    "image": "assets/images/artworks/10.png",
+    "image": "assets/images/artworks/10.webp",
     "category": "Doodles",
     "featured": false,
     "selected": false,
@@ -92,7 +92,7 @@
   {
     "id": 11,
     "title": "Artwork 11",
-    "image": "assets/images/artworks/11.png",
+    "image": "assets/images/artworks/11.webp",
     "category": "Doodles",
     "featured": false,
     "selected": false,
