@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "Artwork 1",
+    "image": "assets/images/artworks/1.png",
+    "category": "Doodles",
+    "featured": true,
+    "selected": false,
+    "order": 1
+  },
+  {
+    "id": 2,
+    "title": "Artwork 2",
+    "image": "assets/images/artworks/2.png",
+    "category": "Doodles",
+    "featured": true,
+    "selected": false,
+    "order": 2
+  },
+  {
+    "id": 3,
+    "title": "Artwork 3",
+    "image": "assets/images/artworks/3.png",
+    "category": "Doodles",
+    "featured": true,
+    "selected": false,
+    "order": 3
+  },
+  {
+    "id": 4,
+    "title": "Artwork 4",
+    "image": "assets/images/artworks/4.png",
+    "category": "Doodles",
+    "featured": false,
+    "selected": true,
+    "order": 4
+  },
+  {
+    "id": 5,
+    "title": "Artwork 5",
+    "image": "assets/images/artworks/5.png",
+    "category": "Doodles",
+    "featured": false,
+    "selected": true,
+    "order": 5
+  },
+  {
+    "id": 6,
+    "title": "Artwork 6",
+    "image": "assets/images/artworks/6.png",
+    "category": "Doodles",
+    "featured": false,
+    "selected": true,
+    "order": 6
+  },
+  {
+    "id": 7,
+    "title": "Artwork 7",
+    "image": "assets/images/artworks/7.png",
+    "category": "Doodles",
+    "featured": false,
+    "selected": true,
+    "order": 7
+  },
+  {
+    "id": 8,
+    "title": "Artwork 8",
+    "image": "assets/images/artworks/8.png",
+    "category": "Doodles",
+    "featured": false,
+    "selected": false,
+    "order": 8
+  },
+  {
+    "id": 9,
+    "title": "Artwork 9",
+    "image": "assets/images/artworks/9.png",
+    "category": "Doodles",
+    "featured": false,
+    "selected": false,
+    "order": 9
+  },
+  {
+    "id": 10,
+    "title": "Artwork 10",
+    "image": "assets/images/artworks/10.png",
+    "category": "Doodles",
+    "featured": false,
+    "selected": false,
+    "order": 10
+  },
+  {
+    "id": 11,
+    "title": "Artwork 11",
+    "image": "assets/images/artworks/11.png",
+    "category": "Doodles",
+    "featured": false,
+    "selected": false,
+    "order": 11
+  }
+]

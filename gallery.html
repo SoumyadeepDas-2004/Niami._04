@@ -1,0 +1,85 @@
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gallery — [ARTIST NAME]</title>
+
+  <meta
+    name="description"
+    content="Explore original doodles and creative artwork by [ARTIST NAME]."
+  >
+
+  <meta name="theme-color" content="#f7f3ec">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gallery — [ARTIST NAME]">
+  <meta
+    property="og:description"
+    content="Explore original doodles and creative artwork by [ARTIST NAME]."
+  >
+  <meta
+    property="og:image"
+    content="https://[YOUR-DOMAIN]/assets/og-image.jpg"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site" id="site-header"></header>
+
+  <main id="main">
+
+    <section class="page-head">
+
+      <div class="wrap">
+
+        <h1>Gallery</h1>
+
+        <!-- Category filters generated dynamically -->
+        <div
+          class="filters"
+          data-filters
+          role="group"
+          aria-label="Filter by category"
+        ></div>
+
+        <!-- Uniform CSS Grid artwork gallery -->
+        <div
+          class="art-grid"
+          data-gallery
+          aria-live="polite"
+        >
+          <p class="msg">Loading artwork...</p>
+        </div>
+
+        <noscript>
+          <p class="msg">
+            Please enable JavaScript to view the gallery.
+          </p>
+        </noscript>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site" id="site-footer"></footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+
+</body>
+</html>
