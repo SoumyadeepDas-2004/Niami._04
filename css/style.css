@@ -475,13 +475,6 @@ footer.site {
   font-size: .9rem;
 }
 
-footer .wrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
 /* =========================================
    14. LIGHTBOX
    ========================================= */
@@ -842,4 +835,12 @@ body:has(dialog[open]) {
 
 .art-skeleton .cap i {
   width: 25%;
+}
+footer.site .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;
 }
