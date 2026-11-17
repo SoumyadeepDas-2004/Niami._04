@@ -2009,7 +2009,7 @@ main {
 
 .home-page {
   overflow: hidden;
-  background: #FCF7E9;
+  background: #E3EBEF;
 }
 
 /* -----------------------------------------
@@ -2026,12 +2026,18 @@ main {
   margin: 0 auto;
   padding: clamp(2rem, 5vw, 4rem);
   overflow: hidden;
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     #EAF1F4,
     #DCE8ED 55%,
     #E5EDF1
-  );
+  ); */
+  background: linear-gradient(
+  135deg,
+  #FFFCF3,
+  #FAF5E8 55%,
+  #FFFDF7
+);
   border: 1px solid var(--line);
   border-radius: 28px;
   box-shadow: 0 8px 28px rgba(38, 63, 89, .07);
