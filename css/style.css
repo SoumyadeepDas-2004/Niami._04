@@ -2040,7 +2040,8 @@ main {
 );
   border: 1px solid var(--line);
   border-radius: 28px;
-  box-shadow: 0 8px 28px rgba(38, 63, 89, .07);
+  /* box-shadow: 0 8px 28px rgba(38, 63, 89, .07); */
+  box-shadow: 0 14px 38px rgba(38, 63, 89, 0.22);
 }
 
 .home-hero-content {
@@ -2065,7 +2066,7 @@ main {
   background: #FFFFFF;
   border: 1px solid #BDCED8;
   border-radius: 50%;
-  box-shadow: 0 7px 20px rgba(38, 63, 89, .12);
+  box-shadow: 0 14px 38px rgba(38, 63, 89, 0.22);
 }
 
 .home-profile-frame img {
