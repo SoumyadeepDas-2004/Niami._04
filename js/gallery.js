@@ -178,6 +178,7 @@
         filt.innerHTML = `
           <button
             type="button"
+            class="btn ghost"
             data-collection="selected"
             aria-pressed="true"
           >
@@ -186,6 +187,7 @@
 
           <button
             type="button"
+            class="btn ghost"
             data-collection="all"
             aria-pressed="false"
           >

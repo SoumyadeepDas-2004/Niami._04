@@ -339,6 +339,8 @@ nav a[aria-current] {
 
 .btn,
 .btn.ghost {
+  background: var(--button-secondary-hover);
+  color: var(--ink);
   display: inline-block;
   border: 1px solid #7888AB;
   border-radius: 30px;
@@ -359,10 +361,9 @@ nav a[aria-current] {
 
 /* Secondary button */
 .btn.ghost {
-  background: var(--button-secondary);
+  background: var(--button-secondary-hover);
   color: var(--ink);
-  border: 1px solid #7888AB;
-  box-shadow: var(--shadow-button-secondary);
+  border-color: #647697;
   transition: background .25s ease, color .25s ease,
               border-color .25s ease, transform .25s ease;
 }
@@ -714,9 +715,9 @@ nav a[aria-current] {
   height: 100%;
   margin: 0;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, .45);
+  border: 1.3px solid rgb(0, 0, 0);
   border-radius: 14px;
-  background: rgba(255, 255, 255, .16);
+  background: rgba(16, 0, 0, 0.16);
   text-align: left;
   font: inherit;
   color: inherit;
@@ -789,7 +790,13 @@ nav a[aria-current] {
   min-height: 58px;
   padding: 12px;
   font-size: .9rem;
-  background: #E5EDF1;
+  /* background: #E5EDF1; */
+  background: linear-gradient(
+  135deg,
+  #FCECC0 0%,
+  #FCF7E9 99%,
+  #FFFFFF 50%
+);
   color: var(--ink);
   transition: background .3s ease;
 }
@@ -1880,9 +1887,10 @@ main .masonry[data-preview] {
   color: var(--ink);
 }
 
+/* Selected gallery filter — match secondary button hover colours */
 .gallery-page .filters button[aria-pressed="true"] {
-  background: #647697;
-  color: white;
+  background: var(--button-secondary-hover);
+  color: var(--ink);
   border-color: #647697;
 }
 
