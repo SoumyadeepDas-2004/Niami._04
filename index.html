@@ -8,11 +8,16 @@
 <title>Niami._04</title>
 
 <meta name="description" content="Original artwork, illustrations and paintings by Nia. Browse the portfolio and enquire about commissions.">
-<meta name="theme-color" content="#f7f3ec">
+<meta name="theme-color" content="#D4E2E8">
 
+<link rel="canonical" href="https://niami--04.pages.dev/">
+
+<!-- Open Graph -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Niami._04">
 <meta property="og:title" content="Niami._04">
 <meta property="og:description" content="Original artwork, illustrations and paintings by Nia.">
+<meta property="og:url" content="https://niami--04.pages.dev/">
 <meta property="og:image" content="https://niami--04.pages.dev/assets/images/pfp/pfp.webp">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -23,14 +28,28 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- EXISTING HEADER: PRESERVED -->
+<!-- =========================================
+     SITE HEADER
+     ========================================= -->
+
 <header class="site" id="site-header">
   <div class="wrap">
+
     <a class="logo" href="index.html">Niami._04</a>
 
-    <button class="sidebar-toggle" aria-label="Open navigation" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none"
-           stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <button
+      class="sidebar-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-controls="mobile-sidebar"
+      aria-expanded="false">
+      <svg viewBox="0 0 24 24"
+           width="24"
+           height="24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="1.8"
+           stroke-linecap="round">
         <path d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
@@ -44,66 +63,81 @@
         <li><a href="about.html">About</a></li>
       </ul>
     </nav>
+
   </div>
 </header>
 
+<!-- =========================================
+     MOBILE NAVIGATION
+     ========================================= -->
+
 <div class="sidebar-overlay"></div>
 
-<aside class="mobile-sidebar" aria-label="Mobile navigation">
-  <button class="sidebar-close" aria-label="Close navigation">&times;</button>
+<aside class="mobile-sidebar"
+       id="mobile-sidebar"
+       aria-label="Mobile navigation">
+
+  <button class="sidebar-close"
+          type="button"
+          aria-label="Close navigation">
+    &times;
+  </button>
+
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" aria-current="page">Home</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="commissions.html">Commissions</a></li>
       <li><a href="payment.html">Payment</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
   </nav>
+
 </aside>
+
+<!-- =========================================
+     MAIN CONTENT
+     ========================================= -->
 
 <main id="main" class="home-page">
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="home-hero">
     <div class="wrap">
 
       <div class="home-hero-card">
 
+        <!-- Decorative elements -->
         <div class="home-hero-decoration home-decoration-one" aria-hidden="true">✦</div>
         <div class="home-hero-decoration home-decoration-two" aria-hidden="true">♡</div>
         <div class="home-hero-decoration home-decoration-three" aria-hidden="true">✧</div>
 
         <div class="home-hero-content">
 
+          <!-- Profile image -->
           <div class="home-profile-frame">
+
             <span class="home-profile-sparkle" aria-hidden="true">✦</span>
+
             <img
               src="assets/images/pfp/pfp.webp"
               alt="Nia's profile picture"
               width="220"
               height="220"
+              decoding="async"
             >
+
           </div>
 
+          <!-- Introduction -->
           <div class="home-introduction">
-
-            <span class="home-eyebrow">
-              <span aria-hidden="true">♡</span> WELCOME TO MY LITTLE ART WORLD
-            </span>
-
             <h1>Hi, I'm Nia<span class="home-heart">♡</span></h1>
 
             <p class="home-intro-text">
-              An artist from Malaysia who loves creating doodles,
-              digital illustrations, and original characters.
+              Hi! I'm Nia, a sleepy potato artist trying to draw as much as I can (人 •͈ᴗ•͈) <br>
+19 • INFP-T 6w5 • MY
             </p>
-
-            <p class="home-intro-note">
-              A little space filled with creativity and things I love making.
-              I'm happy you're here!
-            </p>
-
+            <!-- Hero buttons -->
             <div class="home-hero-actions">
               <a class="btn" href="gallery.html">Explore my artwork ↗</a>
               <a class="btn ghost" href="commissions.html">Commission me ♡</a>
@@ -111,113 +145,6 @@
 
           </div>
         </div>
-
-        <div class="home-hero-bottom" aria-hidden="true">
-          <span>MADE WITH LOVE</span>
-          <span>✿</span>
-          <span>ONE DRAWING AT A TIME</span>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- SELECTED ARTWORK -->
-  <section class="home-artwork" id="artwork">
-    <div class="wrap">
-
-      <div class="home-section-heading">
-        <div>
-          <span class="home-section-eyebrow">A LITTLE PEEK ♡</span>
-          <h2>Selected Artwork</h2>
-          <p>Some of my favourite creations, collected in one place.</p>
-        </div>
-
-        <span class="home-heading-decoration" aria-hidden="true">✿</span>
-      </div>
-
-      <div class="preview-layout">
-
-        <div class="masonry" data-preview aria-busy="true">
-
-          <div class="art art-skeleton" aria-hidden="true">
-            <span class="frame"></span>
-            <span class="cap"><b></b><i></i></span>
-          </div>
-
-          <div class="art art-skeleton" aria-hidden="true">
-            <span class="frame"></span>
-            <span class="cap"><b></b><i></i></span>
-          </div>
-
-          <div class="art art-skeleton" aria-hidden="true">
-            <span class="frame"></span>
-            <span class="cap"><b></b><i></i></span>
-          </div>
-
-        </div>
-
-        <div class="preview-more">
-          <a class="btn ghost" href="gallery.html">See all artwork →</a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ABOUT NIA -->
-  <section class="home-about">
-    <div class="wrap">
-
-      <div class="home-about-card">
-
-        <div class="home-about-decoration" aria-hidden="true">♡</div>
-
-        <div class="home-about-label">A LITTLE ABOUT ME</div>
-
-        <h2>Creating things with love <span aria-hidden="true">✿</span></h2>
-
-        <p>
-          I enjoy bringing ideas to life through doodles, digital illustrations,
-          and original characters. Every drawing is a little piece of my
-          imagination, and I love sharing them with you.
-        </p>
-
-        <a class="home-text-link" href="about.html">Get to know me more ↗</a>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- COMMISSION INVITATION -->
-  <section class="home-commission">
-    <div class="wrap">
-
-      <div class="home-commission-card">
-
-        <div class="home-commission-decoration" aria-hidden="true">
-          <span>✧</span>
-          <span>♡</span>
-          <span>✿</span>
-        </div>
-
-        <span class="home-section-eyebrow">HAVE AN IDEA IN MIND?</span>
-
-        <h2>Let's create something cute!</h2>
-
-        <p>
-          Have a character or idea you'd love to see illustrated?
-          I'd love to bring it to life for you.
-        </p>
-
-        <a class="btn" href="commissions.html">Explore commissions ♡</a>
-
       </div>
 
     </div>
@@ -225,18 +152,27 @@
 
 </main>
 
+<!-- =========================================
+     SITE FOOTER
+     ========================================= -->
 
-<!-- EXISTING FOOTER: PRESERVED -->
 <footer class="site" id="site-footer">
   <div class="wrap">
+
     <span>© 2026 Niami._04</span>
+
     <span>
       <a href="https://mail.google.com/mail/?view=cm&amp;to=nianami04@gmail.com"
          target="_blank"
          rel="noopener noreferrer">nianami04@gmail.com</a>
     </span>
+
   </div>
 </footer>
+
+<!-- =========================================
+     JAVASCRIPT
+     ========================================= -->
 
 <script src="js/main.js" defer></script>
 <script src="js/gallery.js" defer></script>
