@@ -367,20 +367,22 @@ nav a[aria-current] {
               border-color .25s ease, transform .25s ease;
 }
 
-/* Primary hover */
+/* Primary button hover — stronger lift and soft shadow */
 .btn:hover {
   background: var(--button-primary-hover);
   border-color: var(--button-primary-hover);
   color: #FFFFFF;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(38, 63, 89, .25);
 }
 
-/* Secondary button hover */
+/* Secondary button hover — stronger lift and soft shadow */
 .btn.ghost:hover {
   background: var(--button-secondary-hover);
   color: var(--ink);
   border-color: #647697;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(38, 63, 89, .18);
 }
 
 .link {
