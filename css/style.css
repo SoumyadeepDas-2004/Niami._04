@@ -362,10 +362,12 @@ nav a[aria-current] {
 
 /* Secondary button */
 .btn.ghost {
-  background: transparent;
+  background: #C5D7E0;
   color: var(--ink);
   border: 1px solid #7888AB;
   box-shadow: none;
+  transition: background .25s ease, color .25s ease,
+              border-color .25s ease, transform .25s ease;
 }
 
 /* Primary hover */
@@ -377,8 +379,9 @@ nav a[aria-current] {
 }
 
 /* Secondary hover */
+/* Ghost button hover */
 .btn.ghost:hover {
-  background: #C5D7E0;
+  background: #AFC5D2;
   color: var(--ink);
   border-color: #647697;
   transform: translateY(-2px);
@@ -794,6 +797,13 @@ footer.site {
   font-size: .9rem;
   color: var(--ink);
 }
+footer.site a {
+  text-decoration: none;
+}
+
+footer.site a:hover {
+  text-decoration: none;
+}
 
 /* =========================================
    17. LIGHTBOX
@@ -1105,8 +1115,33 @@ footer.site .wrap {
     grid-template-columns: 1fr;
   }
 }
+.preview-layout {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.preview-layout [data-preview] {
+  flex: 1;
+  min-width: 0;
+}
+
 .preview-more {
-  text-align: right;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .preview-layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .preview-more {
+    justify-content: flex-end;
+  }
 }
 
 /* Home preview grid: keep visible space between artwork cards */
@@ -1161,3 +1196,11 @@ main {
   flex: 1;
   background: #E3EBEF;
 }
+ /* main {
+  flex: 1;
+  background-image: url("../assets/images/background/background.webp");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} */
