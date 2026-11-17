@@ -722,9 +722,9 @@ nav a[aria-current] {
   text-align: left;
   font: inherit;
   color: inherit;
-  cursor: zoom-in;
+  cursor: pointer;
   overflow: hidden;
-  box-shadow: 0 5px 18px rgba(38, 63, 89, .07);
+  box-shadow: 0 5px 18px #263f5912;
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
@@ -759,9 +759,11 @@ nav a[aria-current] {
 /* Artwork hover and selection border */
 @media (hover: hover) and (pointer: fine) {
   .art:hover {
-  border-color: #263F59;
+  border-color: #000000;
+  border-width: 1.66px;
   transform: translateY(-3px);
   box-shadow: 0 12px 16px rgba(38, 63, 89, .28);
+  /* Match the image-caption divider to the card hover border */
 }
 
   .art:hover .frame img {
@@ -968,6 +970,7 @@ body:has(dialog[open]) {
 
 /* Image interaction area */
 .lb-stage {
+  cursor: default;
   position: absolute;
   inset: 0;
   display: flex;
@@ -981,6 +984,7 @@ body:has(dialog[open]) {
 
 /* Zoomable artwork */
 .lb-image {
+  cursor: default;
   display: block;
   flex: none;
   max-width: none;
@@ -1325,7 +1329,7 @@ footer.site .wrap {
   border-radius: 14px;
   background: rgba(255, 255, 255, .16);
   overflow: hidden;
-  cursor: zoom-in;
+  cursor: pointer;
   box-shadow: 0 5px 18px rgba(38, 63, 89, .07);
   transition: transform .3s ease, box-shadow .3s ease,
               border-color .3s ease;
@@ -1819,7 +1823,7 @@ main .masonry[data-preview] {
   text-align: left;
   font: inherit;
   color: inherit;
-  cursor: zoom-in;
+  cursor: pointer;
   overflow: hidden;
   box-shadow: 0 5px 18px rgba(38, 63, 89, .07);
   transition: transform .3s ease, box-shadow .3s ease;

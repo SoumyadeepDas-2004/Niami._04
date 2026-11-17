@@ -321,8 +321,9 @@
     lightboxImage.style.transform =
       `translate(${translateX}px, ${translateY}px) scale(${zoom})`;
 
-    lightboxImage.style.cursor =
-      zoom > 1 ? 'grab' : 'zoom-in';
+    /* Use a normal cursor at default zoom and grab when zoomed */
+lightboxImage.style.cursor =
+  zoom > 1 ? 'grab' : 'default';
 
     stage.classList.toggle('is-zoomed', zoom > 1);
   };
