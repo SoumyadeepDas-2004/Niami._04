@@ -658,7 +658,7 @@ Primary button
   .art:hover {
   border-color: #263F59;
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(38, 63, 89, .28);
+  box-shadow: 0 12px 16px rgba(38, 63, 89, .28);
 }
 
   .art:hover .frame img {
