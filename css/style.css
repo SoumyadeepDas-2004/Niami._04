@@ -405,40 +405,116 @@ nav a[aria-current] {
   }
 }
 
+
 /* =========================================
-   10. PAYMENT AND SHARED PAGE ELEMENTS
+   PAYMENT PAGE — TWO-CARD LAYOUT
    ========================================= */
 
-.payment-section {
-  margin-top: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
+.payment-page {
+  padding-bottom: 5rem;
 }
 
-.payment-label {
-  display: block;
-  margin-bottom: .5rem;
+.payment-heading {
+  margin-bottom: 2.5rem;
+}
+
+.payment-heading h1 {
+  margin-bottom: .4rem;
+}
+
+.payment-heading > p {
+  color: var(--mute);
+  font-size: 1.05rem;
+}
+
+/* Two payment cards */
+
+.payment-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.payment-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  background: rgba(255, 255, 255, .45);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(38, 63, 89, .07);
+}
+
+.payment-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.payment-icon {
+  font-size: 1.7rem;
+}
+
+.payment-card .payment-label {
+  margin: 0;
   color: var(--mute);
   font-size: .75rem;
-  font-weight: 600;
-  letter-spacing: .12em;
+  font-weight: 700;
+  letter-spacing: .09em;
 }
 
-.payment-section h2 {
-  margin-top: 0;
+.payment-card h2 {
+  margin: 0 0 .8rem;
 }
+
+.payment-card > p {
+  color: var(--mute);
+  margin-top: 0;
+  line-height: 1.7;
+}
+
+/* Payment method area */
+
+.payment-method {
+  margin-top: 1.2rem;
+  padding: 1.3rem;
+  background: rgba(212, 226, 232, .55);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.payment-method h3 {
+  margin: 0 0 .5rem;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.payment-method > p {
+  color: var(--mute);
+  font-size: .9rem;
+}
+
+.payment-method .btn {
+  margin-top: .8rem;
+}
+
+/* Payment email */
 
 .payment-email {
   display: flex;
   flex-direction: column;
-  gap: .25rem;
-  margin-top: 1.5rem;
-  font-size: .95rem;
+  gap: .35rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
 }
 
-.payment-email span,
-.payment-note {
+.payment-email span {
   color: var(--mute);
+  font-size: .9rem;
 }
 
 .payment-email a {
@@ -446,12 +522,15 @@ nav a[aria-current] {
   text-underline-offset: .25em;
 }
 
+/* QR code */
+
 .payment-qr {
-  width: min(100%, 240px);
-  margin: 1.5rem 0;
-  padding: 10px;
-  background: #fff;
+  width: min(100%, 260px);
+  margin: 1rem auto .3rem;
+  padding: 12px;
+  background: #FFFFFF;
   border: 1px solid var(--line);
+  border-radius: 12px;
 }
 
 .payment-qr img {
@@ -461,15 +540,70 @@ nav a[aria-current] {
 }
 
 .payment-qr figcaption {
-  padding-top: .8rem;
+  padding-top: .7rem;
   color: var(--mute);
   font-size: .85rem;
   text-align: center;
 }
 
 .payment-note {
-  font-size: .9rem;
+  margin-top: 1rem;
+  font-size: .85rem;
+  color: var(--mute);
 }
+
+/* Contact reminder */
+
+.payment-reminder {
+  margin-top: 2rem;
+  color: var(--mute);
+  text-align: center;
+  font-size: .95rem;
+}
+
+/* Responsive */
+
+@media (max-width: 720px) {
+  .payment-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .payment-card {
+    padding: 1.4rem;
+  }
+}
+/* Desktop: two cards side by side */
+.payment-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* Tablet and mobile: stack cards vertically */
+@media (max-width: 760px) {
+  .payment-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 400px) {
+  .payment-card {
+    padding: 1.1rem;
+  }
+
+  .payment-method {
+    padding: 1rem;
+  }
+
+  .payment-heading h1 {
+    font-size: 2.8rem;
+  }
+}
+
 .commission-status[data-status="open"] {
   color: #287548;
   border-color: #287548;
