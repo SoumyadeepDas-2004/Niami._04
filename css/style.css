@@ -2,13 +2,13 @@
 /* =========================================
    1. GLOBAL VARIABLES
    ========================================= */
-
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&display=swap');
 :root {
-  --bg: #D4E2E8;
-  --ink: #263F59;
-  --mute: #657D96;
-  --line: #D8E8FF;
-  --hl: #347FC1;
+  --bg:   #D4E2E8;  /* Main background */
+  --ink:  #263F59;  /* Primary text */
+  --mute: #647B8C;  /* Secondary text */
+  --line: #BDCED8;  /* Borders and dividers */
+  --hl:   #477F9E;  /* Accent colour */
 
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -135,8 +135,9 @@ header .wrap {
 }
 
 .logo {
-  font-family: var(--serif);
-  font-size: 1.25rem;
+  font-family: 'Alkatra', cursive;
+  font-size: 2rem;
+  font-weight: 900;
   text-decoration: none;
 }
 
@@ -312,7 +313,17 @@ nav a[aria-current] {
 .btn,
 .btn.ghost {
   display: inline-block;
-  border: 1px solid #347FC1;
+  border: 1px solid #7888AB;
+  border-radius: 30px;
+  padding: .8rem 1.8rem;
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease,
+              background .25s ease, color .25s ease;
+}
+.btn,
+.btn.ghost {
+  display: inline-block;
+  border: 1px solid #7888AB;
   border-radius: 30px;
   padding: .8rem 1.8rem;
   text-decoration: none;
@@ -322,33 +333,77 @@ nav a[aria-current] {
 
 /* Primary button */
 .btn {
-  background: #347FC1;
+  background: linear-gradient(135deg, #8493B5, #7182A6);
   color: #FFFFFF;
+  border-color: #7182A6;
+  box-shadow: 0 5px 15px rgba(38, 63, 89, .22);
 }
 
 /* Secondary button */
 .btn.ghost {
   background: transparent;
-  color: #347FC1;
+  color: #7888AB;
 }
 
 /* Primary hover */
 .btn:hover {
-  background: #28669F;
-  border-color: #28669F;
+  background: linear-gradient(135deg, #7182A6, #647697);
+  border-color: #647697;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 5px 14px rgba(52, 127, 193, .2);
+  box-shadow: 0 9px 22px rgba(38, 63, 89, .28);
 }
 
 /* Secondary hover */
 .btn.ghost:hover {
-  background: #DCEBFF;
-  color: #28669F;
-  border-color: #28669F;
+  background: #E5EAF1;
+  color: #657595;
+  border-color: #657595;
   transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(38, 63, 89, .12);
+}
+Primary button
+.btn {
+  background: #7888AB;
+  color: #FFFFFF;
+  box-shadow:
+    0 4px 0 #596B91,
+    0 7px 14px rgba(38, 63, 89, .20);
 }
 
+/* Secondary button */
+.btn.ghost {
+  background: transparent;
+  color: #7888AB;
+}
+
+/* Primary hover */
+.btn:hover {
+  background: #657595;
+  border-color: #657595;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 #4F6083,
+    0 11px 20px rgba(38, 63, 89, .25);
+}
+
+/* Primary pressed */
+.btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 0 #596B91,
+    0 3px 7px rgba(38, 63, 89, .18);
+}
+
+/* Secondary hover */
+.btn.ghost:hover {
+  background: #E5EAF1;
+  color: #657595;
+  border-color: #657595;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(38, 63, 89, .12);
+}
 .link {
   text-underline-offset: .25em;
 }
@@ -547,6 +602,7 @@ nav a[aria-current] {
 
 /* Individual artwork card */
 
+/* Premium artwork card */
 .art {
   display: flex;
   flex-direction: column;
@@ -555,15 +611,17 @@ nav a[aria-current] {
   height: 100%;
   margin: 0;
   padding: 0;
-  border: 0;
-  border-radius: 10px;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .16);
   text-align: left;
   font: inherit;
   color: inherit;
   cursor: zoom-in;
   overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 5px 18px rgba(38, 63, 89, .07);
+  /* box-shadow: 0 6px 20px rgba(38, 63, 89, .18); */
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
 /* Consistent portrait image frame (3:4) */
@@ -573,7 +631,7 @@ nav a[aria-current] {
   width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 12px;
   background: transparent;
 }
 
@@ -586,21 +644,31 @@ nav a[aria-current] {
   max-width: none;
   max-height: none;
   object-fit: cover;
+  border: 1px solid transparent;
   object-position: center;
   transition: transform .35s ease;
 }
 
 /* Subtle professional hover effect */
 
+
+/* Artwork hover and selection border */
 @media (hover: hover) and (pointer: fine) {
   .art:hover {
+    border-color: #263F59;
     transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(32, 29, 25, .10);
+    box-shadow: 0 8px 22px rgba(38, 63, 89, .12);
   }
 
   .art:hover .frame img {
     transform: scale(1.025);
   }
+}
+
+/* Keyboard focus */
+.art:focus-visible {
+  border-color: #263F59;
+  outline: none;
 }
 
 .art:focus-visible {
@@ -737,10 +805,10 @@ td {
    ========================================= */
 
 footer.site {
-  background: rgba(247, 243, 236, .94);
+  background: rgba(212, 226, 232, .96);
   border-top: 1px solid #D8E8FF;
-  padding: 2rem 0;
-  font-size: .9rem;
+   padding: .8rem 0;
+  font-size: .85rem;
 }
 
 /* =========================================
@@ -1186,4 +1254,9 @@ main .masonry[data-preview] {
     text-align: center;
     margin-left: 0;
   }
+}
+/* Artwork caption background */
+.art .cap {
+  background: #E5EDF1;
+  padding: 12px;
 }
