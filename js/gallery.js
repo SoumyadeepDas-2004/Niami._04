@@ -397,27 +397,42 @@ lightboxImage.style.cursor =
 
     resetZoom();
 
-    lightboxImage.alt = alt(artwork);
-    lightboxImage.src = artwork.image;
+    /* Hide the previous image while the next one loads */
+lightboxImage.style.visibility = 'hidden';
 
-    caption.innerHTML = `
-      <b>${esc(artwork.title)}</b>
-      <br>
-      ${esc([
-        artwork.category,
-        artwork.year,
-        artwork.medium
-      ].filter(Boolean).join(', '))}
-      ${artwork.description
-        ? '<br>' + esc(artwork.description)
-        : ''}
-    `;
+lightboxImage.alt = alt(artwork);
 
-    lightboxImage.onload = fitImage;
+caption.innerHTML = `
+  <b>${esc(artwork.title)}</b>
+  <br>
+  ${esc([
+    artwork.category,
+    artwork.year,
+    artwork.medium
+  ].filter(Boolean).join(', '))}
+  ${artwork.description
+    ? '<br>' + esc(artwork.description)
+    : ''}
+`;
 
-    if (lightboxImage.complete && lightboxImage.naturalWidth) {
-      fitImage();
-    }
+/* Show the new image only after it has loaded */
+const handleImageLoad = () => {
+  fitImage();
+  lightboxImage.style.visibility = 'visible';
+};
+
+lightboxImage.onload = handleImageLoad;
+
+lightboxImage.onerror = () => {
+  lightboxImage.style.visibility = 'hidden';
+};
+
+lightboxImage.src = artwork.image;
+
+/* Handle images that are already cached */
+if (lightboxImage.complete && lightboxImage.naturalWidth) {
+  handleImageLoad();
+}
   };
 
   // Open artwork or commission poster
