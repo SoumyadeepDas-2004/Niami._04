@@ -41,20 +41,15 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  /* background: linear-gradient(
+  background: linear-gradient(
     180deg,
     #C5D7E0 0%,
     #E5EDF1 50%,
     #C5D7E0 100%
-  ); */
+  );
   color: var(--ink);
   font: 1rem/1.7 var(--sans);
   -webkit-font-smoothing: antialiased;
-  background-image: url("../assets/images/background/background.webp");
-background-size: cover;
-background-position: center;
-background-repeat: repeat;
-background-attachment: fixed;
 }
 
 main {
@@ -1976,12 +1971,6 @@ main .masonry[data-preview] {
   padding: clamp(2rem, 5vw, 4rem);
   overflow: hidden;
   
-  /* background: linear-gradient(
-  135deg,
-  #FFFCF3,
-  #FAF5E8 55%,
-  #FFFDF7
-); */
 background: linear-gradient(
   135deg,
   #FCECC0 0%,
@@ -1991,8 +1980,12 @@ background: linear-gradient(
 
   border: 1px solid var(--line);
   border-radius: 28px;
-  /* box-shadow: 0 8px 28px rgba(38, 63, 89, .07); */
-  box-shadow: 0 14px 38px rgba(38, 63, 89, 0.22);
+  /* box-shadow: 0 14px 38px rgba(38, 63, 89, 0.22); */
+  /* Soft, natural fabric-like shadow */
+box-shadow:
+  0 8px 15px rgba(38, 63, 89, 0.10),
+  0 20px 35px rgba(38, 63, 89, 0.16),
+  0 35px 55px rgba(38, 63, 89, 0.08);
 }
 
 .home-hero-content {
@@ -2538,4 +2531,13 @@ main.home-page,
 main.gallery-page,
 main.commissions-page {
   background: transparent;
+}
+
+/* Background image exclusively for the homepage */
+main.home-page {
+  background-image: url("../assets/images/background/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
