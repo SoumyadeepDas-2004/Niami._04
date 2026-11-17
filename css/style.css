@@ -1157,3 +1157,7 @@ main .masonry[data-preview] {
   background: #E5EDF1;
   padding: 12px;
 }
+main {
+  flex: 1;
+  background: #E3EBEF;
+}
