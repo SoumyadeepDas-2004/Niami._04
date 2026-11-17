@@ -1148,24 +1148,18 @@ main .masonry[data-preview] {
   }
 }
 
-/* Mobile footer: copyright left, links right */
+/* Mobile footer: center all content */
 @media (max-width: 650px) {
   footer.site .wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    text-align: initial;
+    text-align: center;
+    gap: 8px;
   }
 
-  footer.site .wrap > span:first-child {
-    text-align: left;
-  }
-
-  footer.site .wrap > span:last-child {
-    margin-left: auto;
-    text-align: right;
+  footer.site .wrap > span {
+    text-align: center;
+    margin-left: 0;
   }
 }
