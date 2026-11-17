@@ -2736,15 +2736,15 @@ main.home-page {
 }
 
 /* Gallery background image with a soft blue-white overlay */
-/* main.gallery-page {
+main.gallery-page {
   background-image: url("../assets/images/background/homepage_background.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-} */
+}
 /* Soft blue-white overlay over the gallery background image */
-/* main.gallery-page {
+main.gallery-page {
   background-image:
     linear-gradient(
       rgba(229, 237, 241, .22),
@@ -2756,4 +2756,4 @@ main.home-page {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-} */
+}
