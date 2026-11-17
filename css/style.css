@@ -12,6 +12,12 @@
 
   --card-bg: #E5EDF1;
   --footer-bg: #C5D7E0;
+  --button-primary: #647697;
+  --button-primary-hover: #526789;
+  --button-secondary: #C5D7E0;
+  --button-secondary-hover: #AFC5D2;
+  --shadow-button: 0 8px 20px rgba(38, 63, 89, .32);
+  --shadow-button-secondary: 0 6px 16px rgba(38, 63, 89, .22);
 
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -35,7 +41,12 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  background: var(--bg);
+  /* background: var(--bg); */
+  background-image: url("../assets/images/background/background.webp");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
   color: var(--ink);
   font: 1rem/1.7 var(--sans);
   -webkit-font-smoothing: antialiased;
@@ -43,6 +54,7 @@ body {
 
 main {
   flex: 1;
+  background: #E3EBEF;
 }
 
 img {
@@ -122,12 +134,21 @@ section h2:first-child {
    6. HEADER AND NAVIGATION
    ========================================= */
 
+/* Translucent rounded-effect header with darker edges and a lighter center */
+/* Translucent header with a pronounced light-center gradient */
+/* Translucent header with a vertical light-center gradient */
 header.site {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(212, 226, 232, .85);
+  background: linear-gradient(
+    180deg,
+    rgba(212, 226, 232, .90) 0%,
+    rgba(248, 252, 255, .85) 50%,
+    rgba(212, 226, 232, .90) 100%
+  );
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
   box-shadow: 0 3px 12px rgba(38, 63, 89, .09);
 }
@@ -316,26 +337,6 @@ nav a[aria-current] {
    BUTTONS — VIBRANT BLUE
    ========================================= */
 
-.btn,
-.btn.ghost {
-  display: inline-block;
-  border: 1px solid #7888AB;
-  border-radius: 30px;
-  padding: .8rem 1.8rem;
-  text-decoration: none;
-  transition: transform .25s ease, box-shadow .25s ease,
-              background .25s ease, color .25s ease;
-}
-.btn,
-.btn.ghost {
-  display: inline-block;
-  border: 1px solid #7888AB;
-  border-radius: 30px;
-  padding: .8rem 1.8rem;
-  text-decoration: none;
-  transition: transform .25s ease, box-shadow .25s ease,
-              background .25s ease, color .25s ease;
-}
 
 /* =========================================
    8. BUTTONS AND LINKS
@@ -354,35 +355,34 @@ nav a[aria-current] {
 
 /* Primary button */
 .btn {
-  background: #647697;
+  background: var(--button-primary);
   color: #FFFFFF;
-  border: 1px solid #647697;
+  border: 1px solid var(--button-primary);
   border-radius: 30px;
-  box-shadow: 0 8px 20px rgba(38, 63, 89, 0.32);
+  box-shadow: var(--shadow-button);
 }
 
 /* Secondary button */
 .btn.ghost {
-  background: #C5D7E0;
+  background: var(--button-secondary);
   color: var(--ink);
   border: 1px solid #7888AB;
-  box-shadow: 0 6px 16px rgba(38, 63, 89, 0.22);
+  box-shadow: var(--shadow-button-secondary);
   transition: background .25s ease, color .25s ease,
               border-color .25s ease, transform .25s ease;
 }
 
 /* Primary hover */
 .btn:hover {
-  background: #526789;
-  border-color: #526789;
+  background: var(--button-primary-hover);
+  border-color: var(--button-primary-hover);
   color: #FFFFFF;
   transform: translateY(-2px);
 }
 
-/* Secondary hover */
-/* Ghost button hover */
+/* Secondary button hover */
 .btn.ghost:hover {
-  background: #AFC5D2;
+  background: var(--button-secondary-hover);
   color: var(--ink);
   border-color: #647697;
   transform: translateY(-2px);
@@ -565,24 +565,12 @@ nav a[aria-current] {
 /* Responsive */
 
 @media (max-width: 720px) {
-  .payment-cards {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
   .payment-card {
     padding: 1.4rem;
   }
 }
-/* Desktop: two cards side by side */
-.payment-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-  align-items: stretch;
-}
 
-/* Tablet and mobile: stack cards vertically */
+/* Tablet and mobile: stack payment cards vertically */
 @media (max-width: 760px) {
   .payment-cards {
     grid-template-columns: 1fr;
@@ -786,7 +774,6 @@ nav a[aria-current] {
 /* Keyboard focus */
 .art:focus-visible {
   border-color: #263F59;
-  outline: none;
 }
 
 .art:focus-visible {
@@ -805,7 +792,7 @@ nav a[aria-current] {
   min-height: 58px;
   padding: 12px;
   font-size: .9rem;
-  background: var(--card-bg);
+  background: #E5EDF1;
   color: var(--ink);
   transition: background .3s ease;
 }
@@ -930,7 +917,7 @@ footer.site {
   180deg,
   #E3EBEF 0%,
   #D4E2E8 55%,
-  #C5D7E0 100%
+  var(--footer-bg) 100%
 );
   border-top: 1px solid var(--line);
   padding: .8rem 0;
@@ -938,10 +925,6 @@ footer.site {
   color: var(--ink);
 }
 footer.site a {
-  text-decoration: none;
-}
-
-footer.site a:hover {
   text-decoration: none;
 }
 
@@ -1327,36 +1310,6 @@ main .masonry[data-preview] {
     margin-left: 0;
   }
 }
-/* Artwork caption background */
-.art .cap {
-  background: #E5EDF1;
-  padding: 12px;
-}
-main {
-  flex: 1;
-  background: #E3EBEF;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* =========================================
@@ -1746,7 +1699,7 @@ main {
   max-width: none;
   max-height: none;
   aspect-ratio: 3 / 4;
-  object-fit: cover;
+  object-fit: contain;
   border: 1px solid transparent;
   object-position: center;
   transition: transform .35s ease;
@@ -1867,15 +1820,6 @@ main {
     grid-template-columns: 1fr;
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 /* GALLERY REDESIGN — FINAL OVERRIDES */
@@ -2587,4 +2531,11 @@ background: linear-gradient(
 .payment-page .payment-heading > p {
   margin: 0 auto;
   text-align: center;
+}
+/* Make the website's background image visible behind all main pages */
+main,
+main.home-page,
+main.gallery-page,
+main.commissions-page {
+  background: transparent;
 }
