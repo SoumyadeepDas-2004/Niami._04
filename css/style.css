@@ -926,7 +926,12 @@ td {
    ========================================= */
 
 footer.site {
-  background: var(--footer-bg);
+  background: linear-gradient(
+  180deg,
+  #E3EBEF 0%,
+  #D4E2E8 55%,
+  #C5D7E0 100%
+);
   border-top: 1px solid var(--line);
   padding: .8rem 0;
   font-size: .9rem;
@@ -2035,9 +2040,9 @@ main {
 ); */
 background: linear-gradient(
   135deg,
-  #FFFDF5 0%,
-  #F5EBD3 50%,
-  #FFFAED 100%
+  #FCECC0 0%,
+  #FCF7E9 50%,
+  #FFFFFF 100%
 );
 
   border: 1px solid var(--line);
