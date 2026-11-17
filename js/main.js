@@ -1,3 +1,4 @@
+
 const SITE = {
   name: 'Niami._04',
   instagram: 'https://www.instagram.com/niami._04/',
@@ -54,6 +55,7 @@ if (toggle && sidebar && overlay && close) {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') setSidebar(false);
   });
+}
 
 // Update active navigation link on desktop and mobile
 document.querySelectorAll('header.site nav a, .mobile-sidebar nav a')
@@ -66,9 +68,12 @@ document.querySelectorAll('header.site nav a, .mobile-sidebar nav a')
       link.setAttribute('aria-current', 'page');
     }
 
-    link.addEventListener('click', () => setSidebar(false));
+    link.addEventListener('click', () => {
+      if (toggle && sidebar && overlay && close) {
+        setSidebar(false);
+      }
+    });
   });
-}
 
 // Update commission status automatically
 const statusElement = document.getElementById('commission-status');
