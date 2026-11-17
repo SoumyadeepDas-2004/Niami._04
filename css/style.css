@@ -2026,18 +2026,18 @@ main {
   margin: 0 auto;
   padding: clamp(2rem, 5vw, 4rem);
   overflow: hidden;
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     #740B23,
     #51A8E1 55%,
     #F6FF8F
-  );
-  /* background: linear-gradient(
+  ); */
+  background: linear-gradient(
   135deg,
   #FFFCF3,
   #FAF5E8 55%,
   #FFFDF7
-); */
+);
 
   border: 1px solid var(--line);
   border-radius: 28px;
