@@ -4,11 +4,11 @@
    ========================================= */
 
 :root {
-  --bg: #f7f3ec;
-  --ink: #201d19;
-  --mute: #6a645b;
-  --line: #ddd5c7;
-  --hl: #27384a;
+  --bg: #EDF4FF;
+  --ink: #263F59;
+  --mute: #657D96;
+  --line: #D8E8FF;
+  --hl: #347FC1;
 
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -305,24 +305,48 @@ nav a[aria-current] {
    8. BUTTONS AND LINKS
    ========================================= */
 
+/* =========================================
+   BUTTONS — VIBRANT BLUE
+   ========================================= */
+
 .btn,
 .btn.ghost {
   display: inline-block;
-  border: 1px solid var(--ink);
+  border: 1px solid #347FC1;
   border-radius: 30px;
-  background: transparent;
-  color: var(--ink);
   padding: .8rem 1.8rem;
   text-decoration: none;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease,
+              background .25s ease, color .25s ease;
 }
 
-.btn:hover,
-.btn.ghost:hover {
+/* Primary button */
+.btn {
+  background: #347FC1;
+  color: #FFFFFF;
+}
+
+/* Secondary button */
+.btn.ghost {
   background: transparent;
-  color: var(--ink);
+  color: #347FC1;
+}
+
+/* Primary hover */
+.btn:hover {
+  background: #28669F;
+  border-color: #28669F;
+  color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 5px 14px rgba(32, 29, 25, .12);
+  box-shadow: 0 5px 14px rgba(52, 127, 193, .2);
+}
+
+/* Secondary hover */
+.btn.ghost:hover {
+  background: #DCEBFF;
+  color: #28669F;
+  border-color: #28669F;
+  transform: translateY(-2px);
 }
 
 .link {
