@@ -4,7 +4,7 @@
    ========================================= */
 
 :root {
-  --bg: #EDF4FF;
+  --bg: #BDD9E5;
   --ink: #263F59;
   --mute: #657D96;
   --line: #D8E8FF;
@@ -737,9 +737,9 @@ td {
    ========================================= */
 
 footer.site {
-  border-top: 1px solid var(--line);
+  background: rgba(247, 243, 236, .94);
+  border-top: 1px solid #D8E8FF;
   padding: 2rem 0;
-  color: var(--mute);
   font-size: .9rem;
 }
 
