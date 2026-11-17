@@ -1,3 +1,4 @@
+
 (async () => {
   const $ = selector => document.querySelector(selector);
 
@@ -6,7 +7,15 @@
   const grid = $('[data-gallery]');
   const filt = $('[data-filters]');
 
-  if (!feat && !prev && !grid) return;
+  // Commission posters on commissions.html
+  const commissionPosters = [
+    ...document.querySelectorAll('.commission-poster')
+  ];
+
+  const hasArtworkContainers = Boolean(feat || prev || grid);
+
+  // Stop only when this page has neither artwork nor commission posters
+  if (!hasArtworkContainers && !commissionPosters.length) return;
 
   // Escape HTML to prevent unsafe content insertion
   const esc = value =>
@@ -18,49 +27,52 @@
       "'": '&#39;'
     })[char]);
 
-  // Load artwork data
-  let art;
-
-  try {
-    const response = await fetch('data/artworks.json');
-
-    if (!response.ok) {
-      throw new Error('Artwork data could not be loaded');
-    }
-
-    const data = await response.json();
-
-    if (!Array.isArray(data)) {
-      throw new Error('Artwork data must be a JSON array');
-    }
-
-    art = data.sort(
-      (a, b) => (a.order ?? 999) - (b.order ?? 999)
-    );
-
-  } catch (error) {
-    console.error(error);
-
-    [feat, prev, grid].forEach(element => {
-      if (element) {
-        element.innerHTML = `
-          <p class="msg">
-            The artwork could not be loaded.
-            Please refresh the page or try again shortly.
-          </p>
-        `;
-      }
-    });
-
-    return;
-  }
-
   // Generate accessible image descriptions
   const alt = artwork =>
     artwork.alt ||
     `${artwork.title}, ${artwork.medium || artwork.category || 'Artwork'}${
       artwork.year ? ' (' + artwork.year + ')' : ''
     }`;
+
+  // Load artwork data only on pages that contain artwork sections
+  let art = [];
+  let artworkLoadFailed = false;
+
+  if (hasArtworkContainers) {
+    try {
+      const response = await fetch('data/artworks.json');
+
+      if (!response.ok) {
+        throw new Error('Artwork data could not be loaded');
+      }
+
+      const data = await response.json();
+
+      if (!Array.isArray(data)) {
+        throw new Error('Artwork data must be a JSON array');
+      }
+
+      art = data.sort(
+        (a, b) => (a.order ?? 999) - (b.order ?? 999)
+      );
+
+    } catch (error) {
+      console.error(error);
+
+      artworkLoadFailed = true;
+
+      [feat, prev, grid].forEach(element => {
+        if (element) {
+          element.innerHTML = `
+            <p class="msg">
+              The artwork could not be loaded.
+              Please refresh the page or try again shortly.
+            </p>
+          `;
+        }
+      });
+    }
+  }
 
   // Generate uniform artwork cards
   const card = (artwork, index) => `
@@ -111,87 +123,106 @@
       : '<p class="msg">No artwork available yet.</p>';
   };
 
-  // Homepage featured artwork
-  if (feat) {
-    fill(
-      feat,
-      art.filter(artwork => artwork.featured).slice(0, 3)
-    );
-  }
+  // Populate artwork sections only when data loaded successfully
+  if (!artworkLoadFailed) {
 
-  // Homepage selected artwork preview
-  if (prev) {
-    fill(
-      prev,
-      art.filter(artwork => artwork.selected === true).slice(0, 3)
-    );
-  }
-
-  // Gallery: Selected Works and All Artwork
-  if (grid) {
-    const selectedArtwork = art.filter(
-      artwork => artwork.selected === true
-    );
-
-    const allArtwork = art;
-
-    let activeCollection = 'selected';
-
-    const renderGallery = collection => {
-      activeCollection = collection;
-
-      const artworkToShow =
-        collection === 'selected'
-          ? selectedArtwork
-          : allArtwork;
-
-      fill(grid, artworkToShow);
-
-      // Update active filter appearance
-      if (filt) {
-        filt.querySelectorAll('button').forEach(button => {
-          const active =
-            button.dataset.collection === collection;
-
-          button.setAttribute('aria-pressed', String(active));
-        });
-      }
-    };
-
-    // Create only two gallery filters
-    if (filt) {
-      filt.innerHTML = `
-        <button
-          type="button"
-          data-collection="selected"
-          aria-pressed="true"
-        >
-          Selected Works
-        </button>
-
-        <button
-          type="button"
-          data-collection="all"
-          aria-pressed="false"
-        >
-          All Artwork
-        </button>
-      `;
-
-      filt.addEventListener('click', event => {
-        const button = event.target.closest(
-          'button[data-collection]'
-        );
-
-        if (!button) return;
-
-        renderGallery(button.dataset.collection);
-      });
+    // Homepage featured artwork
+    if (feat) {
+      fill(
+        feat,
+        art.filter(artwork => artwork.featured).slice(0, 3)
+      );
     }
 
-    // Show Selected Works by default
-    renderGallery(activeCollection);
+    // Homepage selected artwork preview
+    if (prev) {
+      fill(
+        prev,
+        art.filter(artwork => artwork.selected === true).slice(0, 3)
+      );
+    }
+
+    // Gallery: Selected Works and All Artwork
+    if (grid) {
+      const selectedArtwork = art.filter(
+        artwork => artwork.selected === true
+      );
+
+      const allArtwork = art;
+
+      let activeCollection = 'selected';
+
+      const renderGallery = collection => {
+        activeCollection = collection;
+
+        const artworkToShow =
+          collection === 'selected'
+            ? selectedArtwork
+            : allArtwork;
+
+        fill(grid, artworkToShow);
+
+        // Update active filter appearance
+        if (filt) {
+          filt.querySelectorAll('button').forEach(button => {
+            const active =
+              button.dataset.collection === collection;
+
+            button.setAttribute('aria-pressed', String(active));
+          });
+        }
+      };
+
+      // Create only two gallery filters
+      if (filt) {
+        filt.innerHTML = `
+          <button
+            type="button"
+            data-collection="selected"
+            aria-pressed="true"
+          >
+            Selected Works
+          </button>
+
+          <button
+            type="button"
+            data-collection="all"
+            aria-pressed="false"
+          >
+            All Artwork
+          </button>
+        `;
+
+        filt.addEventListener('click', event => {
+          const button = event.target.closest(
+            'button[data-collection]'
+          );
+
+          if (!button) return;
+
+          renderGallery(button.dataset.collection);
+        });
+      }
+
+      // Show Selected Works by default
+      renderGallery(activeCollection);
+    }
   }
+
+  // Convert commission posters into lightbox-compatible objects
+  const commissionArtwork = commissionPosters.map(
+    (button, index) => {
+      const image = button.querySelector('img');
+
+      return {
+        id: String(index),
+        image: image ? (image.currentSrc || image.src) : '',
+        title: image?.alt || `Commission poster ${index + 1}`,
+        alt: image?.alt || `Commission poster ${index + 1}`,
+        category: 'Commission poster'
+      };
+    }
+  );
 
   // LIGHTBOX
   // Native dialog provides Escape and focus management
@@ -248,20 +279,36 @@
     `;
   };
 
-  // Open lightbox when artwork is clicked
+  // Open lightbox for artwork OR commission posters
   document.addEventListener('click', event => {
-    const button = event.target.closest('.art');
+    const button = event.target.closest(
+      '.art, .commission-poster'
+    );
 
     if (!button) return;
 
-    const artworkList =
-      lists.get(button.parentElement) || art;
+    let artworkList;
+    let index;
 
-    const index = artworkList.findIndex(
-      artwork => String(artwork.id) === button.dataset.id
-    );
+    if (button.matches('.commission-poster')) {
+      artworkList = commissionArtwork;
+      index = Number(button.dataset.poster);
+    } else {
+      artworkList =
+        lists.get(button.parentElement) || art;
 
-    if (index < 0) return;
+      index = artworkList.findIndex(
+        artwork => String(artwork.id) === button.dataset.id
+      );
+    }
+
+    if (
+      index < 0 ||
+      index >= artworkList.length ||
+      !artworkList[index]?.image
+    ) {
+      return;
+    }
 
     currentList = artworkList;
 
