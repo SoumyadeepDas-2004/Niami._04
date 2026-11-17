@@ -122,9 +122,10 @@ header.site {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(247, 243, 236, .94);
+  background: rgba(212, 226, 232, .85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
+  box-shadow: 0 3px 12px rgba(38, 63, 89, .09);
 }
 
 header .wrap {
@@ -655,10 +656,10 @@ Primary button
 /* Artwork hover and selection border */
 @media (hover: hover) and (pointer: fine) {
   .art:hover {
-    border-color: #263F59;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(38, 63, 89, .12);
-  }
+  border-color: #263F59;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(38, 63, 89, .28);
+}
 
   .art:hover .frame img {
     transform: scale(1.025);
