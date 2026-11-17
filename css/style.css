@@ -358,7 +358,7 @@ nav a[aria-current] {
   color: #FFFFFF;
   border: 1px solid #647697;
   border-radius: 30px;
-  box-shadow: 0 3px 10px rgba(38, 63, 89, .12);
+  box-shadow: 0 8px 20px rgba(38, 63, 89, 0.32);
 }
 
 /* Secondary button */
@@ -366,7 +366,7 @@ nav a[aria-current] {
   background: #C5D7E0;
   color: var(--ink);
   border: 1px solid #7888AB;
-  box-shadow: none;
+  box-shadow: 0 6px 16px rgba(38, 63, 89, 0.22);
   transition: background .25s ease, color .25s ease,
               border-color .25s ease, transform .25s ease;
 }
