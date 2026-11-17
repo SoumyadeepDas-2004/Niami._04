@@ -1988,6 +1988,7 @@ box-shadow:
   0 35px 55px rgba(38, 63, 89, 0.08);
 }
 
+
 .home-hero-content {
   position: relative;
   z-index: 1;
@@ -2540,4 +2541,53 @@ main.home-page {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+/* Soft blue-white overlay over the homepage background image */
+main.home-page {
+  background-image:
+    linear-gradient(
+      rgba(229, 237, 241, .22),
+      rgba(229, 237, 241, .22)
+    ),
+    url("../assets/images/background/background.webp");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+/* =========================================
+   HOMEPAGE DECORATIVE FLOATING ANIMATION
+   ========================================= */
+
+/* More noticeable floating movement */
+.home-hero-decoration {
+  animation: gentle-float 2.5s ease-in-out infinite;
+}
+
+/* Stagger each decoration's movement */
+.home-decoration-two {
+  animation-delay: .6s;
+}
+
+.home-decoration-three {
+  animation-delay: 1.2s;
+}
+
+/* Move decorations visibly up and down */
+@keyframes gentle-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -14px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-decoration {
+    animation: none;
+  }
 }
