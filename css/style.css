@@ -3267,55 +3267,90 @@ main.commissions-page {
   font-size: clamp(2rem, 3.5vw, 2.7rem);
   font-weight: 600;
   letter-spacing: -.025em;
+  color: #647697;
 }
 
 /* Terms list — organized into elegant individual items */
 .commissions-page .commission-terms-card ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px 22px;
+  gap: 12px 28px;
   margin: 0;
-  padding: 0;
+  padding: 22px 24px;
   list-style: none;
-}
 
-/* Individual terms */
-.commissions-page .commission-terms-card li {
-  position: relative;
-  padding: 13px 15px 13px 34px;
   background: rgba(255, 255, 255, .48);
   border: 1px solid rgba(197, 215, 224, .7);
-  border-radius: 13px;
+  border-radius: 18px;
+}
+/* Terms container — balanced spacing around the divider */
+.commissions-page .commission-terms-card ul {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 48px;
+  row-gap: 12px;
+  margin: 0;
+  padding: 22px 32px;
+  list-style: none;
+  background: rgba(255, 255, 255, .48);
+  border: 1px solid rgba(197, 215, 224, .7);
+  border-radius: 18px;
+}
+
+/* Vertical divider */
+@media (min-width: 561px) {
+  .commissions-page .commission-terms-card ul::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 50%;
+    width: 1px;
+    background: rgba(189, 206, 216, .65);
+    transform: translateX(-50%);
+  }
+}
+
+/* Balanced spacing for individual terms */
+.commissions-page .commission-terms-card li {
+  position: relative;
+  padding: 8px 12px 8px 25px;
+  background: transparent;
+  border: none;
   color: #536B7D;
   font-size: 1rem;
   line-height: 1.7;
 }
 
-/* Small decorative bullet */
+/* Heart bullets */
 .commissions-page .commission-terms-card li::before {
-  content: "✦";
+  content: "♥";
   position: absolute;
-  left: 13px;
-  top: 14px;
+  left: 3px;
+  top: 10px;
   color: #A97891;
   font-size: .85rem;
 }
 
-/* Emphasize important information */
+/* Emphasized text */
 .commissions-page .commission-terms-card strong {
-  color: #647697;
-  font-weight: 750;
+  color: #263F59;
+  font-weight: 550;
 }
 
-/* Mobile */
+/* Mobile layout */
 @media (max-width: 560px) {
+  @media (max-width: 560px) {
   .commissions-page .commission-terms-card ul {
     grid-template-columns: 1fr;
-    gap: 10px;
+    padding: 16px 18px;
+    gap: 8px;
   }
+}
 
   .commissions-page .commission-terms-card li {
-    padding: 11px 12px 11px 32px;
+    padding: 7px 8px 7px 25px;
     font-size: .95rem;
   }
 }
@@ -3403,4 +3438,18 @@ main.commissions-page {
   .commissions-page .commission-gallery {
     grid-template-columns: 1fr;
   }
+}
+/* Soft blue-white overlay over the payment page background image */
+main > .payment-page {
+  background-image:
+    linear-gradient(
+      rgba(229, 237, 241, .22),
+      rgba(229, 237, 241, .22)
+    ),
+    url("../assets/images/background/homepage_background.webp");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: scroll;
 }
