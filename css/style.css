@@ -2027,6 +2027,7 @@ main .masonry[data-preview] {
   max-width: 570px;
   margin: auto;
   color: #536B7D;
+  font-size: 1.1rem;
 }
 
 /* -----------------------------------------
@@ -3001,7 +3002,7 @@ main.home-page {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 /* Soft blue-white overlay over the homepage background image */
 main.home-page {
@@ -3015,7 +3016,7 @@ main.home-page {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 /* =========================================
    HOMEPAGE DECORATIVE FLOATING ANIMATION
