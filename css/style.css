@@ -3452,6 +3452,118 @@ main.commissions-page {
     display: none;
   }
 
+  /* Show mobile accordion */
+  .commissions-page .commission-terms-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Individual expandable sections */
+  .commissions-page .terms-group {
+    background: rgba(255, 255, 255, .48);
+    border: 1px solid rgba(197, 215, 224, .7);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* Accordion heading */
+  .commissions-page .terms-group summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    color: #647697;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  /* Remove default browser marker */
+  .commissions-page .terms-group summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Number decoration */
+  .commissions-page .terms-group summary span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(169, 120, 145, .13);
+    color: #A97891;
+    font-size: .75rem;
+    font-weight: 700;
+  }
+
+  /* Expand/collapse indicator */
+  .commissions-page .terms-group summary::after {
+    content: "+";
+    margin-left: auto;
+    color: #A97891;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+
+  .commissions-page .terms-group[open] summary::after {
+    content: "−";
+  }
+
+  /* Divider below expanded heading */
+  .commissions-page .terms-group[open] summary {
+    border-bottom: 1px solid rgba(189, 206, 216, .55);
+  }
+
+  /* Terms inside each section */
+  .commissions-page .terms-group ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 16px;
+    list-style: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+
+  .commissions-page .terms-group li {
+    position: relative;
+    padding: 0 0 0 23px;
+    color: #647697;
+    font-size: .92rem;
+    line-height: 1.65;
+  }
+
+  /* Pink heart bullets */
+  .commissions-page .terms-group li::before {
+    content: "♥";
+    position: absolute;
+    left: 1px;
+    top: 2px;
+    color: #A97891;
+    font-size: .75rem;
+  }
+
+  .commissions-page .terms-group strong {
+    color: #647697;
+    font-weight: 600;
+  }
+
+  /* Closing note */
+  .commissions-page .terms-footer-note {
+    margin: 8px 0 0;
+    color: #A97891;
+    font-family: var(--serif);
+    font-size: .95rem;
+    text-align: center;
+  }
+}
+
 /* Soft blue-white overlay over the payment page background image */
 main > .payment-page {
   background-image:
