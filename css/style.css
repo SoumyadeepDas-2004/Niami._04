@@ -2359,7 +2359,7 @@ main .masonry[data-preview] {
 
 /* Mobile gallery — one centered column, 20% wider cards */
 .gallery-page [data-gallery] {
-  grid-template-columns: minmax(0, calc(75% - 12px));
+  grid-template-columns: minmax(0, calc(5% - 12px));
   justify-content: center;
   gap: 16px;
   padding-inline: 20px;
