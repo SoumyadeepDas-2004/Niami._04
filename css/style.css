@@ -2999,15 +2999,6 @@ main.gallery-page,
 main.commissions-page {
   background: transparent;
 }
-
-/* Background image exclusively for the homepage */
-main.home-page {
-  background-image: url("../assets/images/background/homepage_background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-}
 /* Soft blue-white overlay over the homepage background image */
 main.home-page {
   background-image:
@@ -3017,7 +3008,7 @@ main.home-page {
     ),
     url("../assets/images/background/homepage_background.webp");
 
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -3057,17 +3048,8 @@ main.home-page {
     animation: none;
   }
 }
-
-/* Gallery background image with a soft blue-white overlay */
-/* main.gallery-page {
-  background-image: url("../assets/images/background/homepage_background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-} */
 /* Soft blue-white overlay over the gallery background image */
-main.gallery-page {
+main.gallery-page{
   background-image:
     linear-gradient(
       rgba(229, 237, 241, .22),
@@ -3075,7 +3057,7 @@ main.gallery-page {
     ),
     url("../assets/images/background/homepage_background.webp");
 
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
