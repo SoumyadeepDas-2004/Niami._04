@@ -3257,9 +3257,13 @@ main.commissions-page {
 
   /* Smaller commission status pill on mobile */
 .commissions-page .commission-section-heading .commission-status {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.2rem;
   padding: .6rem 1.1rem;
   font-size: .9rem;
-  margin-bottom: 1.2rem;
 }
 
   .commissions-page .commission-section-heading p {
