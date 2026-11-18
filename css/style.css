@@ -3484,29 +3484,6 @@ main.commissions-page {
   }
 }
 
-/* Soft blue-white overlay over the payment page background image */
-main > .payment-page {
-  background-image:
-    linear-gradient(
-      rgba(229, 237, 241, .22),
-      rgba(229, 237, 241, .22)
-    ),
-    url("../assets/images/background/homepage_background.webp");
-
-  background-size: 100% auto;
-  background-position: center;
-  background-repeat: repeat;
-  background-attachment: scroll;
-}
-/* Mobile PAYMENT page — slightly zoom in the background image */
-@media (max-width: 560px) {
-  main.payment-page {
-  background-size: 310% auto;
-    background-position: center top;
-    background-repeat: repeat;
-    background-attachment: scroll;
-  }
-}
 
 /* =========================================
    TERMS — THREE CATEGORY DESKTOP GRID
@@ -3602,7 +3579,30 @@ main > .payment-page {
   }
 }
 
+/* Payment page background image with soft blue-white overlay */
+main > .payment-page {
+  background-image:
+    linear-gradient(
+      rgba(229, 237, 241, .22),
+      rgba(229, 237, 241, .22)
+    ),
+    url("../assets/images/background/homepage_background.webp");
 
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: scroll;
+}
+
+/* Mobile payment page — zoomed background */
+@media (max-width: 560px) {
+  main > .payment-page {
+    background-size: 310% auto;
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: scroll;
+  }
+}
 /* =========================================
    PAYMENT PAGE — MATCH WEBSITE HERO DESIGN
    ========================================= */
