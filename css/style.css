@@ -3185,6 +3185,7 @@ main.commissions-page {
   gap: clamp(18px, 2.5vw, 30px);
   margin: 0;
   align-items: start;
+  transform: translateX(40px);
 }
 
 /* Softer, rounded poster cards */
@@ -3275,8 +3276,9 @@ main.commissions-page {
   }
 
   .commissions-page .commission-gallery {
-    width: 100%;
-  }
+  width: 100%;
+  transform: none;
+}
 
   .commissions-page .commission-contact-card {
     flex-direction: column;
