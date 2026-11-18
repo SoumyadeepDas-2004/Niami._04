@@ -1505,8 +1505,32 @@ main .masonry[data-preview] {
 @media (max-width: 650px) {
   .about-social-section {
     width: calc(100% - 32px);
-    padding: 2rem 1.25rem;
+    padding: 1.8rem 1.25rem;
     border-radius: 22px;
+  }
+
+  .about-social-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .about-social-card {
+    justify-content: center;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .about-social-card > span,
+  .about-social-card .social-arrow {
+    display: none;
+  }
+
+  .about-social-card img {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
   }
 }
 
