@@ -1795,7 +1795,7 @@ justify-self: center;
 
 /* Commission poster image — match Artwork Gallery image sizing */
 /* Preserve the original commission poster proportions */
-.commission-poster img {
+/* .commission-poster img {
   display: block;
   width: 100%;
   height: auto;
@@ -1803,8 +1803,17 @@ justify-self: center;
   object-position: center;
   border: 1px solid transparent;
   transition: transform .35s ease;
+} */
+.commission-poster img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  background: #E3EBEF;
+  transition: transform .35s ease;
 }
-
 @media (hover: hover) and (pointer: fine) {
   /* Match the artwork card hover effect */
 .commission-poster:hover {
