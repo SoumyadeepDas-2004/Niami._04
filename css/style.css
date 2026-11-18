@@ -3057,7 +3057,7 @@ main.gallery-page{
     ),
     url("../assets/images/background/homepage_background.webp");
 
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center;
   background-repeat: repeat;
   background-attachment: scroll;
