@@ -1501,39 +1501,6 @@ main .masonry[data-preview] {
     0 35px 55px rgba(38, 63, 89, 0.08);
 }
 
-/* Mobile */
-@media (max-width: 650px) {
-  .about-social-section {
-    width: calc(100% - 32px);
-    padding: 1.8rem 1.25rem;
-    border-radius: 22px;
-  }
-
-  .about-social-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .about-social-card {
-    justify-content: center;
-    padding: 10px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-  }
-
-  .about-social-card > span,
-  .about-social-card .social-arrow {
-    display: none;
-  }
-
-  .about-social-card img {
-    width: 32px;
-    height: 32px;
-    flex: 0 0 32px;
-  }
-}
-
 .about-social-heading {
   margin-bottom: 1.5rem;
 }
@@ -1690,7 +1657,53 @@ main .masonry[data-preview] {
     text-align: center;
   }
 }
+/* About page — mobile social icons */
+@media (max-width: 650px) {
 
+  /* Four icons in one horizontal row */
+  .about-social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Remove all text and arrows, keeping only SVG image icons */
+  .about-social-card > :not(img) {
+    display: none !important;
+  }
+
+  /* Remove old card appearance */
+  .about-social-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 56px;
+    padding: 8px;
+    background: transparent !important;
+    border: none;
+    border-radius: 12px;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .about-social-card:hover,
+  .about-social-card:focus,
+  .about-social-card:active {
+    background: transparent !important;
+    transform: none;
+  }
+
+  /* Icon sizing */
+  .about-social-card img {
+    display: block;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    object-fit: contain;
+  }
+}
 /* =========================================
    COMMISSIONS PAGE REDESIGN
 ========================================= */
