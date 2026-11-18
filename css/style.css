@@ -2218,12 +2218,18 @@ background: linear-gradient(
 }
 
   .gallery-page .art:hover .cap {
-  background: linear-gradient(
+    background: linear-gradient(
+  135deg,
+  #FFFAED 0%,
+  #FFFCF6 45%,
+  #F7FAFC 80%
+);
+  /* background: linear-gradient(
     135deg,
     #FCF0D2 0%,
     #FFF5E1 20%,
     #FFFAF0 80%
-  );
+  ); */
 }
 } 
 
@@ -2250,14 +2256,14 @@ background: linear-gradient(
     filter: saturate(1.12) contrast(1.04) brightness(1.03);
   }
 
-  .gallery-page .art.is-scroll-active .cap {
+  /* .gallery-page .art.is-scroll-active .cap {
     background: linear-gradient(
       135deg,
       #FCF0D2 0%,
       #FFF5E1 20%,
       #FFFAF0 80%
     );
-  }
+  } */
 }
 /* -----------------------------------------
    6. GALLERY CONTACT
