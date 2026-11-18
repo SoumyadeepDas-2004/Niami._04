@@ -3062,3 +3062,12 @@ main.gallery-page{
   background-repeat: repeat;
   background-attachment: scroll;
 }
+/* Mobile gallery — slightly zoom in the background image */
+@media (max-width: 560px) {
+  main.gallery-page {
+    background-size: 160% auto;
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: scroll;
+  }
+}
