@@ -133,9 +133,6 @@ section h2:first-child {
 /* =========================================
    6. HEADER AND NAVIGATION
    ========================================= */
-
-/* Translucent rounded-effect header with darker edges and a lighter center */
-/* Translucent header with a pronounced light-center gradient */
 /* Translucent header with a vertical light-center gradient */
 header.site {
   position: sticky;
@@ -792,13 +789,6 @@ nav a[aria-current] {
   min-height: 58px;
   padding: 12px;
   font-size: .9rem;
-  /* background: #E5EDF1; */
-  /* background: linear-gradient(
-  135deg,
-  #FCECC0 0%,
-  #FCF7E9 99%,
-  #FFFFFF 50%
-); */
 /* Soft blue-white artwork caption */
 background: linear-gradient(
   135deg,
@@ -1290,55 +1280,6 @@ footer.site .wrap {
 
 /* Poster grid */
 
-/* Commission gallery — same layout as artwork gallery (2 columns) */
-.commission-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 280px));
-  justify-content: center;
-  gap: 24px;
-  width: 100%;
-  align-items: stretch;
-  margin: 2rem auto 0;
-}
-
-/* Commission cards — same appearance as .art */
-.commission-poster {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  aspect-ratio: 3 / 4;
-  margin: 0;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, .45);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, .16);
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 5px 18px rgba(38, 63, 89, .07);
-  transition: transform .3s ease, box-shadow .3s ease,
-              border-color .3s ease;
-}
-
-/* Commission poster images */
-.commission-poster img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: contain;
-  object-position: center;
-  transition: transform .35s ease;
-}
-
-/* Same hover effect as Gallery */
-@media (hover: hover) and (pointer: fine) {
-  .commission-poster:hover {
-    border-color: #263F59;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 16px rgba(38, 63, 89, .28);
-  }
-}
-
 /* Keyboard focus */
 .commission-poster:focus-visible {
   outline: 2px solid var(--hl);
@@ -1698,104 +1639,27 @@ main .masonry[data-preview] {
   background: #E3EBEF;
 }
 
-/* HERO */
 
-/* Commission hero — match the Gallery hero design */
-.commission-hero {
-  padding: clamp(2rem, 4vw, 3rem) 0;
-  text-align: center;
-  background: transparent;
-  border: none;
-}
 
-/* Cream gradient rounded card */
-.commission-hero .wrap {
-  position: relative;
-  overflow: hidden;
-  max-width: 1000px;
-  padding: clamp(2.5rem, 5vw, 3.5rem);
-  background: linear-gradient(
-    135deg,
-    #FCECC0 0%,
-    #FCF7E9 50%,
-    #FFFFFF 100%
-  );
-  border: 1px solid #C5D7E0;
-  border-radius: 28px;
-  box-shadow:
-    0 8px 15px rgba(38, 63, 89, .10),
-    0 20px 35px rgba(38, 63, 89, .12);
-}
-
-/* Decorative sparkle */
-.commission-hero .wrap::before {
-  content: "✦";
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  color: #789BB3;
-  font-size: 1.6rem;
-  opacity: .75;
-}
-
-/* Decorative heart */
-.commission-hero .wrap::after {
-  content: "♡";
-  position: absolute;
-  right: 32px;
-  bottom: 18px;
-  color: #A97891;
-  font-size: 2rem;
-  opacity: .8;
-}
-
-.commission-hero-content {
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.commission-eyebrow {
-  display: inline-block;
-  color: var(--hl);
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .2em;
-  margin-bottom: 1rem;
-}
-
-.commission-hero h1 {
-  color: var(--ink);
-  font-family: var(--serif);
-  font-size: clamp(2.5rem, 6vw, 4.2rem);
-  line-height: 1.12;
-  margin: 0 0 1.2rem;
-}
-
-.commission-hero-content > p {
-  max-width: 540px;
-  margin: 0 auto 1.7rem;
-  color: var(--mute);
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
-
-.commission-hero .commission-status {
-  display: inline-flex;
+/* Commission status — compact pill above the information section */
+.commissions-page .commission-status {
+  display: flex;
+width: fit-content;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  padding: .65rem 1.3rem;
+  margin: 0 auto .75rem;
+  padding: .65rem 1.4rem;
   border: 1px solid;
   border-radius: 30px;
   font-size: .9rem;
   font-weight: 650;
-  background: rgba(255,255,255,.35);
+  background: rgba(255, 255, 255, .45);
 }
 
 /* INFORMATION SECTION */
 
 .commission-information {
-  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+   padding: 1rem 0 clamp(3.5rem, 7vw, 5.5rem);
 }
 
 .commission-section-heading {
@@ -1820,17 +1684,22 @@ main .masonry[data-preview] {
 
 /* POSTER GRID — MATCH GALLERY CARDS */
 
+/* Commission poster grid — centered with a smaller gap */
+/* Commission poster grid — smaller centered posters */
 .commission-gallery {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 280px));
+  grid-template-columns: repeat(2, minmax(0, 420px));
   justify-content: center;
   gap: 24px;
   width: 100%;
-  max-width: none;
-  margin: 0 auto;
+  max-width: 864px;
+  align-items: stretch;
+  margin: 2rem auto 0;
 }
 
+
 .commission-poster {
+justify-self: center;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1838,37 +1707,39 @@ main .masonry[data-preview] {
   height: 100%;
   margin: 0;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, .45);
+  border: 1.3px solid #AFC5D2;
+
   border-radius: 14px;
-  background: rgba(255, 255, 255, .16);
+  background: rgba(16, 0, 0, 0.16);
   text-align: left;
   font: inherit;
   color: inherit;
   cursor: pointer;
   overflow: hidden;
-  box-shadow: 0 5px 18px rgba(38, 63, 89, .07);
+  box-shadow: 0 5px 18px #263f5912;
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
+/* Commission poster image — match Artwork Gallery image sizing */
+/* Preserve the original commission poster proportions */
 .commission-poster img {
   display: block;
   width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  aspect-ratio: 3 / 4;
+  height: auto;
   object-fit: contain;
-  border: 1px solid transparent;
   object-position: center;
+  border: 1px solid transparent;
   transition: transform .35s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .commission-poster:hover {
-    border-color: #263F59;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 16px rgba(38, 63, 89, .28);
-  }
+  /* Match the artwork card hover effect */
+.commission-poster:hover {
+  border: 1.3px solid #AFC5D2;
+  border-width: 1.66px;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 16px rgba(38, 63, 89, .28);
+}
 
   .commission-poster:hover img {
     transform: scale(1.025);
@@ -1881,24 +1752,39 @@ main .masonry[data-preview] {
 }
 
 .commission-poster-caption {
+  justify-content: center;
+flex-direction: column;
+text-align: center;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 4px;
   width: 100%;
   min-height: 58px;
   padding: 12px;
-  font-size: .9rem;
-  font-weight: 400;
-  background: var(--card-bg);
+  font-size: 0.9rem;
+  font-weight: 100;
+/* Soft pastel gradient for commission poster captions */
+background: linear-gradient(
+  135deg,
+  #FCECC0 0%,
+  #FCF7E9 45%,
+  #EAF1F4 80%
+);
   color: var(--ink);
 }
-
+/* Centre commission poster caption text */
+.commission-poster-caption > span {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 100;
+}
 .commission-poster-caption > span:first-child {
   color: var(--ink);
   font-size: .9rem;
   letter-spacing: normal;
-  font-weight: 600;
+  font-weight: 450;
 }
 
 .commission-view {
@@ -1980,47 +1866,19 @@ main .masonry[data-preview] {
   justify-content: center;
   text-decoration: none;
 }
-
-/* RESPONSIVE */
-
-@media (max-width: 560px) {
-  .commission-hero {
-  padding: 1.5rem 0;
-}
-
-.commission-hero .wrap {
-  width: calc(100% - 32px);
-  margin-inline: auto;
-  padding: 2rem 1.25rem;
-  border-radius: 22px;
-}
-
-.commission-hero .wrap::before {
-  top: 10px;
-  left: 12px;
-  font-size: 1.1rem;
-  opacity: .5;
-}
-
-.commission-hero .wrap::after {
-  right: 12px;
-  bottom: 8px;
-  font-size: 1.3rem;
-  opacity: .5;
-}
-
   .commission-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
   }
 
   .commission-poster-caption {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 4px;
-    min-height: 64px;
-  }
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  min-height: 64px;
+}
 
   .commission-view {
     width: auto;
@@ -2084,13 +1942,6 @@ main .masonry[data-preview] {
   max-width: 1000px;
   padding: clamp(2.5rem, 5vw, 3.5rem);
 
-  /* Soft baby-blue, blush-pink and cream gradient */
-  /* background: linear-gradient(
-    135deg,
-    #EAF3F7 0%,
-    #F8EEF2 52%,
-    #FCF7E9 100%
-  ); */
    background: linear-gradient(
   135deg,
   #FCECC0 0%,
@@ -2323,17 +2174,18 @@ main .masonry[data-preview] {
 }
 /* Soft pastel caption */
 .gallery-page .art .cap {
-  /* background: linear-gradient(
-    135deg,
-    #EAF3F7 0%,
-    #F8EEF2 100%
-  ); */
-   background: linear-gradient(
+background: linear-gradient(
+  135deg,
+  #FCECC0 0%,
+  #FCF7E9 45%,
+  #EAF1F4 80%
+);
+   /* background: linear-gradient(
   135deg,
   #FCECC0 0%,
   #FCF7E9 50%,
   #FFFFFF 100%
-);
+); */
 
   color: #263F59;
   border-top: 1px solid #D5E0E6;
@@ -2606,12 +2458,6 @@ background: linear-gradient(
   #FCF7E9 50%,
   #FFFFFF 100%
 );
-/* background: linear-gradient(
-    135deg,
-    #EAF3F7 0%,
-    #F8EEF2 52%,
-    #FCF7E9 100%
-  ); */
 
   border: 1px solid var(--line);
   border-radius: 28px;
