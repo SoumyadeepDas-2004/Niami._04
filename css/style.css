@@ -1759,8 +1759,8 @@ text-align: center;
   align-items: center;
   gap: 4px;
   width: 100%;
-  min-height: 42px;
-padding: 6px 8px;
+  min-height: 58px;
+  padding: 12px;
   font-size: 0.9rem;
   font-weight: 100;
 /* Soft pastel gradient for commission poster captions */
@@ -1782,7 +1782,7 @@ background: linear-gradient(
 }
 .commission-poster-caption > span:first-child {
   color: var(--ink);
-  font-size: .82rem;
+  font-size: .9rem;
   letter-spacing: normal;
   font-weight: 450;
 }
@@ -1877,8 +1877,7 @@ background: linear-gradient(
   justify-content: center;
   text-align: center;
   gap: 4px;
-  min-height: 42px;
-padding: 6px 8px;
+  min-height: 64px;
 }
 
   .commission-view {
@@ -3134,7 +3133,7 @@ main.commissions-page {
 /* Main two-column composition */
 .commissions-page .commission-layout {
   display: grid;
-  grid-template-columns: minmax(200px, 0.65fr) minmax(0, 1.8fr);
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.5fr);
   align-items: center;
   gap: clamp(2rem, 5vw, 4.5rem);
 }
@@ -3149,8 +3148,6 @@ main.commissions-page {
 /* Status pill */
 .commissions-page .commission-section-heading .commission-status {
   margin: 0 0 2rem;
-  padding: .85rem 1.8rem;
-  font-size: 1.05rem;
 }
 
 /* Introduction heading */
@@ -3230,11 +3227,10 @@ main.commissions-page {
 /* Tablet and mobile layout */
 @media (max-width: 850px) {
 
-  .commissions-page .commission-gallery {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  padding-inline: 4px;
-}
+  .commissions-page .commission-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
   .commissions-page .commission-section-heading {
     text-align: center;
