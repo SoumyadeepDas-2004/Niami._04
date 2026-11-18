@@ -2029,6 +2029,10 @@ main .masonry[data-preview] {
   color: #536B7D;
   font-size: 1.1rem;
 }
+/* Muted red filled heart in the gallery heading */
+.gallery-page .gallery-hero h1 .heart {
+  color: #B97880;
+}
 
 /* -----------------------------------------
    2. ARTWORK COLLECTION
