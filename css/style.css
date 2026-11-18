@@ -2351,6 +2351,21 @@ main .masonry[data-preview] {
   width: 100%;
   box-sizing: border-box;
 }
+  /* Mobile gallery captions — stack title and category vertically */
+  .gallery-page .art .cap {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+    min-height: 76px;
+    text-align: left;
+  }
+
+  .gallery-page .art .cap b,
+  .gallery-page .art .cap i {
+    width: 100%;
+    text-align: left;
+  }
   /* Mobile gallery hero — keep decorations away from the text */
   .gallery-page .gallery-hero .wrap::before {
     top: 10px;
