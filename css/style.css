@@ -716,7 +716,7 @@ nav a[aria-current] {
   height: 100%;
   margin: 0;
   padding: 0;
-  border: 1.3px solid rgb(0, 0, 0);
+  border: 1.3px solid #AFC5D2;
   border-radius: 14px;
   background: rgba(16, 0, 0, 0.16);
   text-align: left;
@@ -759,7 +759,7 @@ nav a[aria-current] {
 /* Artwork hover and selection border */
 @media (hover: hover) and (pointer: fine) {
   .art:hover {
-  border-color: #000000;
+  border: 1.3px solid #AFC5D2;
   border-width: 1.66px;
   transform: translateY(-3px);
   box-shadow: 0 12px 16px rgba(38, 63, 89, .28);
@@ -793,11 +793,17 @@ nav a[aria-current] {
   padding: 12px;
   font-size: .9rem;
   /* background: #E5EDF1; */
-  background: linear-gradient(
+  /* background: linear-gradient(
   135deg,
   #FCECC0 0%,
   #FCF7E9 99%,
   #FFFFFF 50%
+); */
+/* Soft blue-white artwork caption */
+background: linear-gradient(
+  135deg,
+  #EAF1F4 0%,
+  #E5EDF1 100%
 );
   color: var(--ink);
   transition: background .3s ease;
@@ -864,29 +870,7 @@ nav a[aria-current] {
   color: var(--mute);
 }
 
-/* Gallery filter buttons */
 
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .4rem 1.6rem;
-  margin: 0 0 2.5rem;
-}
-
-.filters button {
-  background: none;
-  border: 0;
-  border-bottom: 1px solid transparent;
-  font: inherit;
-  color: var(--mute);
-  cursor: pointer;
-  padding: .15rem 0;
-}
-
-.filters button[aria-pressed=true] {
-  color: var(--ink);
-  border-color: var(--ink);
-}
 
 /* =========================================
    15. DETAILS AND TABLES
@@ -1959,38 +1943,98 @@ main .masonry[data-preview] {
 }
 
 
-/* GALLERY REDESIGN — FINAL OVERRIDES */
 
+/* =========================================
+   GALLERY — 
+   ========================================= */
+
+/* Gallery background — preserve existing page background */
 .gallery-page {
   background: #E3EBEF;
 }
 
-/* Gallery Hero */
+/* -----------------------------------------
+   1. GALLERY HERO
+   ----------------------------------------- */
+
 .gallery-page .gallery-hero {
-  padding: clamp(4rem, 9vw, 6.5rem) 0;
+  padding: clamp(2rem, 4vw, 3rem) 0;
   text-align: center;
-  background: linear-gradient(145deg, #D4E2E8, #E5EDF1, #DCE8ED);
-  border-bottom: 1px solid var(--line);
+  background: transparent;
+  border: none;
 }
 
 .gallery-page .gallery-hero .wrap {
-  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  padding: clamp(2.5rem, 5vw, 3.5rem);
+
+  /* Soft baby-blue, blush-pink and cream gradient */
+  /* background: linear-gradient(
+    135deg,
+    #EAF3F7 0%,
+    #F8EEF2 52%,
+    #FCF7E9 100%
+  ); */
+   background: linear-gradient(
+  135deg,
+  #FCECC0 0%,
+  #FCF7E9 50%,
+  #FFFFFF 100%
+);
+
+  border: 1px solid #C5D7E0;
+  border-radius: 28px;
+
+  box-shadow:
+    0 8px 15px rgba(38, 63, 89, .10),
+    0 20px 35px rgba(38, 63, 89, .12);
+}
+
+/* Small decorative sparkles */
+.gallery-page .gallery-hero .wrap::before {
+  content: "✦";
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #789BB3;
+  font-size: 1.6rem;
+  opacity: .75;
+}
+
+.gallery-page .gallery-hero .wrap::after {
+  content: "♡";
+  position: absolute;
+  right: 32px;
+  bottom: 18px;
+  color: #A97891;
+  font-size: 2rem;
+  opacity: .8;
 }
 
 .gallery-page .gallery-hero h1 {
-  font-size: clamp(2.8rem, 7vw, 4.5rem);
-  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  color: #647697;
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
 }
 
 .gallery-page .gallery-hero p {
+  position: relative;
+  z-index: 1;
   max-width: 570px;
   margin: auto;
-  color: var(--mute);
+  color: #536B7D;
 }
 
-/* Gallery Collection */
+/* -----------------------------------------
+   2. ARTWORK COLLECTION
+   ----------------------------------------- */
+
 .gallery-page .gallery-collection {
-  padding: clamp(3rem, 7vw, 5rem) 0;
+  padding: 1.8rem 0 4rem;
 }
 
 .gallery-page .gallery-section-heading {
@@ -2004,39 +2048,224 @@ main .masonry[data-preview] {
   margin: 0;
 }
 
-/* Gallery Filters */
+/* -----------------------------------------
+   3. CUTE SEGMENTED FILTER BUTTONS
+   ----------------------------------------- */
+
+
+/* Animated gallery toggle */
 .gallery-page .filters {
+  position: relative;
+  isolation: isolate;
   display: flex;
-  flex-wrap: wrap;
-  gap: .7rem;
-  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto 1.5rem;
+  padding: 5px;
+  gap: 0;
+  background: #FFFFFF;
+  border: 1px solid #B8C6D0;
+  border-radius: 999px;
 }
 
+/* Sliding selection indicator */
+.gallery-page .filters::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: calc(50% - 5px);
+  border-radius: 999px;
+  background: #647697;
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Slide indicator to All Artwork */
+.gallery-page .filters:has(
+  button[data-collection="all"][aria-pressed="true"]
+)::before {
+  transform: translateX(100%);
+}
+
+/* Toggle labels */
 .gallery-page .filters button {
-  padding: .6rem 1.2rem;
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  background: #EAF1F4;
-  color: var(--ink);
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  min-width: 135px;
+  padding: .7rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #344F68;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: none;
+  transition: color .25s ease;
 }
 
-/* Selected gallery filter — match secondary button hover colours */
+/* Selected label */
 .gallery-page .filters button[aria-pressed="true"] {
-  background: var(--button-secondary-hover);
-  color: var(--ink);
-  border-color: #647697;
+  background: transparent;
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: none;
 }
 
-/* Gallery Grid — preserve original artwork card styling */
+/* Keyboard focus */
+.gallery-page .filters button:focus-visible {
+  outline: 2px solid #A97891;
+  outline-offset: 2px;
+}
+
+/* Mobile sizing */
+@media (max-width: 560px) {
+  .gallery-page .filters button {
+    min-width: 0;
+    padding: .65rem .9rem;
+    font-size: .85rem;
+  }
+}
+/* Disable hover colour changes on gallery filters */
+.gallery-page .filters button:hover,
+.gallery-page .filters button:not([aria-pressed="true"]):hover {
+  background: transparent;
+  color: inherit;
+  border-color: transparent;
+}
+
+
+
+/* Keep gallery toggle completely still on hover */
+.gallery-page .filters button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Prevent hover movement on the toggle container */
+.gallery-page .filters:hover {
+  transform: none;
+}
+/* Keep selected filter text white on hover */
+.gallery-page .filters button[aria-pressed="true"]:hover {
+  color: #FFFFFF;
+  background: transparent;
+  border-color: transparent;
+}
+
+/* Keep unselected filter text unchanged on hover */
+.gallery-page .filters button:not([aria-pressed="true"]):hover {
+  color: #344F68;
+  background: transparent;
+  border-color: transparent;
+}
+/* -----------------------------------------
+   4. ARTWORK GRID
+   ----------------------------------------- */
+
 .gallery-page [data-gallery] {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 280px));
+  grid-template-columns: repeat(3, minmax(0, 260px));
   justify-content: center;
-  gap: 24px;
+  align-items: stretch;
+  gap: 22px;
   width: 100%;
 }
 
-/* Gallery Contact */
+/* -----------------------------------------
+   5. ARTWORK CARD — PASTEL FINISH
+   ----------------------------------------- */
+   .gallery-page .art {
+  background: #F8FAFB;
+  border: 1.3px solid #C5D7E0;
+  border-radius: 16px;
+  box-shadow: 0 5px 16px rgba(38, 63, 89, .10);
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+/* Keep original image proportions and cropping */
+.gallery-page .art .frame {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Smooth artwork hover animation */
+.gallery-page .art .frame img {
+  transition:
+    transform .4s ease,
+    filter .4s ease;
+}
+/* Soft pastel caption */
+.gallery-page .art .cap {
+  /* background: linear-gradient(
+    135deg,
+    #EAF3F7 0%,
+    #F8EEF2 100%
+  ); */
+   background: linear-gradient(
+  135deg,
+  #FCECC0 0%,
+  #FCF7E9 50%,
+  #FFFFFF 100%
+);
+
+  color: #263F59;
+  border-top: 1px solid #D5E0E6;
+  transition: background .3s ease;
+}
+
+.gallery-page .art .cap b {
+  color: #344F68;
+  font-weight: 600;
+}
+
+.gallery-page .art .cap i {
+  color: #7188A8;
+}
+
+/* Card hover */
+@media (hover: hover) and (pointer: fine) {
+  .gallery-page .art:hover {
+    border-color: #D4A943;
+    border-width: 1.66px;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 22px rgba(38, 63, 89, .16);
+
+  }
+
+  /* Artwork highlight on hover */
+.gallery-page .art:hover .frame img {
+  transform: scale(1.045);
+  filter: saturate(1.12) contrast(1.04) brightness(1.03);
+}
+
+  .gallery-page .art:hover .cap {
+  background: linear-gradient(
+    135deg,
+    #FCF0D2 0%,
+    #FFF5E1 50%,
+    #FFFAF0 100%
+  );
+}
+} 
+
+/* Keyboard focus */
+.gallery-page .art:focus-visible {
+  outline: 2px solid #647697;
+  outline-offset: 4px;
+}
+
+/* -----------------------------------------
+   6. GALLERY CONTACT
+   ----------------------------------------- */
+
 .gallery-page .gallery-contact {
   padding: 0 0 5rem;
 }
@@ -2046,8 +2275,12 @@ main .masonry[data-preview] {
   margin: auto;
   padding: 3.5rem 1.5rem;
   text-align: center;
-  background: #D4E2E8;
-  border: 1px solid var(--line);
+  background: linear-gradient(
+    135deg,
+    #EAF3F7,
+    #F8EEF2
+  );
+  border: 1px solid #C5D7E0;
   border-radius: 22px;
 }
 
@@ -2058,22 +2291,53 @@ main .masonry[data-preview] {
 .gallery-page .gallery-contact-card p {
   max-width: 520px;
   margin: 0 auto 1.5rem;
-  color: var(--mute);
+  color: #536B7D;
 }
+
+/* -----------------------------------------
+   7. RESPONSIVE DESIGN
+   ----------------------------------------- */
 
 /* Tablet */
 @media (max-width: 900px) {
   .gallery-page [data-gallery] {
-    grid-template-columns: repeat(2, minmax(0, 280px));
+    grid-template-columns: repeat(2, minmax(0, 260px));
   }
 }
 
 /* Mobile */
 @media (max-width: 560px) {
+  .gallery-page .gallery-hero {
+    padding: 1.5rem 0;
+  }
+
+  .gallery-page .gallery-hero .wrap {
+    padding: 2rem 1.25rem;
+    border-radius: 22px;
+  }
+
+  .gallery-page .gallery-hero h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .gallery-page .gallery-collection {
+    padding: 1.5rem 0 3rem;
+  }
+
   .gallery-page .gallery-section-heading {
     align-items: flex-start;
     flex-direction: column;
     gap: .5rem;
+  }
+
+  .gallery-page .filters {
+    gap: .5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .gallery-page .filters button {
+    padding: .6rem 1rem;
+    font-size: .9rem;
   }
 
   .gallery-page [data-gallery] {
@@ -2082,10 +2346,18 @@ main .masonry[data-preview] {
   }
 }
 
-/* Very Small Mobile */
+/* Very small mobile */
 @media (max-width: 359px) {
   .gallery-page [data-gallery] {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-page .filters button,
+  .gallery-page .art {
+    transition: none;
   }
 }
 
@@ -2120,6 +2392,12 @@ background: linear-gradient(
   #FCF7E9 50%,
   #FFFFFF 100%
 );
+/* background: linear-gradient(
+    135deg,
+    #EAF3F7 0%,
+    #F8EEF2 52%,
+    #FCF7E9 100%
+  ); */
 
   border: 1px solid var(--line);
   border-radius: 28px;
