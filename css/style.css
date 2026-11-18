@@ -2273,8 +2273,8 @@ main .masonry[data-preview] {
 /* Mobile — reproduce hover effects on the card highlighted while scrolling */
 @media (hover: none) and (pointer: coarse) {
   .gallery-page .art.is-scroll-active {
-    border-color: #D4A943;
-    border-width: 1.66px;
+    /* border-color: #D4A943;
+    border-width: 1.66px; */
     transform: translateY(-4px);
     box-shadow: 0 12px 22px rgba(38, 63, 89, .16);
   }
