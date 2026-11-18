@@ -3492,7 +3492,7 @@ main > .payment-page {
     ),
     url("../assets/images/background/homepage_background.webp");
 
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center;
   background-repeat: repeat;
   background-attachment: scroll;
@@ -3590,4 +3590,230 @@ main > .payment-page {
   .commissions-page .commission-terms-desktop {
     display: none;
   }
+}
+
+
+/* =========================================
+   PAYMENT PAGE — MATCH WEBSITE HERO DESIGN
+   ========================================= */
+
+/* Page background */
+main:has(.payment-page) {
+  background: #E3EBEF;
+}
+
+.payment-page {
+  padding-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: 5rem;
+}
+
+/* Payment heading — same design as Gallery hero */
+.payment-page .payment-heading {
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+  padding: clamp(2.5rem, 5vw, 3.5rem);
+
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    #FCECC0 0%,
+    #FCF7E9 50%,
+    #FFFFFF 100%
+  );
+
+  border: 1px solid #C5D7E0;
+  border-radius: 28px;
+
+  box-shadow:
+    0 8px 15px rgba(38, 63, 89, .10),
+    0 20px 35px rgba(38, 63, 89, .12);
+}
+
+.payment-page .payment-heading::before {
+  content: "✦";
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #789BB3;
+  font-size: 1.6rem;
+  opacity: .75;
+}
+
+.payment-page .payment-heading::after {
+  content: "♡";
+  position: absolute;
+  right: 32px;
+  bottom: 18px;
+  color: #A97891;
+  font-size: 2rem;
+  opacity: .8;
+}
+
+.payment-page .payment-heading h1 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  color: #647697;
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+}
+
+.payment-page .payment-heading > p {
+  position: relative;
+  z-index: 1;
+  max-width: 570px;
+  margin: auto;
+  color: #536B7D;
+  font-size: 1.1rem;
+}
+
+/* Payment cards — richer blue-white pastel */
+.payment-page .payment-card {
+  background: linear-gradient(
+    /* 145deg,
+    #F8FAFB 0%,
+    #EAF1F4 100% */
+    135deg,
+    #E5EDF1 0%,
+    #F4F7F8 100%
+  );
+  
+  border: 1px solid #C5D7E0;
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 18px rgba(38, 63, 89, .08),
+    0 16px 28px rgba(38, 63, 89, .07);
+
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .payment-page .payment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 22px rgba(38, 63, 89, .15);
+  }
+}
+
+/* Payment card headings */
+.payment-page .payment-card-heading {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(189, 206, 216, .7);
+}
+
+.payment-page .payment-label {
+  color: #647697;
+}
+
+/* Inner payment method panel */
+.payment-page .payment-method {
+  /* background: linear-gradient(
+    135deg,
+    #E5EDF1 0%,
+    #F4F7F8 100%
+  ); */
+  background: linear-gradient(
+    135deg,
+    #FCECC0 0%,
+    #FCF7E9 50%,
+    #FFFFFF 100%
+  );
+  border: 1px solid #C5D7E0;
+  border-radius: 16px;
+}
+
+/* QR code frame */
+.payment-page .payment-qr {
+  background: #FFFFFF;
+  border: 1px solid #C5D7E0;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(38, 63, 89, .07);
+}
+
+/* PayPal button — retain the site's existing button design */
+.payment-page .payment-method .btn {
+  box-shadow: var(--shadow-button);
+}
+
+/* Email link */
+.payment-page .payment-email a {
+  color: #477F9E;
+  font-weight: 600;
+}
+
+/* Payment reminder — soft pastel panel */
+.payment-page .payment-reminder {
+  max-width: 760px;
+  margin: 2rem auto 0;
+  padding: 1.2rem 1.5rem;
+
+  background: linear-gradient(
+    135deg,
+    #EAF1F4 0%,
+    #F8EEF2 100%
+  );
+
+  border: 1px solid #C5D7E0;
+  border-radius: 16px;
+  color: #536B7D;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .payment-page .payment-heading {
+    width: calc(100% - 32px);
+    padding: 2rem 1.25rem;
+    border-radius: 22px;
+  }
+
+  .payment-page .payment-heading::before {
+    top: 10px;
+    left: 12px;
+    font-size: 1.1rem;
+    opacity: .5;
+  }
+
+  .payment-page .payment-heading::after {
+    right: 12px;
+    bottom: 8px;
+    font-size: 1.3rem;
+    opacity: .5;
+  }
+
+  .payment-page .payment-card {
+    border-radius: 18px;
+  }
+
+  .payment-page .payment-reminder {
+    padding: 1rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .payment-page .payment-card {
+    transition: none;
+  }
+}
+
+.payment-page .download-qr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-top: 14px;
+  border-radius: 12%;
+  background: transparent;
+  color: #111111;
+  text-decoration: none;
+  font-size: 1.45rem;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.payment-page .download-qr-btn:hover {
+  background: #E8E8E8;
+  transform: translateY(-2px);
 }
