@@ -3187,9 +3187,17 @@ main.commissions-page {
   align-items: start;
 }
 
-/* Keep poster proportions natural */
+/* Softer, rounded poster cards */
 .commissions-page .commission-poster {
   height: auto;
+  border-radius: 22px;
+  overflow: hidden;
+}
+/* Caption integrated with the rounded poster card */
+.commissions-page .commission-poster-caption {
+  border-radius: 0 0 22px 22px;
+  padding: 12px 14px;
+  min-height: 52px;
 }
 
 /* Contact section spacing */
@@ -3228,6 +3236,15 @@ main.commissions-page {
 
 /* Tablet and mobile layout */
 @media (max-width: 850px) {
+  /* Compact mobile poster captions */
+.commissions-page .commission-poster-caption {
+  min-height: 42px;
+  padding: 7px 10px;
+}
+
+.commissions-page .commission-poster-caption > span:first-child {
+  font-size: .85rem;
+}
 
   .commissions-page .commission-layout {
     grid-template-columns: 1fr;
@@ -3238,9 +3255,12 @@ main.commissions-page {
     text-align: center;
   }
 
-  .commissions-page .commission-section-heading .commission-status {
-    margin: 0 auto 1.5rem;
-  }
+  /* Smaller commission status pill on mobile */
+.commissions-page .commission-section-heading .commission-status {
+  padding: .6rem 1.1rem;
+  font-size: .9rem;
+  margin-bottom: 1.2rem;
+}
 
   .commissions-page .commission-section-heading p {
     margin-inline: auto;
