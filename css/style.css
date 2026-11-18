@@ -1392,7 +1392,12 @@ main .masonry[data-preview] {
   max-width: 1000px;
   margin: 0 auto;
   padding: clamp(1.5rem, 4vw, 3rem);
-  background: rgba(255, 255, 255, .42);
+  background: linear-gradient(
+  135deg,
+  #FCECC0 0%,
+  #FCF7E9 50%,
+  #FFFFFF 100%
+);
   border: 1px solid var(--line);
   border-radius: 20px;
   box-shadow: 0 5px 20px rgba(38, 63, 89, .06);
@@ -1475,8 +1480,34 @@ main .masonry[data-preview] {
 /* Social section */
 
 .about-social-section {
-  max-width: 1000px;
-  margin: 4rem auto 0;
+   position: relative;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding: clamp(2rem, 5vw, 4rem);
+
+  background: linear-gradient(
+  135deg,
+  #FCECC0 0%,
+  #FCF7E9 50%,
+  #FFFFFF 100%
+);
+
+  border: 1px solid var(--line);
+  border-radius: 28px;
+
+  box-shadow:
+    0 8px 15px rgba(38, 63, 89, 0.10),
+    0 20px 35px rgba(38, 63, 89, 0.16),
+    0 35px 55px rgba(38, 63, 89, 0.08);
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .about-social-section {
+    width: calc(100% - 32px);
+    padding: 2rem 1.25rem;
+    border-radius: 22px;
+  }
 }
 
 .about-social-heading {
@@ -1557,7 +1588,12 @@ main .masonry[data-preview] {
   margin: 3.5rem auto 0;
   padding: 2rem;
   text-align: center;
-  background: rgba(255, 255, 255, .32);
+  background: linear-gradient(
+  135deg,
+  #FCECC0 0%,
+  #FCF7E9 50%,
+  #FFFFFF 100%
+);
   border: 1px solid var(--line);
   border-radius: 18px;
 }
@@ -3826,4 +3862,29 @@ main:has(.payment-page) {
 .payment-page .download-qr-btn:hover {
   background: #E8E8E8;
   transform: translateY(-2px);
+}
+
+/* About page background image with soft blue-white overlay */
+main > .about-page {
+  background-image:
+    linear-gradient(
+      rgba(229, 237, 241, .22),
+      rgba(229, 237, 241, .22)
+    ),
+    url("../assets/images/background/homepage_background.webp");
+
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: scroll;
+}
+
+/* Mobile About page — zoomed background */
+@media (max-width: 560px) {
+  main > .about-page {
+    background-size: 310% auto;
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: scroll;
+  }
 }
