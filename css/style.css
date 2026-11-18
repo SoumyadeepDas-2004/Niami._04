@@ -2356,9 +2356,10 @@ main .masonry[data-preview] {
   width: 100%;
   box-sizing: border-box;
 } */
- /* Mobile gallery — single column, cards 20% wider */
+
+/* Mobile gallery — one centered column, 20% wider cards */
 .gallery-page [data-gallery] {
-  grid-template-columns: minmax(0, 60%);
+  grid-template-columns: minmax(0, calc(75% - 12px));
   justify-content: center;
   gap: 16px;
   padding-inline: 20px;
