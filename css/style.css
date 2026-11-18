@@ -3888,3 +3888,30 @@ main > .about-page {
     background-attachment: scroll;
   }
 }
+@media (max-width: 650px) {
+  .about-social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .about-social-card {
+    justify-content: center;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Hide only the text inside each social link */
+  .about-social-card > span,
+  .about-social-card .social-arrow {
+    display: none;
+  }
+
+  .about-social-card img {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+  }
+}
