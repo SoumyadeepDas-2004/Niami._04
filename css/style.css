@@ -1700,16 +1700,53 @@ main .masonry[data-preview] {
 
 /* HERO */
 
+/* Commission hero — match the Gallery hero design */
 .commission-hero {
-  padding: clamp(4rem, 9vw, 7rem) 0;
+  padding: clamp(2rem, 4vw, 3rem) 0;
   text-align: center;
+  background: transparent;
+  border: none;
+}
+
+/* Cream gradient rounded card */
+.commission-hero .wrap {
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  padding: clamp(2.5rem, 5vw, 3.5rem);
   background: linear-gradient(
-    145deg,
-    #D4E2E8,
-    #E5EDF1 65%,
-    #DCE8ED
+    135deg,
+    #FCECC0 0%,
+    #FCF7E9 50%,
+    #FFFFFF 100%
   );
-  border-bottom: 1px solid var(--line);
+  border: 1px solid #C5D7E0;
+  border-radius: 28px;
+  box-shadow:
+    0 8px 15px rgba(38, 63, 89, .10),
+    0 20px 35px rgba(38, 63, 89, .12);
+}
+
+/* Decorative sparkle */
+.commission-hero .wrap::before {
+  content: "✦";
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #789BB3;
+  font-size: 1.6rem;
+  opacity: .75;
+}
+
+/* Decorative heart */
+.commission-hero .wrap::after {
+  content: "♡";
+  position: absolute;
+  right: 32px;
+  bottom: 18px;
+  color: #A97891;
+  font-size: 2rem;
+  opacity: .8;
 }
 
 .commission-hero-content {
@@ -1877,15 +1914,50 @@ main .masonry[data-preview] {
   padding: 1rem 0 clamp(4rem, 8vw, 6rem);
 }
 
+/* Commission contact card — match the Gallery hero */
 .commission-contact-card {
-  max-width: 850px;
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 1.5rem;
   text-align: center;
-  background: #D4E2E8;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  box-shadow: 0 6px 22px rgba(38, 63, 89, .06);
+
+  background: linear-gradient(
+    135deg,
+    #FCECC0 0%,
+    #FCF7E9 50%,
+    #FFFFFF 100%
+  );
+
+  border: 1px solid #C5D7E0;
+  border-radius: 28px;
+
+  box-shadow:
+    0 8px 15px rgba(38, 63, 89, .10),
+    0 20px 35px rgba(38, 63, 89, .12);
+}
+
+/* Decorative sparkle */
+.commission-contact-card::before {
+  content: "✦";
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #789BB3;
+  font-size: 1.6rem;
+  opacity: .75;
+}
+
+/* Decorative heart */
+.commission-contact-card::after {
+  content: "♡";
+  position: absolute;
+  right: 32px;
+  bottom: 18px;
+  color: #A97891;
+  font-size: 2rem;
+  opacity: .8;
 }
 
 .commission-contact-card h2 {
@@ -1913,8 +1985,29 @@ main .masonry[data-preview] {
 
 @media (max-width: 560px) {
   .commission-hero {
-    padding: 3.5rem 0;
-  }
+  padding: 1.5rem 0;
+}
+
+.commission-hero .wrap {
+  width: calc(100% - 32px);
+  margin-inline: auto;
+  padding: 2rem 1.25rem;
+  border-radius: 22px;
+}
+
+.commission-hero .wrap::before {
+  top: 10px;
+  left: 12px;
+  font-size: 1.1rem;
+  opacity: .5;
+}
+
+.commission-hero .wrap::after {
+  right: 12px;
+  bottom: 8px;
+  font-size: 1.3rem;
+  opacity: .5;
+}
 
   .commission-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1934,6 +2027,27 @@ main .masonry[data-preview] {
     margin-left: 0;
     text-align: left;
   }
+  /* Mobile contact card — match Gallery hero proportions */
+.commission-contact-card {
+  width: calc(100% - 32px);
+  margin-inline: auto;
+  padding: 2rem 1.25rem;
+  border-radius: 22px;
+}
+
+.commission-contact-card::before {
+  top: 10px;
+  left: 12px;
+  font-size: 1.1rem;
+  opacity: .5;
+}
+
+.commission-contact-card::after {
+  right: 12px;
+  bottom: 8px;
+  font-size: 1.3rem;
+  opacity: .5;
+}
 }
 
 @media (max-width: 359px) {
@@ -3120,6 +3234,31 @@ main.gallery-page{
 /* Mobile gallery — slightly zoom in the background image */
 @media (max-width: 560px) {
   main.gallery-page {
+    background-size: 350% auto;
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: scroll;
+  }
+}
+
+/* Soft blue-white overlay over the commission background image */
+main.commissions-page {
+  background-image:
+    linear-gradient(
+      rgba(229, 237, 241, .22),
+      rgba(229, 237, 241, .22)
+    ),
+    url("../assets/images/background/homepage_background.webp");
+
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: repeat;
+  background-attachment: scroll;
+}
+
+/* Mobile commission page — slightly zoom in the background image */
+@media (max-width: 560px) {
+  main.commissions-page {
     background-size: 350% auto;
     background-position: center top;
     background-repeat: repeat;
