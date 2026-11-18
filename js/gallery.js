@@ -122,6 +122,61 @@
         ).join('')
       : '<p class="msg">No artwork available yet.</p>';
   };
+  
+
+
+  // Mobile gallery — highlight the artwork nearest the screen centre while scrolling
+let highlightFrame = null;
+
+const updateScrollHighlight = () => {
+  if (!grid) return;
+
+  // Only activate this behaviour on touch devices
+  if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+    grid.querySelectorAll('.art.is-scroll-active').forEach(card => {
+      card.classList.remove('is-scroll-active');
+    });
+    return;
+  }
+
+  const cards = grid.querySelectorAll('.art');
+  const screenCenter = window.innerHeight / 2;
+
+  let closestCard = null;
+  let closestDistance = Infinity;
+
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+
+    // Ignore cards outside the visible screen
+    if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+
+    const cardCenter = (rect.top + rect.bottom) / 2;
+    const distance = Math.abs(cardCenter - screenCenter);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestCard = card;
+    }
+  });
+
+  cards.forEach(card => {
+    card.classList.toggle('is-scroll-active', card === closestCard);
+  });
+};
+
+// Update the highlighted card efficiently while scrolling
+const scheduleScrollHighlight = () => {
+  if (highlightFrame !== null) return;
+
+  highlightFrame = requestAnimationFrame(() => {
+    updateScrollHighlight();
+    highlightFrame = null;
+  });
+};
+
+window.addEventListener('scroll', scheduleScrollHighlight, { passive: true });
+window.addEventListener('resize', scheduleScrollHighlight);
 
   // Populate artwork sections only when data loaded successfully
   if (!artworkLoadFailed) {
@@ -161,6 +216,8 @@
             : allArtwork;
 
         fill(grid, artworkToShow);
+        // Refresh the mobile scroll highlight after changing gallery collections
+scheduleScrollHighlight();
 
         // Update active filter appearance
         if (filt) {

@@ -2267,6 +2267,32 @@ main .masonry[data-preview] {
   outline-offset: 4px;
 }
 
+
+
+
+/* Mobile — reproduce hover effects on the card highlighted while scrolling */
+@media (hover: none) and (pointer: coarse) {
+  .gallery-page .art.is-scroll-active {
+    border-color: #D4A943;
+    border-width: 1.66px;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 22px rgba(38, 63, 89, .16);
+  }
+
+  .gallery-page .art.is-scroll-active .frame img {
+    transform: scale(1.045);
+    filter: saturate(1.12) contrast(1.04) brightness(1.03);
+  }
+
+  .gallery-page .art.is-scroll-active .cap {
+    background: linear-gradient(
+      135deg,
+      #FCF0D2 0%,
+      #FFF5E1 20%,
+      #FFFAF0 80%
+    );
+  }
+}
 /* -----------------------------------------
    6. GALLERY CONTACT
    ----------------------------------------- */
