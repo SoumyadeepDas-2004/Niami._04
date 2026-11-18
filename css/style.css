@@ -3133,9 +3133,9 @@ main.commissions-page {
 /* Main two-column composition */
 .commissions-page .commission-layout {
   display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.5fr);
+  grid-template-columns: minmax(180px, 0.6fr) minmax(0, 2fr);
   align-items: center;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  gap: clamp(2rem, 4vw, 3.5rem);
 }
 
 /* Left introduction */
@@ -3148,6 +3148,8 @@ main.commissions-page {
 /* Status pill */
 .commissions-page .commission-section-heading .commission-status {
   margin: 0 0 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
 }
 
 /* Introduction heading */
@@ -3180,7 +3182,7 @@ main.commissions-page {
 .commissions-page .commission-gallery {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   max-width: none;
-  gap: clamp(14px, 2vw, 24px);
+  gap: clamp(18px, 2.5vw, 30px);
   margin: 0;
   align-items: start;
 }
@@ -3271,9 +3273,12 @@ main.commissions-page {
   }
 
   .commissions-page .commission-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-  }
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+}
 
   .commissions-page .commission-contact-card {
     width: calc(100% - 32px);
