@@ -3332,7 +3332,59 @@ main.commissions-page {
     0 8px 15px rgba(38, 63, 89, .10),
     0 20px 35px rgba(38, 63, 89, .12);
 }
+/* Commission hero card */
+.commission-hero {
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 1.5rem;
+  text-align: center;
 
+  background: linear-gradient(
+    135deg,
+    #FCECC0 0%,
+    #FCF7E9 50%,
+    #FFFFFF 100%
+  );
+
+  border: 1px solid var(--line);
+  border-radius: 28px;
+
+  box-shadow:
+    0 8px 15px rgba(38, 63, 89, .10),
+    0 20px 35px rgba(38, 63, 89, .12);
+}
+
+.commission-hero h1 {
+  margin: 1rem 0 .8rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: var(--ink);
+}
+
+.commission-hero p {
+  max-width: 500px;
+  margin: 0 auto;
+  color: var(--mute);
+  line-height: 1.8;
+}
+
+.commission-hero .commission-status {
+  margin: 0 auto;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .commission-hero {
+    width: calc(100% - 32px);
+    padding: 2rem 1.25rem;
+    border-radius: 22px;
+  }
+
+  .commission-hero h1 {
+    font-size: 2.2rem;
+  }
+}
 /* Terms heading — stronger visual hierarchy */
 .commissions-page .commission-terms-card h2 {
   margin: .7rem 0 1.8rem;
@@ -3950,5 +4002,46 @@ main > .about-page {
     width: 32px;
     height: 32px;
     flex: 0 0 32px;
+  }
+}
+/* Commission page — full-width vertical layout */
+.commissions-page .commission-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 2.5rem;
+}
+
+/* Hero card */
+.commissions-page .commission-hero {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Poster collection */
+.commissions-page .commission-gallery {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  transform: none;
+}
+
+/* Terms section */
+.commissions-page .commission-terms-card {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .commissions-page .commission-layout {
+    gap: 2rem;
+  }
+
+  .commissions-page .commission-gallery {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 420px;
   }
 }
