@@ -3086,7 +3086,7 @@ main.gallery-page{
 /* Mobile gallery — slightly zoom in the background image */
 @media (max-width: 560px) {
   main.gallery-page {
-    background-size: 315% auto;
+    background-size: 310% auto;
     background-position: center top;
     background-repeat: repeat;
     background-attachment: scroll;
