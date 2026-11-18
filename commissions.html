@@ -64,54 +64,76 @@
   </nav>
 </aside>
 
+
 <main id="main" class="commissions-page">
 
-<!-- COMMISSION STATUS -->
-<div
-  class="commission-status"
-  id="commission-status"
-  data-status="open">
-  ✦ Commissions Open
-</div>
   <!-- COMMISSION INFORMATION -->
   <section class="commission-information">
     <div class="wrap">
 
-      <div class="commission-section-heading">
-        <span class="commission-eyebrow">A LITTLE GUIDE</span>
-        <h2>Commission Information</h2>
-        <p>
-          Everything you need to know before commissioning me.
-          Select a poster to view it in detail.
-        </p>
+      <div class="commission-layout">
+
+        <!-- LEFT: INTRODUCTION -->
+        <div class="commission-section-heading">
+
+          <div
+            class="commission-status"
+            id="commission-status"
+            data-status="open">
+            ✦ Commissions Open
+          </div>
+
+          <span class="commission-eyebrow">A LITTLE GUIDE</span>
+
+          <h1>Commission Information</h1>
+
+          <p>
+            Everything you need to know before commissioning me.
+            Explore my pricing and artwork samples below.
+          </p>
+
+          <span class="commission-intro-note">
+            ♡ Thank you for supporting my art!
+          </span>
+
+        </div>
+
+        <!-- RIGHT: POSTER COLLECTION -->
+        <div class="commission-gallery">
+
+          <button class="commission-poster" type="button"
+            data-poster="3"
+            aria-label="Open commission pricing poster">
+
+            <img
+              src="assets/images/commissions/commission-prices.webp"
+              alt="Nia's chibi commission prices for headshot, halfbody and fullbody"
+              loading="lazy">
+
+            <span class="commission-poster-caption">
+              <span>Pricing</span>
+            </span>
+
+          </button>
+
+          <button class="commission-poster" type="button"
+            data-poster="1"
+            aria-label="Open artwork samples poster">
+
+            <img
+              src="assets/images/commissions/commission-samples.webp"
+              alt="Nia's commission artwork samples, accepted subjects and restrictions"
+              loading="lazy">
+
+            <span class="commission-poster-caption">
+              <span>Artwork & Samples</span>
+            </span>
+
+          </button>
+
+        </div>
       </div>
 
-      <div class="commission-gallery">
-<button class="commission-poster" type="button"
-          data-poster="3"
-          aria-label="Open commission pricing poster">
-          <img src="assets/images/commissions/commission-prices.webp"
-            alt="Nia's chibi commission prices for headshot, halfbody and fullbody"
-            loading="lazy">
-          <span class="commission-poster-caption">
-  <span>Pricing</span>
-</span>
-        </button>
-
-        <button class="commission-poster" type="button"
-          data-poster="1"
-          aria-label="Open artwork samples poster">
-          <img src="assets/images/commissions/commission-samples.webp"
-            alt="Nia's commission artwork samples, accepted subjects and restrictions"
-            loading="lazy">
-          <span class="commission-poster-caption">
-  <span>Artwork & Samples</span>
-</span>
-        </button>
-
-      
-
-      </div>
     </div>
   </section>
 
@@ -120,14 +142,18 @@
     <div class="wrap">
 
       <div class="commission-contact-card">
-        <span class="commission-eyebrow">HAVE AN IDEA?</span>
-        <h2>Let's Make It Come to Life! 💗</h2>
 
-        <p>
-          Have a character or idea in mind?
-          I'd love to hear about it!
-          Feel free to reach out to me on Instagram.
-        </p>
+        <div class="commission-contact-content">
+          <span class="commission-eyebrow">HAVE AN IDEA?</span>
+
+          <h2>Let's Make It Come to Life! 💗</h2>
+
+          <p>
+            Have a character or idea in mind?
+            I'd love to hear about it!
+            Feel free to reach out to me on Instagram.
+          </p>
+        </div>
 
         <a class="btn"
           href="https://ig.me/m/niami._04"
@@ -135,12 +161,14 @@
           rel="noopener noreferrer">
           Contact me on Instagram ↗
         </a>
+
       </div>
 
     </div>
   </section>
 
 </main>
+
 <footer class="site" id="site-footer">
   <div class="wrap">
     <span>© 2026 Niami._04</span>

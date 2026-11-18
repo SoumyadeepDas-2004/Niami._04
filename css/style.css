@@ -3117,3 +3117,175 @@ main.commissions-page {
     background-attachment: scroll;
   }
 }
+
+
+
+
+
+
+
+
+/* =========================================
+   COMMISSIONS — NEW SPLIT LAYOUT
+   Preserves existing colours and functionality
+   ========================================= */
+
+/* Main two-column composition */
+.commissions-page .commission-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+/* Left introduction */
+.commissions-page .commission-section-heading {
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+
+/* Status pill */
+.commissions-page .commission-section-heading .commission-status {
+  margin: 0 0 2rem;
+}
+
+/* Introduction heading */
+.commissions-page .commission-section-heading h1 {
+  margin: .7rem 0 1rem;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+}
+
+/* Introduction paragraph */
+.commissions-page .commission-section-heading p {
+  max-width: 360px;
+  margin: 0;
+  color: var(--mute);
+  line-height: 1.8;
+}
+
+/* Small decorative note */
+.commissions-page .commission-intro-note {
+  display: block;
+  margin-top: 1.5rem;
+  color: #A97891;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+}
+
+/* Poster collection */
+.commissions-page .commission-gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: none;
+  gap: clamp(14px, 2vw, 24px);
+  margin: 0;
+  align-items: start;
+}
+
+/* Keep poster proportions natural */
+.commissions-page .commission-poster {
+  height: auto;
+}
+
+/* Contact section spacing */
+.commissions-page .commission-contact {
+  padding-top: 0;
+}
+
+/* Horizontal contact layout */
+.commissions-page .commission-contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.5rem 3rem;
+  text-align: left;
+}
+
+/* Contact text */
+.commissions-page .commission-contact-content {
+  min-width: 0;
+}
+
+.commissions-page .commission-contact-card h2 {
+  margin: .5rem 0 .7rem;
+}
+
+.commissions-page .commission-contact-card p {
+  max-width: 550px;
+  margin: 0;
+}
+
+/* Keep the button from shrinking */
+.commissions-page .commission-contact-card .btn {
+  flex-shrink: 0;
+}
+
+/* Tablet and mobile layout */
+@media (max-width: 850px) {
+
+  .commissions-page .commission-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .commissions-page .commission-section-heading {
+    text-align: center;
+  }
+
+  .commissions-page .commission-section-heading .commission-status {
+    margin: 0 auto 1.5rem;
+  }
+
+  .commissions-page .commission-section-heading p {
+    margin-inline: auto;
+  }
+
+  .commissions-page .commission-intro-note {
+    margin-top: 1rem;
+  }
+
+  .commissions-page .commission-gallery {
+    width: 100%;
+  }
+
+  .commissions-page .commission-contact-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .commissions-page .commission-contact-card p {
+    margin-inline: auto;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 560px) {
+
+  .commissions-page .commission-layout {
+    gap: 1.5rem;
+  }
+
+  .commissions-page .commission-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .commissions-page .commission-contact-card {
+    width: calc(100% - 32px);
+    margin-inline: auto;
+    padding: 2rem 1.25rem;
+  }
+}
+
+/* Very narrow screens */
+@media (max-width: 359px) {
+
+  .commissions-page .commission-gallery {
+    grid-template-columns: 1fr;
+  }
+}
