@@ -2342,19 +2342,14 @@ main .masonry[data-preview] {
     padding: .6rem 1rem;
     font-size: .9rem;
   }
-/* Mobile gallery — independent card heights */
+
+/* Mobile gallery — add more space from the screen edges */
 .gallery-page [data-gallery] {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   padding-inline: 20px;
   width: 100%;
   box-sizing: border-box;
-  align-items: start; /* Prevent cards in the same row from stretching */
-}
-
-/* Allow each artwork card to fit its own content */
-.gallery-page .art {
-  height: auto;
 }
   /* Mobile gallery captions — stack title and category vertically */
   /* Mobile gallery captions — dynamic height */
