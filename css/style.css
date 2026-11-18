@@ -3271,19 +3271,7 @@ main.commissions-page {
 }
 
 /* Terms list — organized into elegant individual items */
-.commissions-page .commission-terms-card ul {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 28px;
-  margin: 0;
-  padding: 22px 24px;
-  list-style: none;
-
-  background: rgba(255, 255, 255, .48);
-  border: 1px solid rgba(197, 215, 224, .7);
-  border-radius: 18px;
-}
-/* Terms container — balanced spacing around the divider */
+/* Terms container — balanced spacing and divider */
 .commissions-page .commission-terms-card ul {
   position: relative;
   display: grid;
@@ -3297,7 +3285,6 @@ main.commissions-page {
   border: 1px solid rgba(197, 215, 224, .7);
   border-radius: 18px;
 }
-
 /* Vertical divider */
 @media (min-width: 561px) {
   .commissions-page .commission-terms-card ul::after {
@@ -3318,7 +3305,7 @@ main.commissions-page {
   padding: 8px 12px 8px 25px;
   background: transparent;
   border: none;
-  color: #536B7D;
+  color: #647697;
   font-size: 1rem;
   line-height: 1.7;
 }
@@ -3340,20 +3327,29 @@ main.commissions-page {
 }
 
 /* Mobile layout */
+/* Mobile — compact two-column Terms of Service */
 @media (max-width: 560px) {
-  @media (max-width: 560px) {
+
   .commissions-page .commission-terms-card ul {
-    grid-template-columns: 1fr;
-    padding: 16px 18px;
-    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+    row-gap: 12px;
+    padding: 14px 12px;
+  }
+
+  .commissions-page .commission-terms-card li {
+    padding: 6px 4px 6px 20px;
+    font-size: .82rem;
+    line-height: 1.55;
+  }
+
+  .commissions-page .commission-terms-card li::before {
+    left: 1px;
+    top: 8px;
+    font-size: .7rem;
   }
 }
 
-  .commissions-page .commission-terms-card li {
-    padding: 7px 8px 7px 25px;
-    font-size: .95rem;
-  }
-}
 /* Tablet and mobile layout */
 @media (max-width: 850px) {
   /* Compact mobile poster captions */
