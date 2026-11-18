@@ -2349,8 +2349,17 @@ main .masonry[data-preview] {
   }
 
 /* Mobile gallery — add more space from the screen edges */
-.gallery-page [data-gallery] {
+/* .gallery-page [data-gallery] {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding-inline: 20px;
+  width: 100%;
+  box-sizing: border-box;
+} */
+ /* Mobile gallery — single column, cards 20% wider */
+.gallery-page [data-gallery] {
+  grid-template-columns: minmax(0, 60%);
+  justify-content: center;
   gap: 16px;
   padding-inline: 20px;
   width: 100%;
