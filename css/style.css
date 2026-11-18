@@ -3010,7 +3010,7 @@ main.home-page {
 
   background-size: cover;
   background-position: center;
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   background-attachment: scroll;
 }
 /* =========================================
@@ -3059,6 +3059,6 @@ main.gallery-page{
 
   background-size: cover;
   background-position: center;
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   background-attachment: scroll;
 }
