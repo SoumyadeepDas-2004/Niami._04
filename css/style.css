@@ -3578,3 +3578,97 @@ main > .payment-page {
   background-repeat: repeat;
   background-attachment: scroll;
 }
+
+/* =========================================
+   TERMS — THREE CATEGORY DESKTOP GRID
+   ========================================= */
+
+.commissions-page .commission-terms-desktop {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Category cards */
+.commissions-page .commission-terms-desktop .terms-group {
+  min-width: 0;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, .48);
+  border: 1px solid rgba(197, 215, 224, .7);
+  border-radius: 16px;
+}
+
+/* Category heading */
+.commissions-page .commission-terms-desktop .terms-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  color: #647697;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Number decoration — matching mobile */
+.commissions-page .commission-terms-desktop .terms-group h3 span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(169, 120, 145, .13);
+  color: #A97891;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+/* Terms list */
+.commissions-page .commission-terms-desktop .terms-group ul {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: transparent;
+  border: none;
+}
+
+/* Individual terms */
+.commissions-page .commission-terms-desktop .terms-group li {
+  position: relative;
+  padding-left: 21px;
+  color: #647697;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+/* Pink heart bullets */
+.commissions-page .commission-terms-desktop .terms-group li::before {
+  content: "♥";
+  position: absolute;
+  left: 1px;
+  top: 2px;
+  color: #A97891;
+  font-size: .72rem;
+}
+
+/* Emphasized text */
+.commissions-page .commission-terms-desktop .terms-group strong {
+  color: #647697;
+  font-weight: 600;
+}
+
+/* Third category spans the full row */
+.commissions-page .commission-terms-desktop .terms-group:last-child {
+  grid-column: 1 / -1;
+}
+
+/* Keep existing mobile accordion unchanged */
+@media (max-width: 560px) {
+  .commissions-page .commission-terms-desktop {
+    display: none;
+  }
+}
