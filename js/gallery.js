@@ -347,17 +347,21 @@ scheduleScrollHighlight();
 
   // Reveal controls during interaction, then fade them after inactivity.
   const showControls = () => {
-    dialog.classList.remove('lb-controls-hidden');
-    clearTimeout(controlsTimer);
+  dialog.classList.remove('lb-controls-hidden');
+  clearTimeout(controlsTimer);
 
-    if (!dialog.open) return;
+  if (!dialog.open) return;
 
-    controlsTimer = setTimeout(() => {
-      if (!dialog.contains(document.activeElement)) {
-        dialog.classList.add('lb-controls-hidden');
-      }
-    }, 2500);
-  };
+  controlsTimer = setTimeout(() => {
+    const keyboardFocusedControl = dialog.querySelector(
+      'button:focus-visible'
+    );
+
+    if (!keyboardFocusedControl) {
+      dialog.classList.add('lb-controls-hidden');
+    }
+  }, 2500);
+};
 
   dialog.addEventListener('pointermove', showControls);
   dialog.addEventListener('pointerdown', showControls);
