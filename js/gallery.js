@@ -91,7 +91,6 @@
           ${index === 0 ? 'fetchpriority="high"' : ''}
           ${index > 1 ? 'loading="lazy"' : ''}
           decoding="async"
-          onerror="this.closest('.art').hidden = true"
         >
       </span>
 
@@ -122,8 +121,24 @@
         ).join('')
       : '<p class="msg">No artwork available yet.</p>';
   };
-  
 
+  // Keep failed thumbnails visible with a helpful fallback instead of
+  // silently removing the artwork card from the layout.
+  document.addEventListener('error', event => {
+    const image = event.target;
+    if (!(image instanceof HTMLImageElement) || !image.closest('.art')) return;
+
+    const frame = image.closest('.frame');
+    if (!frame || frame.querySelector('.art-image-fallback')) return;
+
+    image.hidden = true;
+    const fallback = document.createElement('span');
+    fallback.className = 'art-image-fallback';
+    fallback.textContent = 'Image unavailable';
+    fallback.setAttribute('role', 'img');
+    fallback.setAttribute('aria-label', 'Artwork image unavailable');
+    frame.append(fallback);
+  }, true);
 
   // Mobile gallery — highlight the artwork nearest the screen centre while scrolling
 let highlightFrame = null;
@@ -296,15 +311,18 @@ scheduleScrollHighlight();
   dialog.innerHTML = `
     <button class="lb-x" type="button" aria-label="Close viewer">×</button>
 
+    <div class="lb-counter" aria-live="polite" aria-atomic="true"></div>
+
     <button class="lb-p" type="button" aria-label="Previous artwork">‹</button>
 
     <div class="lb-stage">
+      <div class="lb-status" role="status" aria-live="polite" hidden></div>
       <img class="lb-image" alt="" draggable="false">
     </div>
 
     <button class="lb-n" type="button" aria-label="Next artwork">›</button>
 
-    <div class="lb-zoom-controls" aria-label="Zoom controls">
+    <div class="lb-zoom-controls" role="group" aria-label="Zoom controls">
       <button class="lb-zoom-out" type="button" aria-label="Zoom out">−</button>
       <button class="lb-zoom-reset" type="button" aria-label="Reset zoom">Reset</button>
       <button class="lb-zoom-in" type="button" aria-label="Zoom in">+</button>
@@ -312,12 +330,13 @@ scheduleScrollHighlight();
 
     <figcaption class="lb-caption"></figcaption>
   `;
-
   document.body.append(dialog);
 
   const stage = dialog.querySelector('.lb-stage');
   const lightboxImage = dialog.querySelector('.lb-image');
   const caption = dialog.querySelector('.lb-caption');
+  const statusElement = dialog.querySelector('.lb-status');
+  const counterElement = dialog.querySelector('.lb-counter');
 
   const closeButton = dialog.querySelector('.lb-x');
   const previousButton = dialog.querySelector('.lb-p');
@@ -326,8 +345,34 @@ scheduleScrollHighlight();
   const zoomOutButton = dialog.querySelector('.lb-zoom-out');
   const zoomResetButton = dialog.querySelector('.lb-zoom-reset');
 
+  // Reveal controls during interaction, then fade them after inactivity.
+  const showControls = () => {
+    dialog.classList.remove('lb-controls-hidden');
+    clearTimeout(controlsTimer);
+
+    if (!dialog.open) return;
+
+    controlsTimer = setTimeout(() => {
+      if (!dialog.contains(document.activeElement)) {
+        dialog.classList.add('lb-controls-hidden');
+      }
+    }, 2500);
+  };
+
+  dialog.addEventListener('pointermove', showControls);
+  dialog.addEventListener('pointerdown', showControls);
+  dialog.addEventListener('focusin', showControls);
+  dialog.addEventListener('focusout', () => {
+    // Allow focus to move between viewer controls before checking it.
+    requestAnimationFrame(showControls);
+  });
+
   let currentList = [];
   let currentIndex = 0;
+  let openerElement = null;
+  let imageRequestId = 0;
+  let controlsTimer = null;
+  let lastTouchTap = 0;
 
   // Zoom configuration
   const MIN_ZOOM = 1;
@@ -357,7 +402,6 @@ scheduleScrollHighlight();
   let pinchLastCenter = null;
 
   let gestureMoved = false;
-  let lastTouchTap = 0;
 
   // Keep image movement inside the visible viewer
   const clampPosition = () => {
@@ -445,9 +489,11 @@ lightboxImage.style.cursor =
     }
 
     updateTransform();
+    showControls();
   };
 
-  // Display artwork
+  // Display artwork with request tracking so stale loads cannot replace
+  // a newer image after rapid navigation.
   const show = index => {
     if (!currentList.length) return;
 
@@ -455,48 +501,75 @@ lightboxImage.style.cursor =
       (index + currentList.length) % currentList.length;
 
     const artwork = currentList[currentIndex];
+    const requestId = ++imageRequestId;
 
     resetZoom();
 
-    /* Hide the previous image while the next one loads */
-lightboxImage.style.visibility = 'hidden';
+    lightboxImage.style.visibility = 'hidden';
+    lightboxImage.removeAttribute('src');
 
-lightboxImage.alt = alt(artwork);
+    statusElement.textContent = 'Loading artwork...';
+    statusElement.hidden = false;
 
-caption.innerHTML = `
-  <b>${esc(artwork.title)}</b>
-  <br>
-  ${esc([
-    artwork.category,
-    artwork.year,
-    artwork.medium
-  ].filter(Boolean).join(', '))}
-  ${artwork.description
-    ? '<br>' + esc(artwork.description)
-    : ''}
-`;
+    counterElement.textContent =
+      `${currentIndex + 1} / ${currentList.length}`;
 
-/* Show the new image only after it has loaded */
-const handleImageLoad = () => {
-  fitImage();
-  lightboxImage.style.visibility = 'visible';
-};
+    lightboxImage.alt = alt(artwork);
 
-lightboxImage.onload = handleImageLoad;
+    caption.innerHTML = `
+      <b>${esc(artwork.title)}</b>
+      <br>
+      ${esc([
+        artwork.category,
+        artwork.year,
+        artwork.medium
+      ].filter(Boolean).join(', '))}
+      ${artwork.description
+        ? '<br>' + esc(artwork.description)
+        : ''}
+    `;
 
-lightboxImage.onerror = () => {
-  lightboxImage.style.visibility = 'hidden';
-};
+    previousButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === currentList.length - 1;
 
-lightboxImage.src = artwork.image;
+    const handleImageLoad = () => {
+      if (requestId !== imageRequestId) return;
 
-/* Handle images that are already cached */
-if (lightboxImage.complete && lightboxImage.naturalWidth) {
-  handleImageLoad();
-}
+      fitImage();
+      lightboxImage.style.visibility = 'visible';
+      statusElement.hidden = true;
+      statusElement.textContent = '';
+    };
+
+    lightboxImage.onload = handleImageLoad;
+
+    lightboxImage.onerror = () => {
+      if (requestId !== imageRequestId) return;
+
+      lightboxImage.style.visibility = 'hidden';
+      statusElement.textContent =
+        'Sorry, this artwork could not be loaded.';
+      statusElement.hidden = false;
+    };
+
+    const imageSource = artwork.image || artwork.thumbnail || '';
+    if (!imageSource) {
+      lightboxImage.onerror();
+      showControls();
+      return;
+    }
+
+    lightboxImage.src = imageSource;
+
+    // Handle cached images without waiting for another load event.
+    if (lightboxImage.complete && lightboxImage.naturalWidth) {
+      handleImageLoad();
+    }
+
+    showControls();
   };
 
-  // Open artwork or commission poster
+  // Open artwork or commission poster.
   document.addEventListener('click', event => {
     const button = event.target.closest(
       '.art, .commission-poster'
@@ -528,12 +601,18 @@ if (lightboxImage.complete && lightboxImage.naturalWidth) {
     }
 
     currentList = artworkList;
+    openerElement = button;
+    lastTouchTap = 0;
+    pointers.clear();
 
     show(index);
 
     if (!dialog.open) {
       dialog.showModal();
     }
+
+    closeButton.focus();
+    showControls();
   });
 
   // Close viewer
@@ -588,7 +667,11 @@ if (lightboxImage.complete && lightboxImage.naturalWidth) {
   stage.addEventListener('pointerdown', event => {
     if (!['touch', 'pen', 'mouse'].includes(event.pointerType)) return;
 
-    event.preventDefault();
+    showControls();
+
+    if (event.pointerType !== 'mouse') {
+      event.preventDefault();
+    }
 
     stage.setPointerCapture(event.pointerId);
 
@@ -626,6 +709,8 @@ if (lightboxImage.complete && lightboxImage.naturalWidth) {
   // Pointer move: pan or pinch zoom
   stage.addEventListener('pointermove', event => {
     if (!pointers.has(event.pointerId)) return;
+
+    showControls();
 
     pointers.set(event.pointerId, {
       x: event.clientX,
@@ -680,7 +765,8 @@ if (lightboxImage.complete && lightboxImage.naturalWidth) {
     }
   });
 
-  // Pointer up: finish gesture and detect mobile swipes
+  // Finish gestures: double-tap toggles zoom both in and out; swipes
+  // navigate or close only when the image is at its fitted size.
   const finishPointer = event => {
     if (!pointers.has(event.pointerId)) return;
 
@@ -691,49 +777,58 @@ if (lightboxImage.complete && lightboxImage.naturalWidth) {
       pinchLastCenter = null;
     }
 
-    if (pointers.size === 0) {
-      const dx = event.clientX - startX;
-      const dy = event.clientY - startY;
+    if (pointers.size !== 0) return;
 
-      // Swipe navigation when image is not zoomed
-      if (!gestureMoved && zoom === 1) {
-        const now = Date.now();
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+    const isTouch = event.pointerType === 'touch';
+    const isTap =
+      !gestureMoved &&
+      Math.abs(dx) < 12 &&
+      Math.abs(dy) < 12;
 
-        if (
-          event.pointerType === 'touch' &&
-          now - lastTouchTap < 300
-        ) {
-          zoomAt(zoom === 1 ? 2.5 : 1);
-          lastTouchTap = 0;
-          return;
-        }
+    if (isTouch && isTap) {
+      const now = Date.now();
 
-        if (event.pointerType === 'touch') {
-          lastTouchTap = now;
-        }
+      if (lastTouchTap && now - lastTouchTap < 320) {
+        lastTouchTap = 0;
+
+        zoomAt(
+          zoom > MIN_ZOOM ? MIN_ZOOM : 2.5,
+          event.clientX,
+          event.clientY
+        );
+
+        showControls();
+        gestureMoved = false;
+        return;
       }
 
-      if (zoom === 1 && Math.abs(dx) > 65 && Math.abs(dx) > Math.abs(dy)) {
-        if (dx < 0) {
-          show(currentIndex + 1);
-        } else {
-          show(currentIndex - 1);
-        }
-      } else if (zoom === 1 && dy > 100 && Math.abs(dy) > Math.abs(dx)) {
-        dialog.close();
-      }
-
-      if (!gestureMoved && zoom > 1) {
-        // Keep zoomed image ready for the next drag
-        updateTransform();
-      }
-
-      if (zoom === 1) {
-        updateTransform();
-      } else {
-        lightboxImage.style.cursor = 'grab';
-      }
+      lastTouchTap = now;
+      showControls();
     }
+
+    if (
+      zoom === 1 &&
+      Math.abs(dx) > 65 &&
+      Math.abs(dx) > Math.abs(dy)
+    ) {
+      show(dx < 0 ? currentIndex + 1 : currentIndex - 1);
+    } else if (
+      isTouch &&
+      zoom === 1 &&
+      dy > 100 &&
+      Math.abs(dy) > Math.abs(dx)
+    ) {
+      dialog.close();
+    }
+
+    updateTransform();
+
+    lightboxImage.style.cursor =
+      zoom > 1 ? 'grab' : 'default';
+
+    gestureMoved = false;
   };
 
   stage.addEventListener('pointerup', finishPointer);
@@ -741,7 +836,12 @@ if (lightboxImage.complete && lightboxImage.naturalWidth) {
 
   // Double-click zoom on desktop
   stage.addEventListener('dblclick', event => {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      return;
+    }
+
     event.preventDefault();
+    showControls();
 
     zoomAt(
       zoom === 1 ? 2.5 : 1,
@@ -752,6 +852,8 @@ if (lightboxImage.complete && lightboxImage.naturalWidth) {
 
   // Keyboard navigation
   dialog.addEventListener('keydown', event => {
+    showControls();
+
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
       show(currentIndex - 1);
@@ -777,15 +879,25 @@ if (lightboxImage.complete && lightboxImage.naturalWidth) {
 
   // Recalculate image dimensions when the viewer resizes
   window.addEventListener('resize', () => {
-    if (dialog.open) {
+    if (dialog.open && lightboxImage.naturalWidth) {
       fitImage();
     }
   });
 
-  // Clear gesture state when closing
+  // Restore focus to the artwork or poster that opened the viewer.
   dialog.addEventListener('close', () => {
+    clearTimeout(controlsTimer);
     pointers.clear();
+    lastTouchTap = 0;
     resetZoom();
+
+    dialog.classList.remove('lb-controls-hidden');
+
+    if (openerElement?.isConnected) {
+      openerElement.focus();
+    }
+
+    openerElement = null;
   });
 
 })();

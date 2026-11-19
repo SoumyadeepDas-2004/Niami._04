@@ -1,7 +1,5 @@
+/* 1. GLOBAL VARIABLES */
 
-/* =========================================
-   1. GLOBAL VARIABLES
-   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&display=swap');
 :root {
   --bg: #D4E2E8;
@@ -23,9 +21,7 @@
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-/* =========================================
-   2. RESET AND GLOBAL STYLES
-   ========================================= */
+/* 2. RESET AND GLOBAL STYLES */
 
 * {
   box-sizing: border-box;
@@ -67,9 +63,7 @@ a {
   color: inherit;
 }
 
-/* =========================================
-   3. TYPOGRAPHY
-   ========================================= */
+/* 3. TYPOGRAPHY */
 
 h1,
 h2 {
@@ -89,9 +83,7 @@ h2 {
   margin-top: 1.4em;
 }
 
-/* =========================================
-   4. LAYOUT
-   ========================================= */
+/* 4. LAYOUT */
 
 .wrap {
   max-width: 1200px;
@@ -107,9 +99,7 @@ section h2:first-child {
   margin-top: 0;
 }
 
-/* =========================================
-   5. ACCESSIBILITY
-   ========================================= */
+/* 5. ACCESSIBILITY */
 
 .skip {
   position: absolute;
@@ -130,10 +120,8 @@ section h2:first-child {
   outline-offset: 3px;
 }
 
-/* =========================================
-   6. HEADER AND NAVIGATION
-   ========================================= */
-/* Translucent header with a vertical light-center gradient */
+/* 6. HEADER AND NAVIGATION */
+
 header.site {
   position: sticky;
   top: 0;
@@ -188,8 +176,6 @@ nav a[aria-current] {
   color: inherit;
   cursor: pointer;
 }
-
-/* Mobile sidebar navigation */
 
 .sidebar-toggle,
 .mobile-sidebar,
@@ -286,9 +272,7 @@ nav a[aria-current] {
   }
 }
 
-/* =========================================
-   7. HOMEPAGE HERO
-   ========================================= */
+/* 7. HOMEPAGE HERO */
 
 .hero {
   padding: clamp(2.5rem, 6vw, 5rem) 0 2rem;
@@ -321,18 +305,9 @@ nav a[aria-current] {
   }
 }
 
-/* =========================================
-   8. BUTTONS AND LINKS
-   ========================================= */
-
-/* =========================================
-   BUTTONS — VIBRANT BLUE
-   ========================================= */
+/* 8. BUTTONS AND LINKS */
 
 
-/* =========================================
-   8. BUTTONS AND LINKS
-   ========================================= */
 
 .btn,
 .btn.ghost {
@@ -347,7 +322,6 @@ nav a[aria-current] {
               background .25s ease, color .25s ease;
 }
 
-/* Primary button */
 .btn {
   background: var(--button-primary);
   color: #FFFFFF;
@@ -356,7 +330,6 @@ nav a[aria-current] {
   box-shadow: var(--shadow-button);
 }
 
-/* Secondary button */
 .btn.ghost {
   background: var(--button-secondary-hover);
   color: var(--ink);
@@ -365,7 +338,6 @@ nav a[aria-current] {
               border-color .25s ease, transform .25s ease;
 }
 
-/* Primary button hover — stronger lift and soft shadow */
 .btn:hover {
   background: var(--button-primary-hover);
   border-color: var(--button-primary-hover);
@@ -374,7 +346,6 @@ nav a[aria-current] {
   box-shadow: 0 12px 24px rgba(38, 63, 89, .25);
 }
 
-/* Secondary button hover — stronger lift and soft shadow */
 .btn.ghost:hover {
   background: var(--button-secondary-hover);
   color: var(--ink);
@@ -387,9 +358,7 @@ nav a[aria-current] {
   text-underline-offset: .25em;
 }
 
-/* =========================================
-   9. REDUCED MOTION ACCESSIBILITY
-   ========================================= */
+/* 9. REDUCED MOTION ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -401,10 +370,7 @@ nav a[aria-current] {
   }
 }
 
-
-/* =========================================
-   PAYMENT PAGE — TWO-CARD LAYOUT
-   ========================================= */
+/* 10. PAYMENT PAGE — TWO-CARD LAYOUT */
 
 .payment-page {
   padding-bottom: 5rem;
@@ -422,8 +388,6 @@ nav a[aria-current] {
   color: var(--mute);
   font-size: 1.05rem;
 }
-
-/* Two payment cards */
 
 .payment-cards {
   display: grid;
@@ -472,8 +436,6 @@ nav a[aria-current] {
   line-height: 1.7;
 }
 
-/* Payment method area */
-
 .payment-method {
   margin-top: 1.2rem;
   padding: 1.3rem;
@@ -499,8 +461,6 @@ nav a[aria-current] {
   margin-top: .8rem;
 }
 
-/* Payment email */
-
 .payment-email {
   display: flex;
   flex-direction: column;
@@ -518,8 +478,6 @@ nav a[aria-current] {
   overflow-wrap: anywhere;
   text-underline-offset: .25em;
 }
-
-/* QR code */
 
 .payment-qr {
   width: min(100%, 260px);
@@ -549,8 +507,6 @@ nav a[aria-current] {
   color: var(--mute);
 }
 
-/* Contact reminder */
-
 .payment-reminder {
   margin-top: 2rem;
   color: var(--mute);
@@ -558,15 +514,12 @@ nav a[aria-current] {
   font-size: .95rem;
 }
 
-/* Responsive */
-
 @media (max-width: 720px) {
   .payment-card {
     padding: 1.4rem;
   }
 }
 
-/* Tablet and mobile: stack payment cards vertically */
 @media (max-width: 760px) {
   .payment-cards {
     grid-template-columns: 1fr;
@@ -574,7 +527,6 @@ nav a[aria-current] {
   }
 }
 
-/* Small mobile screens */
 @media (max-width: 400px) {
   .payment-card {
     padding: 1.1rem;
@@ -628,9 +580,8 @@ nav a[aria-current] {
   height: 28px;
   object-fit: contain;
 }
-/* =========================================
-   11. PAGE TRANSITIONS
-   ========================================= */
+
+/* 11. PAGE TRANSITIONS */
 
 @view-transition {
   navigation: auto;
@@ -662,8 +613,6 @@ nav a[aria-current] {
   }
 }
 
-/* Respect reduced-motion preferences */
-
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),
   ::view-transition-new(root) {
@@ -671,9 +620,7 @@ nav a[aria-current] {
   }
 }
 
-/* =========================================
-   12. ARTWORK GRIDS
-   ========================================= */
+/* 12. ARTWORK GRIDS */
 
 [data-featured] {
   display: grid;
@@ -693,8 +640,6 @@ nav a[aria-current] {
   align-items: stretch;
 }
 
-/* Override previous masonry and column layouts */
-
 .masonry {
   columns: initial;
   column-count: initial;
@@ -702,9 +647,6 @@ nav a[aria-current] {
   column-gap: normal;
 }
 
-/* Individual artwork card */
-
-/* Premium artwork card */
 .art {
   display: flex;
   flex-direction: column;
@@ -725,8 +667,6 @@ nav a[aria-current] {
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
-/* Consistent portrait image frame (3:4) */
-
 .art .frame {
   display: flex;
   width: 100%;
@@ -735,8 +675,6 @@ nav a[aria-current] {
   border-radius: 12px;
   background: transparent;
 }
-
-/* Fill the portrait frame using cover sizing */
 
 .art .frame img {
   display: block;
@@ -750,17 +688,13 @@ nav a[aria-current] {
   transition: transform .35s ease;
 }
 
-/* Subtle professional hover effect */
-
-
-/* Artwork hover and selection border */
 @media (hover: hover) and (pointer: fine) {
   .art:hover {
   border: 1.3px solid #AFC5D2;
   border-width: 1.66px;
   transform: translateY(-3px);
   box-shadow: 0 12px 16px rgba(38, 63, 89, .28);
-  /* Match the image-caption divider to the card hover border */
+  
 }
 
   .art:hover .frame img {
@@ -768,7 +702,6 @@ nav a[aria-current] {
   }
 }
 
-/* Keyboard focus */
 .art:focus-visible {
   border-color: #263F59;
 }
@@ -777,8 +710,6 @@ nav a[aria-current] {
   outline: 2px solid var(--hl);
   outline-offset: 4px;
 }
-
-/* Artwork captions */
 
 .art .cap {
   display: flex;
@@ -789,7 +720,7 @@ nav a[aria-current] {
   min-height: 58px;
   padding: 12px;
   font-size: .9rem;
-/* Soft blue-white artwork caption */
+
 background: linear-gradient(
   135deg,
   #EAF1F4 0%,
@@ -809,9 +740,7 @@ background: linear-gradient(
   text-align: right;
 }
 
-/* =========================================
-   13. OTHER CONTENT LAYOUTS
-   ========================================= */
+/* 13. OTHER CONTENT LAYOUTS */
 
 .split {
   display: grid;
@@ -840,15 +769,11 @@ background: linear-gradient(
   margin-top: 2.5rem;
 }
 
-/* =========================================
-   14. GALLERY PAGE
-   ========================================= */
+/* 14. GALLERY PAGE */
 
 .page-head {
   padding-top: clamp(2.5rem, 6vw, 4.5rem);
 }
-
-/* Placeholder images */
 
 .ph {
   aspect-ratio: 4 / 5;
@@ -860,11 +785,7 @@ background: linear-gradient(
   color: var(--mute);
 }
 
-
-
-/* =========================================
-   15. DETAILS AND TABLES
-   ========================================= */
+/* 15. DETAILS AND TABLES */
 
 details {
   border-bottom: 1px solid var(--line);
@@ -888,9 +809,7 @@ td {
   border-bottom: 1px solid var(--line);
 }
 
-/* =========================================
-   16. FOOTER
-   ========================================= */
+/* 16. FOOTER */
 
 footer.site {
   background: linear-gradient(
@@ -908,16 +827,12 @@ footer.site a {
   text-decoration: none;
 }
 
-
-/* =========================================
-   17. LIGHTBOX — ADVANCED RESPONSIVE VIEWER
-   ========================================= */
+/* 17. LIGHTBOX — ADVANCED RESPONSIVE VIEWER */
 
 body:has(dialog[open]) {
   overflow: hidden;
 }
 
-/* Full-screen lightbox */
 .lb {
   position: fixed;
   inset: 0;
@@ -942,7 +857,6 @@ body:has(dialog[open]) {
   animation: fade .25s ease;
 }
 
-/* Image interaction area */
 .lb-stage {
   cursor: default;
   position: absolute;
@@ -956,7 +870,6 @@ body:has(dialog[open]) {
   -webkit-user-select: none;
 }
 
-/* Zoomable artwork */
 .lb-image {
   cursor: default;
   display: block;
@@ -976,7 +889,6 @@ body:has(dialog[open]) {
   transition: none;
 }
 
-/* Close, previous and next buttons */
 .lb button {
   position: absolute;
   z-index: 5;
@@ -1002,7 +914,6 @@ body:has(dialog[open]) {
   outline-offset: 4px;
 }
 
-/* Close button */
 .lb-x {
   top: 18px;
   right: 20px;
@@ -1011,7 +922,6 @@ body:has(dialog[open]) {
   font-size: 2rem;
 }
 
-/* Previous and next buttons */
 .lb-p,
 .lb-n {
   top: 50%;
@@ -1029,7 +939,6 @@ body:has(dialog[open]) {
   right: 20px;
 }
 
-/* Zoom controls */
 .lb-zoom-controls {
   position: absolute;
   z-index: 6;
@@ -1054,7 +963,6 @@ body:has(dialog[open]) {
   font-size: .85rem;
 }
 
-/* Artwork caption */
 .lb-caption {
   position: absolute;
   z-index: 4;
@@ -1070,7 +978,6 @@ body:has(dialog[open]) {
   text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
 }
 
-/* Mobile layout */
 @media (max-width: 650px) {
   .lb-x {
     top: 12px;
@@ -1113,7 +1020,6 @@ body:has(dialog[open]) {
   }
 }
 
-/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .lb[open],
   .lb button,
@@ -1123,18 +1029,14 @@ body:has(dialog[open]) {
   }
 }
 
-/* Existing fade animation */
 @keyframes fade {
   from {
     opacity: 0;
   }
 }
 
-/* =========================================
-   18. RESPONSIVE GRID
-   ========================================= */
+/* 18. RESPONSIVE GRID */
 
-/* Tablet */
 @media (max-width: 900px) {
   [data-featured] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1147,7 +1049,6 @@ body:has(dialog[open]) {
   }
 }
 
-/* Mobile */
 @media (max-width: 560px) {
   [data-featured],
   [data-preview],
@@ -1169,7 +1070,6 @@ body:has(dialog[open]) {
   }
 }
 
-/* Very small screens */
 @media (max-width: 359px) {
   [data-featured],
   [data-preview],
@@ -1177,7 +1077,9 @@ body:has(dialog[open]) {
     grid-template-columns: 1fr;
   }
 }
+
 /* Gallery loading placeholders */
+
 .art-skeleton {
   cursor: default;
   pointer-events: none;
@@ -1248,9 +1150,8 @@ footer.site .wrap {
     gap: 1.5rem;
   }
 }
-/* =========================================
-   19. COMMISSION PAGE
-   ========================================= */
+
+/* 19. COMMISSION PAGE */
 
 .commission-intro {
   max-width: 760px;
@@ -1261,7 +1162,6 @@ footer.site .wrap {
   color: var(--mute);
 }
 
-/* Commission status badge */
 .commission-status {
   display: inline-flex;
   align-items: center;
@@ -1278,15 +1178,11 @@ footer.site .wrap {
   box-shadow: 0 3px 10px rgba(49, 94, 67, .10);
 }
 
-/* Poster grid */
-
-/* Keyboard focus */
 .commission-poster:focus-visible {
   outline: 2px solid var(--hl);
   outline-offset: 4px;
 }
 
-/* Responsive layout */
 @media (max-width: 560px) {
   .commission-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1294,7 +1190,6 @@ footer.site .wrap {
   }
 }
 
-/* Single column on very narrow screens */
 @media (max-width: 359px) {
   .commission-gallery {
     grid-template-columns: 1fr;
@@ -1329,7 +1224,6 @@ footer.site .wrap {
   }
 }
 
-/* Home preview grid: keep visible space between artwork cards */
 main .masonry[data-preview] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 280px));
@@ -1357,7 +1251,6 @@ main .masonry[data-preview] {
   }
 }
 
-/* Mobile footer: center all content */
 @media (max-width: 650px) {
   footer.site .wrap {
     flex-direction: column;
@@ -1373,16 +1266,11 @@ main .masonry[data-preview] {
   }
 }
 
-
-/* =========================================
-  ABOUT PAGE REDESIGN
-   ========================================= */
+/* ABOUT PAGE REDESIGN */
 
 .about-page {
   padding: clamp(2.5rem, 6vw, 5rem) 0;
 }
-
-/* Main profile card */
 
 .about-card {
   display: grid;
@@ -1403,8 +1291,6 @@ main .masonry[data-preview] {
   box-shadow: 0 5px 20px rgba(38, 63, 89, .06);
 }
 
-/* Profile image */
-
 .about-photo {
   width: 100%;
   aspect-ratio: 1;
@@ -1422,8 +1308,6 @@ main .masonry[data-preview] {
   object-fit: cover;
   border-radius: 11px;
 }
-
-/* Profile information */
 
 .about-content {
   min-width: 0;
@@ -1477,8 +1361,6 @@ main .masonry[data-preview] {
   color: var(--hl);
 }
 
-/* Social section */
-
 .about-social-section {
    position: relative;
   max-width: 1100px;
@@ -1512,8 +1394,6 @@ main .masonry[data-preview] {
 .about-social-heading p {
   color: var(--mute);
 }
-
-/* Social cards */
 
 .about-social-grid {
   display: grid;
@@ -1572,8 +1452,6 @@ main .masonry[data-preview] {
   font-size: 1.1rem;
 }
 
-/* Bottom contact section */
-
 .about-contact {
   max-width: 1000px;
   margin: 3.5rem auto 0;
@@ -1605,8 +1483,6 @@ main .masonry[data-preview] {
   margin-top: 1.5rem;
 }
 
-/* Tablet */
-
 @media (max-width: 760px) {
   .about-card {
     grid-template-columns: minmax(0, 1fr);
@@ -1637,8 +1513,6 @@ main .masonry[data-preview] {
   }
 }
 
-/* Small mobile */
-
 @media (max-width: 400px) {
   .about-card {
     padding: 1.2rem;
@@ -1657,10 +1531,11 @@ main .masonry[data-preview] {
     text-align: center;
   }
 }
+
 /* About page — mobile social icons */
+
 @media (max-width: 650px) {
 
-  /* Four icons in one horizontal row */
   .about-social-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1668,12 +1543,10 @@ main .masonry[data-preview] {
     gap: 12px;
   }
 
-  /* Remove all text and arrows, keeping only SVG image icons */
   .about-social-card > :not(img) {
     display: none !important;
   }
 
-  /* Remove old card appearance */
   .about-social-card {
     display: flex;
     justify-content: center;
@@ -1695,7 +1568,6 @@ main .masonry[data-preview] {
     transform: none;
   }
 
-  /* Icon sizing */
   .about-social-card img {
     display: block;
     width: 34px;
@@ -1704,17 +1576,13 @@ main .masonry[data-preview] {
     object-fit: contain;
   }
 }
-/* =========================================
-   COMMISSIONS PAGE REDESIGN
-========================================= */
+
+/* COMMISSIONS PAGE REDESIGN */
 
 .commissions-page {
   background: #E3EBEF;
 }
 
-
-
-/* Commission status — compact pill above the information section */
 .commissions-page .commission-status {
   display: flex;
 width: fit-content;
@@ -1728,8 +1596,6 @@ width: fit-content;
   font-weight: 650;
   background: rgba(255, 255, 255, .45);
 }
-
-/* INFORMATION SECTION */
 
 .commission-information {
    padding: 1rem 0 clamp(3.5rem, 7vw, 5.5rem);
@@ -1754,11 +1620,6 @@ width: fit-content;
   margin: 0;
 }
 
-
-/* POSTER GRID — MATCH GALLERY CARDS */
-
-/* Commission poster grid — centered with a smaller gap */
-/* Commission poster grid — smaller centered posters */
 .commission-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 420px));
@@ -1769,7 +1630,6 @@ width: fit-content;
   align-items: stretch;
   margin: 2rem auto 0;
 }
-
 
 .commission-poster {
 justify-self: center;
@@ -1793,17 +1653,6 @@ justify-self: center;
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
-/* Commission poster image — match Artwork Gallery image sizing */
-/* Preserve the original commission poster proportions */
-/* .commission-poster img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-  border: 1px solid transparent;
-  transition: transform .35s ease;
-} */
 .commission-poster img {
   display: block;
   width: 100%;
@@ -1815,7 +1664,7 @@ justify-self: center;
   transition: transform .35s ease;
 }
 @media (hover: hover) and (pointer: fine) {
-  /* Match the artwork card hover effect */
+  
 .commission-poster:hover {
   border: 1.3px solid #AFC5D2;
   border-width: 1.66px;
@@ -1845,7 +1694,7 @@ text-align: center;
   padding: 12px;
   font-size: 0.9rem;
   font-weight: 100;
-/* Soft pastel gradient for commission poster captions */
+
 background: linear-gradient(
   135deg,
   #FCECC0 0%,
@@ -1854,7 +1703,7 @@ background: linear-gradient(
 );
   color: var(--ink);
 }
-/* Centre commission poster caption text */
+
 .commission-poster-caption > span {
   display: block;
   width: 100%;
@@ -1876,13 +1725,10 @@ background: linear-gradient(
   text-align: right;
 }
 
-/* CONTACT SECTION */
-
 .commission-contact {
   padding: 1rem 0 clamp(4rem, 8vw, 6rem);
 }
 
-/* Commission contact card — match the Gallery hero */
 .commission-contact-card {
   position: relative;
   overflow: hidden;
@@ -1906,7 +1752,6 @@ background: linear-gradient(
     0 20px 35px rgba(38, 63, 89, .12);
 }
 
-/* Decorative sparkle */
 .commission-contact-card::before {
   content: "✦";
   position: absolute;
@@ -1917,7 +1762,6 @@ background: linear-gradient(
   opacity: .75;
 }
 
-/* Decorative heart */
 .commission-contact-card::after {
   content: "♡";
   position: absolute;
@@ -1967,7 +1811,7 @@ background: linear-gradient(
     margin-left: 0;
     text-align: left;
   }
-  /* Mobile contact card — match Gallery hero proportions */
+  
 .commission-contact-card {
   width: calc(100% - 32px);
   margin-inline: auto;
@@ -1989,27 +1833,21 @@ background: linear-gradient(
   opacity: .5;
 }
 
-
 @media (max-width: 359px) {
   .commission-gallery {
     grid-template-columns: 1fr;
   }
 }
 
-
-
-/* =========================================
-   GALLERY — 
-   ========================================= */
+/* GALLERY PAGE — DESIGN AND COMPONENTS */
 
 /* Gallery background — preserve existing page background */
+
 .gallery-page {
   background: #E3EBEF;
 }
 
-/* -----------------------------------------
-   1. GALLERY HERO
-   ----------------------------------------- */
+/* 1. GALLERY HERO */
 
 .gallery-page .gallery-hero {
   padding: clamp(2rem, 4vw, 3rem) 0;
@@ -2039,7 +1877,6 @@ background: linear-gradient(
     0 20px 35px rgba(38, 63, 89, .12);
 }
 
-/* Small decorative sparkles */
 .gallery-page .gallery-hero .wrap::before {
   content: "✦";
   position: absolute;
@@ -2076,14 +1913,12 @@ background: linear-gradient(
   color: #536B7D;
   font-size: 1.1rem;
 }
-/* Muted red filled heart in the gallery heading */
+
 .gallery-page .gallery-hero h1 .heart {
   color: #B97880;
 }
 
-/* -----------------------------------------
-   2. ARTWORK COLLECTION
-   ----------------------------------------- */
+/* 2. ARTWORK COLLECTION */
 
 .gallery-page .gallery-collection {
   padding: 1.8rem 0 4rem;
@@ -2100,12 +1935,8 @@ background: linear-gradient(
   margin: 0;
 }
 
-/* -----------------------------------------
-   3. CUTE SEGMENTED FILTER BUTTONS
-   ----------------------------------------- */
+/* 3. CUTE SEGMENTED FILTER BUTTONS */
 
-
-/* Animated gallery toggle */
 .gallery-page .filters {
   position: relative;
   isolation: isolate;
@@ -2121,7 +1952,6 @@ background: linear-gradient(
   border-radius: 999px;
 }
 
-/* Sliding selection indicator */
 .gallery-page .filters::before {
   content: "";
   position: absolute;
@@ -2135,14 +1965,12 @@ background: linear-gradient(
   transition: transform .35s cubic-bezier(.22, 1, .36, 1);
 }
 
-/* Slide indicator to All Artwork */
 .gallery-page .filters:has(
   button[data-collection="all"][aria-pressed="true"]
 )::before {
   transform: translateX(100%);
 }
 
-/* Toggle labels */
 .gallery-page .filters button {
   flex: 1;
   position: relative;
@@ -2160,7 +1988,6 @@ background: linear-gradient(
   transition: color .25s ease;
 }
 
-/* Selected label */
 .gallery-page .filters button[aria-pressed="true"] {
   background: transparent;
   color: #FFFFFF;
@@ -2168,13 +1995,11 @@ background: linear-gradient(
   box-shadow: none;
 }
 
-/* Keyboard focus */
 .gallery-page .filters button:focus-visible {
   outline: 2px solid #A97891;
   outline-offset: 2px;
 }
 
-/* Mobile sizing */
 @media (max-width: 560px) {
   .gallery-page .filters button {
     min-width: 0;
@@ -2182,7 +2007,7 @@ background: linear-gradient(
     font-size: .85rem;
   }
 }
-/* Disable hover colour changes on gallery filters */
+
 .gallery-page .filters button:hover,
 .gallery-page .filters button:not([aria-pressed="true"]):hover {
   background: transparent;
@@ -2190,34 +2015,28 @@ background: linear-gradient(
   border-color: transparent;
 }
 
-
-
-/* Keep gallery toggle completely still on hover */
 .gallery-page .filters button:hover {
   transform: none;
   box-shadow: none;
 }
 
-/* Prevent hover movement on the toggle container */
 .gallery-page .filters:hover {
   transform: none;
 }
-/* Keep selected filter text white on hover */
+
 .gallery-page .filters button[aria-pressed="true"]:hover {
   color: #FFFFFF;
   background: transparent;
   border-color: transparent;
 }
 
-/* Keep unselected filter text unchanged on hover */
 .gallery-page .filters button:not([aria-pressed="true"]):hover {
   color: #344F68;
   background: transparent;
   border-color: transparent;
 }
-/* -----------------------------------------
-   4. ARTWORK GRID
-   ----------------------------------------- */
+
+/* 4. ARTWORK GRID */
 
 .gallery-page [data-gallery] {
   display: grid;
@@ -2228,9 +2047,8 @@ background: linear-gradient(
   width: 100%;
 }
 
-/* -----------------------------------------
-   5. ARTWORK CARD — PASTEL FINISH
-   ----------------------------------------- */
+/* 5. ARTWORK CARD — PASTEL FINISH */
+
    .gallery-page .art {
   background: #F8FAFB;
   border: 1.3px solid #C5D7E0;
@@ -2242,19 +2060,17 @@ background: linear-gradient(
     border-color .3s ease;
 }
 
-/* Keep original image proportions and cropping */
 .gallery-page .art .frame {
   border-radius: 14px;
   overflow: hidden;
 }
 
-/* Smooth artwork hover animation */
 .gallery-page .art .frame img {
   transition:
     transform .4s ease,
     filter .4s ease;
 }
-/* Soft pastel caption */
+
 .gallery-page .art .cap {
 background: linear-gradient(
   135deg,
@@ -2262,12 +2078,6 @@ background: linear-gradient(
   #FCF7E9 45%,
   #EAF1F4 80%
 );
-   /* background: linear-gradient(
-  135deg,
-  #FCECC0 0%,
-  #FCF7E9 50%,
-  #FFFFFF 100%
-); */
 
   color: #263F59;
   border-top: 1px solid #D5E0E6;
@@ -2283,7 +2093,6 @@ background: linear-gradient(
   color: #7188A8;
 }
 
-/* Card hover */
 @media (hover: hover) and (pointer: fine) {
   .gallery-page .art:hover {
     border-color: #D4A943;
@@ -2293,7 +2102,6 @@ background: linear-gradient(
 
   }
 
-  /* Artwork highlight on hover */
 .gallery-page .art:hover .frame img {
   transform: scale(1.045);
   filter: saturate(1.12) contrast(1.04) brightness(1.03);
@@ -2306,29 +2114,18 @@ background: linear-gradient(
   #FFFCF6 45%,
   #F7FAFC 80%
 );
-  /* background: linear-gradient(
-    135deg,
-    #FCF0D2 0%,
-    #FFF5E1 20%,
-    #FFFAF0 80%
-  ); */
+  
 }
 } 
 
-/* Keyboard focus */
 .gallery-page .art:focus-visible {
   outline: 2px solid #647697;
   outline-offset: 4px;
 }
 
-
-
-
-/* Mobile — reproduce hover effects on the card highlighted while scrolling */
 @media (hover: none) and (pointer: coarse) {
   .gallery-page .art.is-scroll-active {
-    /* border-color: #D4A943;
-    border-width: 1.66px; */
+    
     transform: translateY(-4px);
     box-shadow: 0 12px 22px rgba(38, 63, 89, .16);
   }
@@ -2338,18 +2135,9 @@ background: linear-gradient(
     filter: saturate(1.12) contrast(1.04) brightness(1.03);
   }
 
-  /* .gallery-page .art.is-scroll-active .cap {
-    background: linear-gradient(
-      135deg,
-      #FCF0D2 0%,
-      #FFF5E1 20%,
-      #FFFAF0 80%
-    );
-  } */
 }
-/* -----------------------------------------
-   6. GALLERY CONTACT
-   ----------------------------------------- */
+
+/* 6. GALLERY CONTACT */
 
 .gallery-page .gallery-contact {
   padding: 0 0 5rem;
@@ -2379,24 +2167,19 @@ background: linear-gradient(
   color: #536B7D;
 }
 
-/* -----------------------------------------
-   7. RESPONSIVE DESIGN
-   ----------------------------------------- */
+/* 7. RESPONSIVE DESIGN */
 
-/* Tablet */
 @media (max-width: 900px) {
   .gallery-page [data-gallery] {
     grid-template-columns: repeat(2, minmax(0, 260px));
   }
 }
 
-/* Mobile */
 @media (max-width: 560px) {
   .gallery-page .gallery-hero {
     padding: 1.5rem 0;
   }
 
- /* Mobile gallery hero — create space on both sides */
 .gallery-page .gallery-hero .wrap {
   width: calc(100% - 32px);
   margin-inline: auto;
@@ -2428,17 +2211,6 @@ background: linear-gradient(
     font-size: .9rem;
   }
 
-/* Mobile gallery — add more space from the screen edges */
-/* .gallery-page [data-gallery] {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  padding-inline: 20px;
-  width: 100%;
-  box-sizing: border-box;
-} */
-
-/* Mobile gallery — one centered column, 20% wider cards */
-/* Mobile gallery — one centered column, 90% wider cards */
 .gallery-page [data-gallery] {
   grid-template-columns: minmax(0, calc(95% - 15.2px));
   justify-content: center;
@@ -2447,9 +2219,7 @@ background: linear-gradient(
   width: 100%;
   box-sizing: border-box;
 }
-  /* Mobile gallery captions — stack title and category vertically */
-  /* Mobile gallery captions — dynamic height */
-  /* Mobile — center artwork caption content */
+
 .gallery-page .art .cap {
   flex-direction: column;
   align-items: center;
@@ -2467,24 +2237,7 @@ background: linear-gradient(
   width: 100%;
   text-align: center;
 }
-/* .gallery-page .art .cap {
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 4px;
-  min-height: 0;
-  height: auto;
-  padding: 12px;
-  text-align: left;
-  line-height: 1.4;
-}
 
-  .gallery-page .art .cap b,
-  .gallery-page .art .cap i {
-    width: 100%;
-    text-align: left;
-  } */
-  /* Mobile gallery hero — keep decorations away from the text */
   .gallery-page .gallery-hero .wrap::before {
     top: 10px;
     left: 12px;
@@ -2500,14 +2253,12 @@ background: linear-gradient(
   }
 }
 
-/* Very small mobile */
 @media (max-width: 359px) {
   .gallery-page [data-gallery] {
     grid-template-columns: 1fr;
   }
 }
 
-/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .gallery-page .filters button,
   .gallery-page .art {
@@ -2515,19 +2266,14 @@ background: linear-gradient(
   }
 }
 
-
-/* =========================================
-   HOMEPAGE — CUTE ARTISTIC REDESIGN
-   ========================================= */
+/* HOMEPAGE — CUTE ARTISTIC REDESIGN */
 
 .home-page {
   overflow: hidden;
   background: #E3EBEF;
 }
 
-/* -----------------------------------------
-   1. HERO SECTION
-   ----------------------------------------- */
+/* 1. HERO SECTION */
 
 .home-page .home-hero {
   padding: clamp(2.5rem, 6vw, 5rem) 0;
@@ -2549,14 +2295,12 @@ background: linear-gradient(
 
   border: 1px solid var(--line);
   border-radius: 28px;
-  /* box-shadow: 0 14px 38px rgba(38, 63, 89, 0.22); */
-  /* Soft, natural fabric-like shadow */
+
 box-shadow:
   0 8px 15px rgba(38, 63, 89, 0.10),
   0 20px 35px rgba(38, 63, 89, 0.16),
   0 35px 55px rgba(38, 63, 89, 0.08);
 }
-
 
 .home-hero-content {
   position: relative;
@@ -2568,8 +2312,6 @@ box-shadow:
   max-width: 850px;
   margin: 0 auto;
 }
-
-/* Profile image */
 
 .home-profile-frame {
   position: relative;
@@ -2607,8 +2349,6 @@ box-shadow:
   font-size: 1.25rem;
 }
 
-/* Introduction */
-
 .home-introduction {
   flex: 1;
   min-width: 0;
@@ -2635,7 +2375,7 @@ box-shadow:
   margin: 1.1rem 0 .8rem;
   color: #647697;
   font-family: var(--serif);
-  /* font-size: clamp(3rem, 6vw, 4.8rem); */
+  
   font-size: clamp(3rem, 4vw, 3.2rem);
   line-height: 1.08;
 }
@@ -2666,8 +2406,6 @@ box-shadow:
   line-height: 1.8;
 }
 
-/* Hero buttons */
-
 .home-hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -2678,8 +2416,6 @@ box-shadow:
 .home-hero-actions .btn {
   text-align: center;
 }
-
-/* Decorative details */
 
 .home-hero-decoration {
   position: absolute;
@@ -2728,10 +2464,7 @@ box-shadow:
   font-size: 1rem;
 }
 
-
-/* -----------------------------------------
-   2. SELECTED ARTWORK
-   ----------------------------------------- */
+/* 2. SELECTED ARTWORK */
 
 .home-page .home-artwork {
   padding: clamp(3rem, 6vw, 5rem) 0;
@@ -2772,8 +2505,6 @@ box-shadow:
   font-size: 1.8rem;
 }
 
-/* Keep existing artwork cards and sizing */
-
 .home-page .preview-layout {
   display: flex;
   align-items: center;
@@ -2801,9 +2532,7 @@ box-shadow:
   row-gap: 24px;
 }
 
-/* -----------------------------------------
-   3. ABOUT SECTION
-   ----------------------------------------- */
+/* 3. ABOUT SECTION */
 
 .home-page .home-about {
   padding: clamp(3.5rem, 7vw, 5.5rem) 0;
@@ -2877,10 +2606,7 @@ box-shadow:
   color: var(--hl);
 }
 
-
-/* -----------------------------------------
-   4. COMMISSION INVITATION
-   ----------------------------------------- */
+/* 4. COMMISSION INVITATION */
 
 .home-page .home-commission {
   padding: 0 0 clamp(3.5rem, 7vw, 5.5rem);
@@ -2931,12 +2657,7 @@ box-shadow:
   font-size: 2rem;
 }
 
-
-/* -----------------------------------------
-   5. RESPONSIVE DESIGN
-   ----------------------------------------- */
-
-/* Tablet */
+/* 5. RESPONSIVE DESIGN */
 
 @media (max-width: 900px) {
   .home-page .preview-layout {
@@ -2952,8 +2673,6 @@ box-shadow:
     justify-content: flex-end;
   }
 }
-
-/* Mobile */
 
 @media (max-width: 650px) {
   .home-page .home-hero {
@@ -3053,8 +2772,6 @@ box-shadow:
   }
 }
 
-/* Very small screens */
-
 @media (max-width: 359px) {
   .home-page .masonry[data-preview] {
     grid-template-columns: 1fr;
@@ -3073,14 +2790,11 @@ box-shadow:
   }
 }
 
-/* Reduced motion */
-
 @media (prefers-reduced-motion: reduce) {
   .home-page .home-hero-card {
     animation: none;
   }
 }
-/* Center Payment Page Heading */
 
 .payment-page .payment-heading {
   text-align: center;
@@ -3095,14 +2809,14 @@ box-shadow:
   margin: 0 auto;
   text-align: center;
 }
-/* Make the website's background image visible behind all main pages */
+
 main,
 main.home-page,
 main.gallery-page,
 main.commissions-page {
   background: transparent;
 }
-/* Soft blue-white overlay over the homepage background image */
+
 main.home-page {
   background-image:
     linear-gradient(
@@ -3116,16 +2830,13 @@ main.home-page {
   background-repeat: repeat;
   background-attachment: scroll;
 }
-/* =========================================
-   HOMEPAGE DECORATIVE FLOATING ANIMATION
-   ========================================= */
 
-/* More noticeable floating movement */
+/* HOMEPAGE DECORATIVE FLOATING ANIMATION */
+
 .home-hero-decoration {
   animation: gentle-float 2.5s ease-in-out infinite;
 }
 
-/* Stagger each decoration's movement */
 .home-decoration-two {
   animation-delay: .6s;
 }
@@ -3134,7 +2845,6 @@ main.home-page {
   animation-delay: 1.2s;
 }
 
-/* Move decorations visibly up and down */
 @keyframes gentle-float {
   0%, 100% {
     translate: 0 0;
@@ -3145,13 +2855,12 @@ main.home-page {
   }
 }
 
-/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .home-hero-decoration {
     animation: none;
   }
 }
-/* Soft blue-white overlay over the gallery background image */
+
 main.gallery-page{
   background-image:
     linear-gradient(
@@ -3165,7 +2874,7 @@ main.gallery-page{
   background-repeat: repeat;
   background-attachment: scroll;
 }
-/* Mobile gallery — slightly zoom in the background image */
+
 @media (max-width: 560px) {
   main.gallery-page {
     background-size: 310% auto;
@@ -3175,7 +2884,6 @@ main.gallery-page{
   }
 }
 
-/* Soft blue-white overlay over the commission background image */
 main.commissions-page {
   background-image:
     linear-gradient(
@@ -3190,7 +2898,6 @@ main.commissions-page {
   background-attachment: scroll;
 }
 
-/* Mobile commission page — slightly zoom in the background image */
 @media (max-width: 560px) {
   main.commissions-page {
   background-size: 310% auto;
@@ -3200,20 +2907,8 @@ main.commissions-page {
   }
 }
 
+/* COMMISSIONS — NEW SPLIT LAYOUT Preserves existing colours and functionality */
 
-
-
-
-
-
-
-
-/* =========================================
-   COMMISSIONS — NEW SPLIT LAYOUT
-   Preserves existing colours and functionality
-   ========================================= */
-
-/* Main two-column composition */
 .commissions-page .commission-layout {
   display: grid;
   grid-template-columns: minmax(180px, 0.6fr) minmax(0, 2fr);
@@ -3221,21 +2916,18 @@ main.commissions-page {
   gap: clamp(2rem, 4vw, 3.5rem);
 }
 
-/* Left introduction */
 .commissions-page .commission-section-heading {
   max-width: none;
   margin: 0;
   text-align: left;
 }
 
-/* Status pill */
 .commissions-page .commission-section-heading .commission-status {
   margin: 0 0 2rem;
   padding: 1rem 2rem;
   font-size: 1.1rem;
 }
 
-/* Introduction heading */
 .commissions-page .commission-section-heading h1 {
   margin: .7rem 0 1rem;
   color: var(--ink);
@@ -3244,7 +2936,6 @@ main.commissions-page {
   line-height: 1.15;
 }
 
-/* Introduction paragraph */
 .commissions-page .commission-section-heading p {
   max-width: 360px;
   margin: 0;
@@ -3252,7 +2943,6 @@ main.commissions-page {
   line-height: 1.8;
 }
 
-/* Small decorative note */
 .commissions-page .commission-intro-note {
   display: block;
   margin-top: 1.5rem;
@@ -3261,7 +2951,6 @@ main.commissions-page {
   font-size: 1.05rem;
 }
 
-/* Poster collection */
 .commissions-page .commission-gallery {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   max-width: none;
@@ -3271,26 +2960,22 @@ main.commissions-page {
   transform: translateX(40px);
 }
 
-/* Softer, rounded poster cards */
 .commissions-page .commission-poster {
   height: auto;
   border-radius: 22px;
   overflow: hidden;
 }
-/* Caption integrated with the rounded poster card */
+
 .commissions-page .commission-poster-caption {
   border-radius: 0 0 22px 22px;
   padding: 12px 14px;
   min-height: 52px;
 }
 
-
-/* Contact section spacing */
 .commissions-page .commission-contact {
   padding-top: 0;
 }
 
-/* Horizontal contact layout */
 .commissions-page .commission-contact-card {
   display: flex;
   align-items: center;
@@ -3300,7 +2985,6 @@ main.commissions-page {
   text-align: left;
 }
 
-/* Contact text */
 .commissions-page .commission-contact-content {
   min-width: 0;
 }
@@ -3314,11 +2998,12 @@ main.commissions-page {
   margin: 0;
 }
 
-/* Keep the button from shrinking */
 .commissions-page .commission-contact-card .btn {
   flex-shrink: 0;
 }
+
 /* Terms of Service — matching the contact card design */
+
 .commissions-page .commission-terms-card {
   grid-column: 1 / -1;
   position: relative;
@@ -3341,7 +3026,7 @@ main.commissions-page {
     0 8px 15px rgba(38, 63, 89, .10),
     0 20px 35px rgba(38, 63, 89, .12);
 }
-/* Commission hero card */
+
 .commission-hero {
   position: relative;
   overflow: hidden;
@@ -3364,7 +3049,7 @@ main.commissions-page {
     0 8px 15px rgba(38, 63, 89, .10),
     0 20px 35px rgba(38, 63, 89, .12);
 }
-/* Decorative sparkle */
+
 .commission-hero::before {
   content: "✦";
   position: absolute;
@@ -3376,7 +3061,6 @@ main.commissions-page {
   pointer-events: none;
 }
 
-/* Decorative heart */
 .commission-hero::after {
   content: "♡";
   position: absolute;
@@ -3404,7 +3088,6 @@ main.commissions-page {
   margin: 0 auto;
 }
 
-/* Mobile */
 @media (max-width: 650px) {
   .commission-hero {
     width: calc(100% - 32px);
@@ -3416,7 +3099,7 @@ main.commissions-page {
     font-size: 2.2rem;
   }
 }
-/* Terms heading — stronger visual hierarchy */
+
 .commissions-page .commission-terms-card h2 {
   margin: .7rem 0 1.8rem;
   color: var(--ink);
@@ -3426,9 +3109,9 @@ main.commissions-page {
   letter-spacing: -.025em;
   color: #647697;
 }
-/* Tablet and mobile layout */
+
 @media (max-width: 850px) {
-  /* Compact mobile poster captions */
+  
 .commissions-page .commission-poster-caption {
   min-height: 42px;
   padding: 7px 10px;
@@ -3447,7 +3130,6 @@ main.commissions-page {
     text-align: center;
   }
 
-  /* Smaller commission status pill on mobile */
 .commissions-page .commission-section-heading .commission-status {
   display: flex;
   width: fit-content;
@@ -3482,7 +3164,6 @@ main.commissions-page {
   }
 }
 
-/* Small mobile screens */
 @media (max-width: 560px) {
 
   .commissions-page .commission-layout {
@@ -3504,7 +3185,6 @@ main.commissions-page {
   }
 }
 
-/* Very narrow screens */
 @media (max-width: 359px) {
 
   .commissions-page .commission-gallery {
@@ -3512,30 +3192,24 @@ main.commissions-page {
   }
 }
 
-/* =========================================
-   TERMS OF SERVICE — MOBILE ACCORDION
-   ========================================= */
+/* TERMS OF SERVICE — MOBILE ACCORDION */
 
-/* Hidden on desktop */
 .commissions-page .commission-terms-mobile {
   display: none;
 }
 
 @media (max-width: 560px) {
 
-  /* Hide the original desktop two-column list on mobile */
   .commissions-page .commission-terms-card > ul {
     display: none;
   }
 
-  /* Show mobile accordion */
   .commissions-page .commission-terms-mobile {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  /* Individual expandable sections */
   .commissions-page .terms-group {
     background: rgba(255, 255, 255, .48);
     border: 1px solid rgba(197, 215, 224, .7);
@@ -3543,7 +3217,6 @@ main.commissions-page {
     overflow: hidden;
   }
 
-  /* Accordion heading */
   .commissions-page .terms-group summary {
     display: flex;
     align-items: center;
@@ -3556,12 +3229,10 @@ main.commissions-page {
     list-style: none;
   }
 
-  /* Remove default browser marker */
   .commissions-page .terms-group summary::-webkit-details-marker {
     display: none;
   }
 
-  /* Number decoration */
   .commissions-page .terms-group summary span {
     display: flex;
     align-items: center;
@@ -3576,7 +3247,6 @@ main.commissions-page {
     font-weight: 700;
   }
 
-  /* Expand/collapse indicator */
   .commissions-page .terms-group summary::after {
     content: "+";
     margin-left: auto;
@@ -3589,12 +3259,10 @@ main.commissions-page {
     content: "−";
   }
 
-  /* Divider below expanded heading */
   .commissions-page .terms-group[open] summary {
     border-bottom: 1px solid rgba(189, 206, 216, .55);
   }
 
-  /* Terms inside each section */
   .commissions-page .terms-group ul {
     display: flex;
     flex-direction: column;
@@ -3615,7 +3283,6 @@ main.commissions-page {
     line-height: 1.65;
   }
 
-  /* Pink heart bullets */
   .commissions-page .terms-group li::before {
     content: "♥";
     position: absolute;
@@ -3630,7 +3297,6 @@ main.commissions-page {
     font-weight: 600;
   }
 
-  /* Closing note */
   .commissions-page .terms-footer-note {
     margin: 8px 0 0;
     color: #A97891;
@@ -3640,10 +3306,7 @@ main.commissions-page {
   }
 }
 
-
-/* =========================================
-   TERMS — THREE CATEGORY DESKTOP GRID
-   ========================================= */
+/* TERMS — THREE CATEGORY DESKTOP GRID */
 
 .commissions-page .commission-terms-desktop {
   display: grid;
@@ -3651,7 +3314,6 @@ main.commissions-page {
   gap: 14px;
 }
 
-/* Category cards */
 .commissions-page .commission-terms-desktop .terms-group {
   min-width: 0;
   padding: 16px 18px;
@@ -3660,7 +3322,6 @@ main.commissions-page {
   border-radius: 16px;
 }
 
-/* Category heading */
 .commissions-page .commission-terms-desktop .terms-group h3 {
   display: flex;
   align-items: center;
@@ -3671,7 +3332,6 @@ main.commissions-page {
   font-weight: 600;
 }
 
-/* Number decoration — matching mobile */
 .commissions-page .commission-terms-desktop .terms-group h3 span {
   display: inline-flex;
   align-items: center;
@@ -3686,7 +3346,6 @@ main.commissions-page {
   font-weight: 700;
 }
 
-/* Terms list */
 .commissions-page .commission-terms-desktop .terms-group ul {
   display: flex;
   flex-direction: column;
@@ -3698,7 +3357,6 @@ main.commissions-page {
   border: none;
 }
 
-/* Individual terms */
 .commissions-page .commission-terms-desktop .terms-group li {
   position: relative;
   padding-left: 21px;
@@ -3707,7 +3365,6 @@ main.commissions-page {
   line-height: 1.6;
 }
 
-/* Pink heart bullets */
 .commissions-page .commission-terms-desktop .terms-group li::before {
   content: "♥";
   position: absolute;
@@ -3717,18 +3374,15 @@ main.commissions-page {
   font-size: .72rem;
 }
 
-/* Emphasized text */
 .commissions-page .commission-terms-desktop .terms-group strong {
   color: #647697;
   font-weight: 600;
 }
 
-/* Third category spans the full row */
 .commissions-page .commission-terms-desktop .terms-group:last-child {
   grid-column: 1 / -1;
 }
 
-/* Keep existing mobile accordion unchanged */
 @media (max-width: 560px) {
   .commissions-page .commission-terms-desktop {
     display: none;
@@ -3736,6 +3390,7 @@ main.commissions-page {
 }
 
 /* Payment page background image with soft blue-white overlay */
+
 main > .payment-page {
   background-image:
     linear-gradient(
@@ -3750,7 +3405,6 @@ main > .payment-page {
   background-attachment: scroll;
 }
 
-/* Mobile payment page — zoomed background */
 @media (max-width: 560px) {
   main > .payment-page {
     background-size: 310% auto;
@@ -3759,11 +3413,9 @@ main > .payment-page {
     background-attachment: scroll;
   }
 }
-/* =========================================
-   PAYMENT PAGE — MATCH WEBSITE HERO DESIGN
-   ========================================= */
 
-/* Page background */
+/* PAYMENT PAGE — MATCH WEBSITE HERO DESIGN */
+
 main:has(.payment-page) {
   background: #E3EBEF;
 }
@@ -3773,7 +3425,6 @@ main:has(.payment-page) {
   padding-bottom: 5rem;
 }
 
-/* Payment heading — same design as Gallery hero */
 .payment-page .payment-heading {
   position: relative;
   overflow: hidden;
@@ -3835,12 +3486,9 @@ main:has(.payment-page) {
   font-size: 1.1rem;
 }
 
-/* Payment cards — richer blue-white pastel */
 .payment-page .payment-card {
   background: linear-gradient(
-    /* 145deg,
-    #F8FAFB 0%,
-    #EAF1F4 100% */
+    
     135deg,
     #E5EDF1 0%,
     #F4F7F8 100%
@@ -3863,7 +3511,6 @@ main:has(.payment-page) {
   }
 }
 
-/* Payment card headings */
 .payment-page .payment-card-heading {
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(189, 206, 216, .7);
@@ -3873,13 +3520,8 @@ main:has(.payment-page) {
   color: #647697;
 }
 
-/* Inner payment method panel */
 .payment-page .payment-method {
-  /* background: linear-gradient(
-    135deg,
-    #E5EDF1 0%,
-    #F4F7F8 100%
-  ); */
+  
   background: linear-gradient(
     135deg,
     #FCECC0 0%,
@@ -3890,7 +3532,6 @@ main:has(.payment-page) {
   border-radius: 16px;
 }
 
-/* QR code frame */
 .payment-page .payment-qr {
   background: #FFFFFF;
   border: 1px solid #C5D7E0;
@@ -3898,18 +3539,15 @@ main:has(.payment-page) {
   box-shadow: 0 4px 12px rgba(38, 63, 89, .07);
 }
 
-/* PayPal button — retain the site's existing button design */
 .payment-page .payment-method .btn {
   box-shadow: var(--shadow-button);
 }
 
-/* Email link */
 .payment-page .payment-email a {
   color: #477F9E;
   font-weight: 600;
 }
 
-/* Payment reminder — soft pastel panel */
 .payment-page .payment-reminder {
   max-width: 760px;
   margin: 2rem auto 0;
@@ -3926,7 +3564,6 @@ main:has(.payment-page) {
   color: #536B7D;
 }
 
-/* Mobile */
 @media (max-width: 650px) {
   .payment-page .payment-heading {
     width: calc(100% - 32px);
@@ -3957,7 +3594,6 @@ main:has(.payment-page) {
   }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .payment-page .payment-card {
     transition: none;
@@ -3985,6 +3621,7 @@ main:has(.payment-page) {
 }
 
 /* About page background image with soft blue-white overlay */
+
 main > .about-page {
   background-image:
     linear-gradient(
@@ -3999,7 +3636,6 @@ main > .about-page {
   background-attachment: scroll;
 }
 
-/* Mobile About page — zoomed background */
 @media (max-width: 560px) {
   main > .about-page {
     background-size: 310% auto;
@@ -4023,7 +3659,6 @@ main > .about-page {
     box-shadow: none;
   }
 
-  /* Hide only the text inside each social link */
   .about-social-card > span,
   .about-social-card .social-arrow {
     display: none;
@@ -4035,7 +3670,7 @@ main > .about-page {
     flex: 0 0 32px;
   }
 }
-/* Commission page — full-width vertical layout */
+
 .commissions-page .commission-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -4043,14 +3678,12 @@ main > .about-page {
   gap: 2.5rem;
 }
 
-/* Hero card */
 .commissions-page .commission-hero {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Poster collection */
 .commissions-page .commission-gallery {
   width: 100%;
   max-width: 1000px;
@@ -4058,14 +3691,12 @@ main > .about-page {
   transform: none;
 }
 
-/* Terms section */
 .commissions-page .commission-terms-card {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Mobile */
 @media (max-width: 560px) {
   .commissions-page .commission-layout {
     gap: 2rem;
@@ -4077,21 +3708,11 @@ main > .about-page {
   }
 }
 
-
-/* =========================================
-   FAQ PAGE
-   ========================================= */
-
-
-/* =========================================
-   FAQ PAGE
-   ========================================= */
+/* FAQ PAGE */
 
 .faq-page {
   padding-bottom: clamp(3rem, 7vw, 5rem);
 }
-
-/* FAQ hero card */
 
 .faq-intro {
   position: relative;
@@ -4116,14 +3737,10 @@ main > .about-page {
     0 20px 35px rgba(38, 63, 89, .12);
 }
 
-/* Hero heading */
-
 .faq-intro h1 {
   margin: 0 0 1rem;
   color: #647697;
 }
-
-/* Hero description */
 
 .faq-intro p {
   max-width: 570px;
@@ -4131,8 +3748,6 @@ main > .about-page {
   color: #536B7D;
   font: 1.1rem/1.7 var(--serif);
 }
-
-/* Decorative sparkle */
 
 .faq-intro::before {
   content: "✦";
@@ -4144,8 +3759,6 @@ main > .about-page {
   opacity: .75;
 }
 
-/* Decorative heart */
-
 .faq-intro::after {
   content: "♡";
   position: absolute;
@@ -4155,8 +3768,6 @@ main > .about-page {
   font-size: 2rem;
   opacity: .8;
 }
-
-/* FAQ category cards */
 
 .faq-category {
   position: relative;
@@ -4180,15 +3791,11 @@ main > .about-page {
     0 20px 35px rgba(38, 63, 89, .12);
 }
 
-/* Category heading */
-
 .faq-category h2 {
   margin: 0 0 1rem;
   color: #647697;
   font-size: clamp(1.5rem, 3vw, 2rem);
 }
-
-/* FAQ accordion */
 
 .faq-item {
   padding: 0;
@@ -4231,8 +3838,6 @@ main > .about-page {
   color: var(--hl);
 }
 
-/* FAQ answers */
-
 .faq-answer {
   max-width: 720px;
   padding: 0 1rem 1.2rem 0;
@@ -4255,8 +3860,6 @@ main > .about-page {
   text-underline-offset: .2em;
 }
 
-/* Accordion animation */
-
 @keyframes faq-reveal {
   from {
     opacity: 0;
@@ -4268,8 +3871,6 @@ main > .about-page {
     transform: translateY(0);
   }
 }
-
-/* FAQ background image */
 
 section.faq-page {
   background-image:
@@ -4284,8 +3885,6 @@ section.faq-page {
   background-repeat: repeat;
   background-attachment: scroll;
 }
-
-/* Mobile */
 
 @media (max-width: 560px) {
 
@@ -4327,8 +3926,6 @@ section.faq-page {
     background-position: center top;
   }
 }
-
-/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
   .faq-answer {
