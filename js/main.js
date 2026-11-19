@@ -16,8 +16,8 @@ const SITE = Object.freeze({
 });
 
 const COMMISSION = Object.freeze({
-  status: 'open', // open | closed | limited
-  message: 'Commissions Open'
+  status: 'closed', // open | closed | limited
+  message: 'Commissions closed'
 });
 const NAVIGATION = Object.freeze({
   sidebarId: 'mobile-sidebar',
