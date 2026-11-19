@@ -14,8 +14,6 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -92,12 +90,15 @@
             <h3>DuitNow QR</h3>
 
             <figure class="payment-qr">
-              <img
-                src="assets/images/payments/qr.webp"
-                alt="Nia's DuitNow payment QR code"
-                width="306"
-                height="274"
-              >
+             <img
+  src="assets/images/payments/qr.webp"
+  alt="Nia's DuitNow payment QR code"
+  width="306"
+  height="274"
+  class="payment-qr-image"
+  data-payment-qr
+  decoding="async"
+>
               <figcaption>DuitNow QR Payment</figcaption>
             <a
   href="assets/images/payments/qr.webp"

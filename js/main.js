@@ -41,7 +41,9 @@ function initializeWebsite() {
     initializeCommissionStatus,
     initializeDynamicYear,
     initializeBackToTop,
-    initializeExternalLinks
+    initializeExternalLinks,
+    initializePaymentQR,
+    initializeProfileImage
   ];
 
   initializers.forEach(initializer => {
@@ -391,7 +393,55 @@ function initializeExternalLinks() {
   });
 }
 
+/* =========================================================
+   10. PAYMENT QR IMAGE HANDLING
+   ========================================================= */
 
+function initializePaymentQR() {
+  const qrImages = document.querySelectorAll('[data-payment-qr]');
+
+  qrImages.forEach(image => {
+    if (image.dataset.initialized === 'true') return;
+
+    image.dataset.initialized = 'true';
+
+    image.addEventListener('error', () => {
+      image.classList.add('payment-qr-error');
+      image.setAttribute('aria-label', 'Payment QR code unavailable');
+
+      const figure = image.closest('figure');
+
+      if (!figure || figure.querySelector('.payment-qr-error-message')) {
+        return;
+      }
+
+      const message = document.createElement('p');
+
+      message.className = 'payment-qr-error-message';
+      message.setAttribute('role', 'status');
+      message.textContent =
+        'The payment QR code could not be loaded. Please contact me for payment assistance.';
+
+      figure.appendChild(message);
+    }, { once: true });
+  });
+}
+/* =========================================================
+   PROFILE IMAGE ERROR HANDLING
+   ========================================================= */
+
+function initializeProfileImage() {
+  document.querySelectorAll('[data-profile-image]').forEach(image => {
+    if (image.dataset.initialized === 'true') return;
+
+    image.dataset.initialized = 'true';
+
+    image.addEventListener('error', () => {
+      image.classList.add('profile-image-error');
+      image.alt = 'Profile picture currently unavailable';
+    }, { once: true });
+  });
+}
 /* =========================================================
    10. START WEBSITE
    ========================================================= */
