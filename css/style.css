@@ -2219,13 +2219,23 @@ main .masonry[data-preview] {
 
 /* 4. ARTWORK GRID */
 
-.gallery-page [data-gallery] {
+/* .gallery-page [data-gallery] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 260px));
   justify-content: center;
   align-items: stretch;
   gap: var(--space-5-5);
   width: 100%;
+} */
+ .gallery-page [data-gallery] {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 320px));
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+  max-width: 1056px;
+  margin-inline: auto;
 }
 
 /* 5. ARTWORK CARD — PASTEL FINISH */
