@@ -3908,3 +3908,19 @@ section.faq-page {
     animation: none;
   }
 }
+
+/* Remove the browser's square tap highlight */
+button,
+.btn,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep keyboard focus visible and rounded */
+button:focus-visible,
+.btn:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: inherit;
+}
