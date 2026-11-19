@@ -403,11 +403,15 @@ lightboxImage.style.cursor =
     const availableWidth = Math.max(100, stage.clientWidth * 0.88);
     const availableHeight = Math.max(100, stage.clientHeight * 0.76);
 
+    // const ratio = Math.min(
+    //   availableWidth / lightboxImage.naturalWidth,
+    //   availableHeight / lightboxImage.naturalHeight,
+    //   1
+    // );
     const ratio = Math.min(
-      availableWidth / lightboxImage.naturalWidth,
-      availableHeight / lightboxImage.naturalHeight,
-      1
-    );
+  availableWidth / lightboxImage.naturalWidth,
+  availableHeight / lightboxImage.naturalHeight
+);
 
     fitWidth = lightboxImage.naturalWidth * ratio;
     fitHeight = lightboxImage.naturalHeight * ratio;
