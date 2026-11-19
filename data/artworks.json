@@ -55,7 +55,7 @@
     "image": "assets/images/artworks/raw/webp/6.webp",
     "category": "Digital Art",
     "featured": false,
-    "selected": false,
+    "selected": true,
     "order": 6,
     "thumbnail": "assets/images/artworks/thumbnails/6.webp"
   },
@@ -65,7 +65,7 @@
     "image": "assets/images/artworks/raw/webp/7.webp",
     "category": "Digital Art",
     "featured": false,
-    "selected": false,
+    "selected": true,
     "order": 7,
     "thumbnail": "assets/images/artworks/thumbnails/7.webp"
   },
@@ -95,7 +95,7 @@
     "image": "assets/images/artworks/raw/webp/10.webp",
     "category": "Digital Art",
     "featured": false,
-    "selected": false,
+    "selected": true,
     "order": 10,
     "thumbnail": "assets/images/artworks/thumbnails/10.webp"
   },
@@ -155,7 +155,7 @@
     "image": "assets/images/artworks/raw/webp/16.webp",
     "category": "Digital Art",
     "featured": false,
-    "selected": false,
+    "selected": true,
     "order": 16,
     "thumbnail": "assets/images/artworks/thumbnails/16.webp"
   },
@@ -175,7 +175,7 @@
     "image": "assets/images/artworks/raw/webp/18.webp",
     "category": "Digital Art",
     "featured": false,
-    "selected": false,
+    "selected": true,
     "order": 18,
     "thumbnail": "assets/images/artworks/thumbnails/18.webp"
   },
@@ -185,7 +185,7 @@
     "image": "assets/images/artworks/raw/webp/19.webp",
     "category": "Digital Art",
     "featured": false,
-    "selected": false,
+    "selected": true,
     "order": 19,
     "thumbnail": "assets/images/artworks/thumbnails/19.webp"
   },
@@ -265,7 +265,7 @@
     "image": "assets/images/artworks/raw/webp/27.webp",
     "category": "Digital Art",
     "featured": false,
-    "selected": false,
+    "selected": true,
     "order": 27,
     "thumbnail": "assets/images/artworks/thumbnails/27.webp"
   },
@@ -305,7 +305,7 @@
     "image": "assets/images/artworks/raw/webp/31.webp",
     "category": "Digital Art",
     "featured": false,
-    "selected": false,
+    "selected": true,
     "order": 31,
     "thumbnail": "assets/images/artworks/thumbnails/31.webp"
   },
