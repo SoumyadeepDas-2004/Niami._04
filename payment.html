@@ -1,197 +1,240 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Payment — Nia</title>
-<meta name="description" content="Payment methods for Nia's art commissions.">
-<meta name="theme-color" content="#f7f3ec">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Payment — Nia">
-<meta property="og:description" content="Payment methods for Nia's art commissions.">
-<meta property="og:image" content="https://niami--04.pages.dev/assets/images/pfp/pfp.webp">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/style.css">
+  <title>Payment — Nia</title>
+  <meta name="description" content="Payment methods for Nia's art commissions.">
+  <meta name="theme-color" content="#f7f3ec">
+
+  <link rel="canonical" href="https://niami--04.pages.dev/payment.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Payment — Nia">
+  <meta property="og:description" content="Payment methods for Nia's art commissions.">
+  <meta property="og:url" content="https://niami--04.pages.dev/payment.html">
+  <meta property="og:image" content="https://niami--04.pages.dev/assets/images/pfp/pfp.webp">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="site" id="site-header">
-  <div class="wrap">
-    <a class="logo" href="index.html">Niami._04</a>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <button class="sidebar-toggle" aria-label="Open navigation" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none"
-           stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-
-    <nav aria-label="Main">
-  <ul id="menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="commissions.html">Commissions</a></li>
-    <li><a href="payment.html" aria-current="page">Payment</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-  </ul>
-</nav>
-  </div>
-</header>
-
-<div class="sidebar-overlay"></div>
-
-<aside class="mobile-sidebar" aria-label="Mobile navigation">
-  <button class="sidebar-close" aria-label="Close navigation">&times;</button>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="commissions.html">Commissions</a></li>
-      <li><a href="payment.html">Payment</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-    </ul>
-  </nav>
-</aside>
-
-
-<main id="main">
-
-  <section class="page-head payment-page">
+  <header class="site" id="site-header">
     <div class="wrap">
+      <a class="logo" href="index.html">Niami._04</a>
 
-      <div class="payment-heading">
-        <h1>Payment</h1>
-        <p>Choose the payment method that matches your location.</p>
-      </div>
+      <button
+        class="sidebar-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="mobile-sidebar"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
 
-      <div class="payment-cards">
-        <!-- MALAYSIA PAYMENTS -->
-        <article class="payment-card">
-
-          <div class="payment-card-heading">
-            <span class="payment-icon">🇲🇾</span>
-            <span class="payment-label">MALAYSIA PAYMENTS</span>
-          </div>
-
-          <h2>Within Malaysia</h2>
-
-          <p>
-            Malaysian customers can pay using DuitNow QR
-            through their banking app.
-          </p>
-
-          <div class="payment-method">
-            <h3>DuitNow QR</h3>
-
-            <figure class="payment-qr">
-             <img
-  src="assets/images/payments/qr.webp"
-  alt="Nia's DuitNow payment QR code"
-  width="306"
-  height="274"
-  class="payment-qr-image"
-  data-payment-qr
-  decoding="async"
->
-              <figcaption>DuitNow QR Payment</figcaption>
-            <a
-  href="assets/images/payments/qr.webp"
-  download="Nia-DuitNow-QR.webp"
-  class="download-qr-btn"
-  aria-label="Download DuitNow QR"
-  title="Download QR"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="25"
-    height="25"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2.2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-    <polyline points="7 10 12 15 17 10"/>
-    <line x1="12" y1="15" x2="12" y2="3"/>
-  </svg>
-</a>
-            </figure>
-          </div>
-
-          <p class="payment-note">
-            Please confirm the recipient's name before
-            completing your payment.
-          </p>
-
-        </article>
-<!-- INTERNATIONAL PAYMENTS -->
-        <article class="payment-card">
-
-          <div class="payment-card-heading">
-            <span class="payment-icon">🌍</span>
-            <span class="payment-label">INTERNATIONAL PAYMENTS</span>
-          </div>
-
-          <h2>Outside Malaysia</h2>
-
-          <p>
-            Customers from other countries can conveniently
-            pay through PayPal.
-          </p>
-
-          <div class="payment-method">
-            <h3>PayPal</h3>
-            <p>Secure online payment for international customers.</p>
-
-            <a class="btn"
-               href="https://paypal.me/niami04"
-               target="_blank"
-               rel="noopener noreferrer">
-              Pay with PayPal ↗
-            </a>
-          </div>
-
-          <div class="payment-email">
-            <span>Prefer email payment?</span>
-            <a href="mailto:nianami04@gmail.com">
-              nianami04@gmail.com
-            </a>
-          </div>
-
-        </article>
-      </div>
-
-      <p class="payment-reminder">
-        If you have any questions about payment, feel free
-        to contact me on Instagram.
-      </p>
-
+      <nav aria-label="Main navigation">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="commissions.html">Commissions</a></li>
+          <li><a href="payment.html" aria-current="page">Payment</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-</main>
+  <div class="sidebar-overlay" aria-hidden="true"></div>
 
+  <aside
+    class="mobile-sidebar"
+    id="mobile-sidebar"
+    aria-label="Mobile navigation"
+    aria-hidden="true"
+    inert
+  >
+    <button
+      class="sidebar-close"
+      type="button"
+      aria-label="Close navigation"
+    >&times;</button>
 
-<footer class="site" id="site-footer">
-  <div class="wrap">
-     <span>© <span data-year></span> Niami._04</span>
-<span>
-  <a href="https://mail.google.com/mail/?view=cm&amp;to=nianami04@gmail.com"
-     target="_blank"
-     rel="noopener noreferrer">nianami04@gmail.com</a>
-</span>
-  </div>
-</footer>
-<script src="js/main.js" defer></script>
+    <nav aria-label="Mobile navigation links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="commissions.html">Commissions</a></li>
+        <li><a href="payment.html" aria-current="page">Payment</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </aside>
 
+  <main id="main">
+    <section class="page-head payment-page">
+      <div class="wrap">
+
+        <div class="payment-heading">
+          <h1>Payment</h1>
+          <p>Choose the payment method that matches your location.</p>
+        </div>
+
+        <div class="payment-cards">
+
+          <!-- MALAYSIA PAYMENTS -->
+          <article class="payment-card">
+
+            <div class="payment-card-heading">
+              <span class="payment-icon" aria-hidden="true">🇲🇾</span>
+              <span class="payment-label">MALAYSIA PAYMENTS</span>
+            </div>
+
+            <h2>Within Malaysia</h2>
+
+            <p>
+              Malaysian customers can pay using DuitNow QR
+              through their banking app.
+            </p>
+
+            <div class="payment-method">
+              <h3>DuitNow QR</h3>
+
+              <figure class="payment-qr">
+                <img
+                  src="assets/images/payments/qr.webp"
+                  alt="Nia's DuitNow payment QR code"
+                  width="306"
+                  height="274"
+                  class="payment-qr-image"
+                  data-payment-qr
+                  decoding="async"
+                >
+
+                <a
+                  href="assets/images/payments/qr.webp"
+                  download="Nia-DuitNow-QR.webp"
+                  class="download-qr-btn"
+                  aria-label="Download DuitNow QR"
+                  title="Download QR"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </a>
+
+                <figcaption>DuitNow QR Payment</figcaption>
+              </figure>
+            </div>
+
+            <p class="payment-note">
+              Please confirm the recipient's name before
+              completing your payment.
+            </p>
+
+          </article>
+
+          <!-- INTERNATIONAL PAYMENTS -->
+          <article class="payment-card">
+
+            <div class="payment-card-heading">
+              <span class="payment-icon" aria-hidden="true">🌍</span>
+              <span class="payment-label">INTERNATIONAL PAYMENTS</span>
+            </div>
+
+            <h2>Outside Malaysia</h2>
+
+            <p>
+              Customers from other countries can conveniently
+              pay through PayPal.
+            </p>
+
+            <div class="payment-method">
+              <h3>PayPal</h3>
+              <p>Secure online payment for international customers.</p>
+
+              <a
+                class="btn"
+                href="https://paypal.me/niami04"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pay with PayPal ↗
+              </a>
+            </div>
+
+            <div class="payment-email">
+              <span>Prefer email payment?</span>
+              <a href="mailto:nianami04@gmail.com">
+                nianami04@gmail.com
+              </a>
+            </div>
+
+          </article>
+
+        </div>
+
+        <p class="payment-reminder">
+  If you have any questions about payment, feel free
+  to contact me on
+  <a
+    href="https://ig.me/m/niami._04"
+    target="_blank"
+    rel="noopener noreferrer"
+  >Instagram</a>.
+</p>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site" id="site-footer">
+    <div class="wrap">
+      <span>© <span data-year></span> Niami._04</span>
+
+      <span>
+        <a
+          href="https://mail.google.com/mail/?view=cm&amp;to=nianami04@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >nianami04@gmail.com</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
