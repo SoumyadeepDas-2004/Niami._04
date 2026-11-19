@@ -19,19 +19,41 @@ const COMMISSION = Object.freeze({
   status: 'open', // open | closed | limited
   message: 'Commissions Open'
 });
-
+const NAVIGATION = Object.freeze({
+  sidebarId: 'mobile-sidebar',
+  focusOnOpen: true
+});
 
 /* =========================================================
    2. INITIALIZATION
    ========================================================= */
 
+let websiteInitialized = false;
+
 function initializeWebsite() {
-  initializeSiteLinks();
-  initializeNavigation();
-  initializeCommissionStatus();
-  initializeDynamicYear();
-  initializeBackToTop();
-  initializeExternalLinks();
+  if (websiteInitialized) return;
+
+  websiteInitialized = true;
+
+  const initializers = [
+    initializeSiteLinks,
+    initializeNavigation,
+    initializeCommissionStatus,
+    initializeDynamicYear,
+    initializeBackToTop,
+    initializeExternalLinks
+  ];
+
+  initializers.forEach(initializer => {
+    try {
+      initializer();
+    } catch (error) {
+      console.error(
+        `Niami._04: ${initializer.name} failed.`,
+        error
+      );
+    }
+  });
 }
 
 
@@ -76,81 +98,100 @@ function initializeNavigation() {
   const overlay = document.querySelector('.sidebar-overlay');
   const closeButton = document.querySelector('.sidebar-close');
 
-  const navigationLinks = document.querySelectorAll(
-    'header.site nav a, .mobile-sidebar nav a'
-  );
+  initializeActiveNavigation();
 
   if (!toggle || !sidebar || !overlay || !closeButton) {
-    initializeActiveNavigation();
     return;
   }
 
+  if (toggle.dataset.navigationInitialized === 'true') {
+    return;
+  }
+
+  toggle.dataset.navigationInitialized = 'true';
+
+  if (!sidebar.id) {
+    sidebar.id = NAVIGATION.sidebarId;
+  }
+
+  toggle.setAttribute('aria-controls', sidebar.id);
+
+  const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(',');
+
   let previousFocus = null;
+  let isOpen = false;
 
-  // Initial accessibility attributes
-  if (!sidebar.id) {
-  sidebar.id = 'mobile-sidebar';
-}
+  function setNavigationState(open) {
+    isOpen = open;
 
-toggle.setAttribute('aria-expanded', 'false');
-toggle.setAttribute('aria-controls', sidebar.id);
+    document.body.classList.toggle('sidebar-open', open);
 
-sidebar.setAttribute('aria-hidden', 'true');
-sidebar.inert = true;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute(
+      'aria-label',
+      open ? 'Close navigation' : 'Open navigation'
+    );
 
-overlay.setAttribute('aria-hidden', 'true');
+    sidebar.setAttribute('aria-hidden', String(!open));
+    sidebar.inert = !open;
 
-  if (!sidebar.id) {
-    sidebar.id = 'mobile-sidebar';
+    overlay.setAttribute('aria-hidden', String(!open));
+  }
+
+  setNavigationState(false);
+
+  function getFocusableElements() {
+    return Array.from(
+      sidebar.querySelectorAll(focusableSelector)
+    ).filter(element => {
+      return (
+        !element.disabled &&
+        element.getAttribute('aria-hidden') !== 'true' &&
+        !element.closest('[inert]') &&
+        element.getClientRects().length > 0
+      );
+    });
   }
 
   function openSidebar() {
-    if (document.body.classList.contains('sidebar-open')) return;
+    if (isOpen) return;
 
     previousFocus = document.activeElement;
 
-    document.body.classList.add('sidebar-open');
-sidebar.inert = false;
-    toggle.setAttribute('aria-expanded', 'true');
-    toggle.setAttribute('aria-label', 'Close navigation');
+    setNavigationState(true);
 
-    sidebar.setAttribute('aria-hidden', 'false');
-    overlay.setAttribute('aria-hidden', 'false');
-
-    closeButton.focus();
-  }
-
-  function closeSidebar() {
-    if (!document.body.classList.contains('sidebar-open')) return;
-
-    document.body.classList.remove('sidebar-open');
-    sidebar.inert = true;
-
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open navigation');
-
-    sidebar.setAttribute('aria-hidden', 'true');
-    overlay.setAttribute('aria-hidden', 'true');
-
-    if (previousFocus && previousFocus.isConnected) {
-      previousFocus.focus();
-    } else {
-      toggle.focus();
+    if (NAVIGATION.focusOnOpen) {
+      closeButton.focus();
     }
   }
 
+  function closeSidebar(restoreFocus = true) {
+    if (!isOpen) return;
+
+    setNavigationState(false);
+
+    if (
+      restoreFocus &&
+      previousFocus instanceof HTMLElement &&
+      previousFocus.isConnected
+    ) {
+      previousFocus.focus();
+    }
+
+    previousFocus = null;
+  }
+
   function trapFocus(event) {
-    if (event.key !== 'Tab') return;
+    if (event.key !== 'Tab' || !isOpen) return;
 
-    const focusableElements = sidebar.querySelectorAll(
-      'a[href], button:not([disabled]), input:not([disabled]), ' +
-      'select:not([disabled]), textarea:not([disabled]), ' +
-      '[tabindex]:not([tabindex="-1"])'
-    );
-
-    const focusable = Array.from(focusableElements).filter(element => {
-      return element.getAttribute('aria-hidden') !== 'true';
-    });
+    const focusable = getFocusableElements();
 
     if (!focusable.length) {
       event.preventDefault();
@@ -160,40 +201,56 @@ sidebar.inert = false;
 
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
+    const activeElement = document.activeElement;
 
-    if (event.shiftKey && document.activeElement === first) {
+    if (!sidebar.contains(activeElement)) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
+      return;
+    }
+
+    if (event.shiftKey && activeElement === first) {
       event.preventDefault();
       last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
+    } else if (!event.shiftKey && activeElement === last) {
       event.preventDefault();
       first.focus();
     }
   }
 
-  // Open navigation
-  toggle.addEventListener('click', openSidebar);
+  toggle.addEventListener('click', () => {
+    if (isOpen) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
 
-  // Close navigation
-  closeButton.addEventListener('click', closeSidebar);
-  overlay.addEventListener('click', closeSidebar);
+  closeButton.addEventListener('click', () => {
+    closeSidebar();
+  });
 
-  // Keyboard controls
+  overlay.addEventListener('click', () => {
+    closeSidebar();
+  });
+
   document.addEventListener('keydown', event => {
-    if (!document.body.classList.contains('sidebar-open')) return;
+    if (!isOpen) return;
 
     if (event.key === 'Escape') {
+      event.preventDefault();
       closeSidebar();
+      return;
     }
 
     trapFocus(event);
   });
 
-  // Close after selecting a navigation link
   sidebar.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', closeSidebar);
+    link.addEventListener('click', () => {
+      closeSidebar(false);
+    });
   });
-
-  initializeActiveNavigation();
 }
 
 
@@ -246,18 +303,32 @@ function initializeActiveNavigation() {
    ========================================================= */
 
 function initializeCommissionStatus() {
-  const statusElements = document.querySelectorAll(
-    '#commission-status'
-  );
+  const validStatuses = ['open', 'closed', 'limited'];
 
-  statusElements.forEach(element => {
-    element.textContent = `✦ ${COMMISSION.message}`;
+  const status = validStatuses.includes(COMMISSION.status)
+    ? COMMISSION.status
+    : 'closed';
 
-    element.dataset.status = COMMISSION.status;
+  const defaultMessages = {
+    open: 'Commissions Open',
+    closed: 'Commissions Closed',
+    limited: 'Limited Commission Slots'
+  };
+
+  const message = (
+    typeof COMMISSION.message === 'string' &&
+    COMMISSION.message.trim()
+  )
+    ? COMMISSION.message.trim()
+    : defaultMessages[status];
+
+  document.querySelectorAll('#commission-status').forEach(element => {
+    element.textContent = `✦ ${message}`;
+    element.dataset.status = status;
 
     element.setAttribute(
       'aria-label',
-      `Commission status: ${COMMISSION.message}`
+      `Commission status: ${message}`
     );
   });
 }
@@ -316,8 +387,7 @@ function initializeBackToTop() {
 
 function initializeExternalLinks() {
   document.querySelectorAll('a[target="_blank"]').forEach(link => {
-    link.relList.add('noopener');
-    link.relList.add('noreferrer');
+    link.relList.add('noopener', 'noreferrer');
   });
 }
 
