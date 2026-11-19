@@ -1,7 +1,7 @@
 from pathlib import Path
 from PIL import Image
 
-folder = Path("assets/images/artworks/raw")
+folder = Path("assets/images/background")
 output_folder = folder / "webp"
 
 output_folder.mkdir(exist_ok=True)
