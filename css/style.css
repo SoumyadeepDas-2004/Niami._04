@@ -2182,6 +2182,7 @@ main .masonry[data-preview] {
   background: transparent;
   color: inherit;
   border-color: transparent;
+  box-shadow: none;
 }
 
 .gallery-page .filters button:hover {
@@ -2204,7 +2205,15 @@ main .masonry[data-preview] {
   background: transparent;
   border-color: transparent;
 }
-
+/* REMOVE ALL GALLERY FILTER SHADOWS */
+.gallery-page .filters,
+.gallery-page .filters button,
+.gallery-page .filters button:hover,
+.gallery-page .filters button:focus,
+.gallery-page .filters button:active {
+  box-shadow: none !important;
+  filter: none !important;
+}
 /* 4. ARTWORK GRID */
 
 /* .gallery-page [data-gallery] {
