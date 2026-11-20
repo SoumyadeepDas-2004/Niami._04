@@ -9,8 +9,8 @@
    1. FONTS & DESIGN TOKENS
    ============================================================ */
 
+/* @import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap");
-
 :root {
   color-scheme: light;
 
@@ -28,7 +28,8 @@
   --color-ink: #263F59;
   --color-muted: #536B7D;
   --color-accent: #477F9E;
-  --color-primary: #647697;
+  --color-primary: #526789; 
+  /*647697 */
   --color-primary-hover: #526789;
   --color-rose: #A97891;
   --color-rose-light: #F8EEF2;
@@ -42,7 +43,13 @@
   --color-skeleton: #e8e1d6;
 
   /* Shared soft yellow → cream card surface (matches reference banner) */
-  --card-surface: linear-gradient(90deg, #FCECC0 0%, #FCF7E9 55%, #FFFAF5 100%);
+  --card-surface:  linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 50%,
+    var(--color-white) 100%
+  );
+
 
   /* Semantic aliases */
   --bg: var(--color-blue-100);
@@ -96,7 +103,8 @@
   --cute-radius-xl: 38px;
   --cute-font: "Nunito", "Segoe UI", sans-serif;
   --cute-display: "Alkatra", "Trebuchet MS", cursive;
-
+/* --cute-font: "Nunito Sans", "Segoe UI", sans-serif;
+--cute-display: "Lora", serif; */
   /* Typography */
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -426,7 +434,8 @@ header.site nav a {
   padding: 8px 14px;
   border: 0;
   border-radius: 999px;
-  color: rgb(115, 146, 176);
+  /* color: rgb(115, 146, 176); */
+  color: #456789;
   font-size: .91rem;
   font-weight: 800;
   text-decoration: none;
@@ -435,8 +444,10 @@ header.site nav a {
 
 header.site nav a:hover,
 header.site nav a[aria-current="page"] {
-  background: #ddf0fd;
-  color: #527A96;
+  /* background: #ddf0fd;
+  color: #527A96; */
+  background: #C5D7E0;
+  color: #354F70;
   transform: translateY(-1px);
 }
 
@@ -2186,7 +2197,7 @@ header.site nav a[aria-current="page"] {
 }
 
 .payment-page .payment-card > p {
-  color: #786d83;
+  color: #617D95;
   margin-top: 0;
   line-height: var(--line-height-relaxed);
 }
@@ -2269,7 +2280,7 @@ header.site nav a[aria-current="page"] {
   border: 1px dashed #e5d5eb;
   border-radius: 20px;
   background: var(--card-surface);
-  color: #786d83;
+  color: #617D95;
   text-align: center;
   font-size: var(--font-size-compact);
 }
@@ -2357,9 +2368,11 @@ header.site nav a[aria-current="page"] {
 
 .faq-intro h1 { margin: 0 0 1rem; color: var(--color-primary); }
 .faq-intro p {
+  font-size: 1.2rem;
+  line-height: 1.7;
   max-width: 570px;
   margin: 0 auto;
-  color: #786d83;
+  color: #526789;
   font: var(--font-size-lg)/var(--line-height-relaxed) var(--font-heading);
 }
 
@@ -2369,28 +2382,30 @@ header.site nav a[aria-current="page"] {
   max-width: 980px;
   margin: 0 auto 22px;
   padding: clamp(20px, 4vw, 34px);
-  border: 1px solid #e8dced;
+  border: 1px solid #C5D7E0;
   border-radius: 28px;
-  box-shadow: 0 8px 24px rgba(104, 78, 111, .07);
+  box-shadow: 0 8px 24px rgba(38, 63, 89, .09);
   background: var(--card-surface);
 }
 
 .faq-category h2 {
+  font-size: 2rem;
   margin: 0 0 18px;
-  color: var(--color-primary);
+  color: #526789;
   font-size: clamp(1.55rem, 3vw, 2rem);
 }
 
-.faq-item { padding: 0; border-bottom: 1px solid #eadfec; }
-.faq-item:first-of-type { border-top: 1px solid #eadfec; }
+.faq-item { padding: 0; border-bottom: 1px solid #E8DDBF; }
+.faq-item:first-of-type { border-top: 1px solid #E8DDBF; }
 
 .faq-item summary {
+   font-size: 1.12rem;
   position: relative;
   padding: 17px 42px 17px 4px;
-  color: #695c76;
+  color: #354F70;
   font-family: var(--cute-font);
   font-size: 1.03rem;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.5;
   list-style: none;
   cursor: pointer;
@@ -2408,27 +2423,47 @@ header.site nav a[aria-current="page"] {
   width: 30px; height: 30px;
   place-items: center;
   border-radius: 50%;
-  background: #f4eaf6;
-  color: #a36f99;
+  background: #FFF0BF;
+  color: #647697;
   font-size: 1.35rem;
   transition: transform .25s cubic-bezier(.22, 1, .36, 1), background .2s ease, color .2s ease;
 }
 
-.faq-item[open] summary::after { content: "−"; }
-.faq-item summary:hover { color: #527FAF; }
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item summary:hover {
+  color: #43618a;
+}
 
 .faq-answer {
   max-width: 720px;
   padding: 0 38px 18px 4px;
-  color: #786d83;
-  font-size: var(--font-size-compact);
-  line-height: var(--line-height-loose);
+  color: #354F70;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
   animation: faq-reveal .2s ease;
+}
+
+.faq-answer p {
+  margin: 0 0 .8rem;
+  color: inherit;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer a {
+  color: #263F59;
+  text-underline-offset: .2em;
 }
 
 .faq-answer p { margin: 0 0 .8rem; }
 .faq-answer p:last-child { margin-bottom: 0; }
-.faq-answer a { color: #527FAF; text-underline-offset: .2em; }
+.faq-answer a { color: #263F59;text-underline-offset: .2em; }
 
 @media (max-width: 560px) {
   .faq-intro {
@@ -2639,7 +2674,7 @@ footer.site {
   padding: 24px 0;
   border-top: 1px solid rgba(190, 215, 230, .65);
   background: rgba(237, 248, 255, 0.86);
-  color: #7892AA;
+  color: #485867;
   font-size: 14px;
 }
 
