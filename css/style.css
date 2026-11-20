@@ -41,6 +41,9 @@
   --color-placeholder: #ebe5d8;
   --color-skeleton: #e8e1d6;
 
+  /* Shared soft yellow → cream card surface (matches reference banner) */
+  --card-surface: linear-gradient(90deg, #FCECC0 0%, #FCF7E9 55%, #FFFAF5 100%);
+
   /* Semantic aliases */
   --bg: var(--color-blue-100);
   --ink: var(--color-ink);
@@ -472,7 +475,7 @@ header.site nav a[aria-current="page"] {
     backdrop-filter: blur(3px);
     opacity: 0;
     visibility: hidden;
-    transition: opacity .25s ease, visibility .25s ease;
+    transition: opacity .3s ease, visibility .3s ease;
   }
 
   .mobile-sidebar {
@@ -490,7 +493,7 @@ header.site nav a[aria-current="page"] {
       var(--cute-paper);
     box-shadow: 18px 0 50px rgba(76, 57, 83, .16);
     transform: translateX(-100%);
-    transition: transform .3s ease;
+    transition: transform .35s cubic-bezier(.22, 1, .36, 1);
     overflow-y: auto;
   }
 
@@ -561,7 +564,11 @@ header.site nav a[aria-current="page"] {
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  transition:
+    transform .22s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .22s cubic-bezier(.22, 1, .36, 1),
+    background .2s ease,
+    border-color .2s ease;
 }
 
 .btn:hover, a.btn:hover, button.btn:hover {
@@ -613,10 +620,7 @@ header.site nav a[aria-current="page"] {
   padding: clamp(28px, 5vw, 68px);
   border: 1px solid rgba(166, 198, 220, .75);
   border-radius: 46px;
-  background:
-    radial-gradient(circle at 12% 12%, rgba(255, 255, 255, .92) 0 7%, transparent 7.3%),
-    radial-gradient(circle at 90% 85%, rgba(255, 255, 255, .70) 0 10%, transparent 10.3%),
-    linear-gradient(135deg, #D9EAF5 0%, #E8F1F5 55%, #FFFAE9 100%);
+  background: var(--card-surface);
   box-shadow: 0 20px 55px rgba(91, 125, 150, .12);
 }
 
@@ -830,7 +834,7 @@ header.site nav a[aria-current="page"] {
   padding: clamp(2rem, 5vw, 3.5rem);
   overflow: hidden;
   text-align: center;
-  background: var(--color-blue-100);
+  background: var(--card-surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   box-shadow: 0 6px 22px rgba(38, 63, 89, .05);
@@ -894,7 +898,7 @@ header.site nav a[aria-current="page"] {
   padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
   overflow: hidden;
   text-align: center;
-  background: linear-gradient(135deg, #DCE8ED, var(--color-blue-25), var(--color-blue-100));
+  background: var(--card-surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
 }
@@ -1014,7 +1018,10 @@ header.site nav a[aria-current="page"] {
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 8px 22px rgba(104, 78, 111, .09);
-  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  transition:
+    transform .32s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .32s cubic-bezier(.22, 1, .36, 1),
+    border-color .28s ease;
 }
 
 .art .frame {
@@ -1156,7 +1163,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid var(--color-blue-200);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .gallery-page .gallery-hero .wrap::before {
@@ -1287,7 +1294,7 @@ header.site nav a[aria-current="page"] {
   margin: auto;
   padding: 3.5rem 1.5rem;
   text-align: center;
-  background: linear-gradient(135deg, #EAF3F7, var(--color-rose-light));
+  background: var(--card-surface);
   border: 1px solid var(--color-blue-200);
   border-radius: var(--radius-xl);
 }
@@ -1377,7 +1384,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .commission-hero::before {
@@ -1504,7 +1511,10 @@ header.site nav a[aria-current="page"] {
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 10px 26px rgba(104, 78, 111, .11);
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition:
+    transform .32s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .32s cubic-bezier(.22, 1, .36, 1),
+    border-color .28s ease;
 }
 
 .commission-poster img {
@@ -1563,7 +1573,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid #eadde8;
   border-radius: 32px;
   box-shadow: var(--cute-shadow);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .commission-terms-card > h2 {
@@ -1806,7 +1816,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid var(--line);
   border-radius: 38px;
   box-shadow: var(--cute-shadow);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .about-photo {
@@ -1889,7 +1899,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid var(--line);
   border-radius: 34px;
   box-shadow: var(--cute-shadow);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .about-social-heading { text-align: center; margin-bottom: var(--space-6); }
@@ -1915,7 +1925,11 @@ header.site nav a[aria-current="page"] {
   color: var(--color-text);
   text-decoration: none;
   box-shadow: 0 5px 15px rgba(104, 78, 111, .06);
-  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
+  transition:
+    transform .28s cubic-bezier(.22, 1, .36, 1),
+    border-color .22s ease,
+    box-shadow .28s cubic-bezier(.22, 1, .36, 1),
+    background .22s ease;
 }
 
 .about-social-card:hover {
@@ -1964,7 +1978,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid var(--line);
   border-radius: 30px;
   box-shadow: var(--cute-shadow);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .about-contact h2 { margin-top: 0; color: var(--color-primary); }
@@ -2081,7 +2095,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid var(--color-blue-200);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .payment-page .payment-heading::before {
@@ -2132,9 +2146,11 @@ header.site nav a[aria-current="page"] {
   padding: clamp(22px, 3vw, 34px);
   border: 1px solid #e8dced;
   border-radius: 28px;
-  background: linear-gradient(145deg, #fffafd 0%, #f7f2fb 100%);
+  background: var(--card-surface);
   box-shadow: var(--cute-shadow);
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition:
+    transform .32s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .32s cubic-bezier(.22, 1, .36, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2180,7 +2196,7 @@ header.site nav a[aria-current="page"] {
   padding: 18px;
   border: 1px solid #eadced;
   border-radius: 22px;
-  background: linear-gradient(135deg, #f8eff8 0%, #fff8f7 100%);
+  background: var(--card-surface);
 }
 
 .payment-page .payment-method h3 {
@@ -2252,7 +2268,7 @@ header.site nav a[aria-current="page"] {
   padding: 16px 20px;
   border: 1px dashed #e5d5eb;
   border-radius: 20px;
-  background: linear-gradient(135deg, #f2edfb 0%, #fff3f6 100%);
+  background: var(--card-surface);
   color: #786d83;
   text-align: center;
   font-size: var(--font-size-compact);
@@ -2318,7 +2334,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid var(--line);
   border-radius: 38px;
   box-shadow: var(--cute-shadow);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .faq-intro::before {
@@ -2356,7 +2372,7 @@ header.site nav a[aria-current="page"] {
   border: 1px solid #e8dced;
   border-radius: 28px;
   box-shadow: 0 8px 24px rgba(104, 78, 111, .07);
-  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-light) 50%, var(--color-white) 100%);
+  background: var(--card-surface);
 }
 
 .faq-category h2 {
@@ -2395,7 +2411,7 @@ header.site nav a[aria-current="page"] {
   background: #f4eaf6;
   color: #a36f99;
   font-size: 1.35rem;
-  transition: transform .2s ease;
+  transition: transform .25s cubic-bezier(.22, 1, .36, 1), background .2s ease, color .2s ease;
 }
 
 .faq-item[open] summary::after { content: "−"; }
@@ -2531,7 +2547,12 @@ body:has(dialog[open]) { overflow: hidden; }
   cursor: pointer;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: background .2s ease, transform .2s ease, opacity .25s ease, visibility .25s ease;
+  transition:
+    background .2s ease,
+    transform .22s cubic-bezier(.22, 1, .36, 1),
+    opacity .25s ease,
+    visibility .25s ease,
+    box-shadow .22s ease;
 }
 
 .lb button:hover { background: rgba(255, 255, 255, .94); }
@@ -2707,7 +2728,7 @@ th, td { text-align: left; padding: .6rem 0; border-bottom: 1px solid var(--line
   padding: clamp(32px, 6vw, 64px);
   border: 1px solid #eadde8;
   border-radius: 38px;
-  background: linear-gradient(135deg, #fff0f4, #fffaf7 55%, #f4efff);
+  background: var(--card-surface);
   box-shadow: var(--cute-shadow);
   text-align: center;
 }
@@ -2765,6 +2786,424 @@ th, td { text-align: left; padding: .6rem 0; border-bottom: 1px solid var(--line
   to   { opacity: 1; transform: translateY(0); }
 }
 
+
+/* ============================================================
+   19. INTERACTION POLISH
+   Micro-interactions, hover depth, focus clarity, and motion.
+   No colour or layout changes — transforms & opacity only.
+   ============================================================ */
+
+/* Shared motion tokens (timing only) */
+:root {
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
+  --dur-fast: .18s;
+  --dur-med: .28s;
+  --dur-slow: .4s;
+}
+
+/* ----- Navigation ----- */
+header.site nav a {
+  position: relative;
+}
+
+header.site nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 2px;
+  border-radius: 99px;
+  background: currentColor;
+  opacity: .55;
+  transform: translateX(-50%);
+  transition: width var(--dur-med) var(--ease-out), opacity var(--dur-fast) ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  header.site nav a:hover::after,
+  header.site nav a[aria-current="page"]::after {
+    width: 55%;
+    opacity: .9;
+  }
+
+  header.site nav a:hover {
+    transform: translateY(-1px);
+  }
+}
+
+header.site nav a:active {
+  transform: translateY(0) scale(.97);
+}
+
+/* Logo micro-interaction */
+.logo {
+  transition: transform var(--dur-med) var(--ease-out), opacity var(--dur-fast) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo:hover {
+    transform: scale(1.03);
+  }
+}
+
+.logo:active {
+  transform: scale(.98);
+}
+
+/* Sidebar toggle */
+.sidebar-toggle {
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    background var(--dur-fast) ease,
+    border-color var(--dur-fast) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sidebar-toggle:hover {
+    transform: scale(1.06);
+  }
+}
+
+.sidebar-toggle:active {
+  transform: scale(.94);
+}
+
+.sidebar-close {
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    background var(--dur-fast) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sidebar-close:hover {
+    transform: rotate(90deg) scale(1.05);
+  }
+}
+
+.sidebar-close:active {
+  transform: scale(.92);
+}
+
+.mobile-sidebar li a {
+  transition:
+    background var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    transform var(--dur-med) var(--ease-out),
+    padding-left var(--dur-med) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mobile-sidebar li a:hover {
+    transform: translateX(4px);
+  }
+}
+
+.mobile-sidebar li a:active {
+  transform: translateX(2px) scale(.98);
+}
+
+/* ----- Buttons ----- */
+.btn, .btn.ghost, a.btn, button.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft press ripple-free feedback */
+.btn:active,
+a.btn:active,
+button.btn:active,
+.btn.ghost:active,
+a.btn.ghost:active,
+button.btn.ghost:active {
+  transform: translateY(2px) scale(.97);
+}
+
+/* ----- Cards & artwork ----- */
+@media (hover: hover) and (pointer: fine) {
+  .art:hover,
+  .gallery-page .art:hover {
+    transform: translateY(-8px) scale(1.01) rotate(-.35deg);
+  }
+
+  .art:hover .frame img,
+  .gallery-page .art:hover .frame img {
+    transform: scale(1.06);
+  }
+
+  .commission-poster:hover {
+    transform: translateY(-7px) scale(1.015) rotate(.25deg);
+  }
+
+  .commission-poster:hover img {
+    transform: scale(1.04);
+  }
+
+  .payment-page .payment-card:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+
+  .about-social-card:hover {
+    transform: translateY(-5px) scale(1.015);
+  }
+
+  .about-photo:hover {
+    transform: translateY(-4px) rotate(-.5deg) scale(1.02);
+  }
+
+  .home-profile-frame:hover {
+    transform: rotate(-2deg) scale(1.03);
+  }
+}
+
+/* Active / pressed feedback on clickable cards */
+.art:active,
+.gallery-page .art:active,
+.commission-poster:active {
+  transform: translateY(-2px) scale(.99);
+  transition-duration: .12s;
+}
+
+/* Smooth image zoom baseline */
+.art .frame img,
+.commission-poster img,
+.about-photo img,
+.home-profile-frame img {
+  transition: transform .5s var(--ease-out);
+}
+
+/* ----- Social icons ----- */
+.social-links a,
+.about-social-card img {
+  transition:
+    transform var(--dur-med) var(--ease-spring),
+    opacity var(--dur-fast) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .social-links a:hover {
+    transform: translateY(-5px) scale(1.12) rotate(-6deg);
+  }
+
+  .social-links a:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.social-links a:active {
+  transform: translateY(-1px) scale(.95);
+}
+
+/* ----- Filters ----- */
+.filters button,
+.gallery-page .filters button {
+  transition:
+    color var(--dur-fast) ease,
+    background var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    transform var(--dur-med) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .filters button:hover,
+  .gallery-page .filters button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.filters button:active,
+.gallery-page .filters button:active {
+  transform: scale(.96);
+}
+
+/* ----- Links & text links ----- */
+.home-text-link,
+.link,
+.payment-page .payment-email a,
+.payment-page .payment-reminder a,
+.faq-answer a,
+footer.site a {
+  transition:
+    color var(--dur-fast) ease,
+    text-decoration-color var(--dur-fast) ease,
+    opacity var(--dur-fast) ease,
+    transform var(--dur-med) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-text-link:hover {
+    transform: translateX(2px);
+  }
+}
+
+/* ----- FAQ ----- */
+.faq-item summary {
+  transition: color var(--dur-fast) ease;
+}
+
+.faq-item summary::after {
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    background var(--dur-fast) ease,
+    color var(--dur-fast) ease;
+}
+
+.faq-item[open] summary::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* ----- Lightbox ----- */
+.lb[open] {
+  animation: lb-enter .3s var(--ease-out) both;
+}
+
+.lb-image {
+  transition:
+    transform .18s var(--ease-out),
+    opacity .25s ease;
+}
+
+.lb button:hover {
+  transform: scale(1.08);
+}
+
+.lb button:active {
+  transform: scale(.92);
+}
+
+.lb-x:hover {
+  transform: rotate(90deg) scale(1.08);
+}
+
+@keyframes lb-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ----- Status badges & small UI ----- */
+.commission-status {
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .commission-status:hover {
+    transform: scale(1.04);
+  }
+}
+
+/* ----- Download / utility buttons ----- */
+.payment-page .download-qr-btn {
+  transition:
+    background var(--dur-fast) ease,
+    transform var(--dur-med) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .payment-page .download-qr-btn:hover {
+    transform: translateY(-3px) scale(1.06);
+  }
+}
+
+.payment-page .download-qr-btn:active {
+  transform: scale(.94);
+}
+
+/* ----- Form controls (if present) ----- */
+input,
+textarea,
+select {
+  transition:
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-med) var(--ease-out),
+    background var(--dur-fast) ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(71, 127, 158, .22);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible,
+.art:focus-visible,
+.commission-poster:focus-visible {
+  outline: 3px solid var(--cute-pink-deep);
+  outline-offset: 3px;
+}
+
+/* ----- Scroll reveal (progressive, non-blocking) ----- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .home-hero-card,
+    .home-about-card,
+    .home-commission-card,
+    .home-section-heading,
+    .gallery-page .gallery-hero .wrap,
+    .gallery-page [data-gallery] > .art,
+    .commission-hero,
+    .commission-poster,
+    .commission-terms-card,
+    .commission-contact-card,
+    .about-card,
+    .about-social-section,
+    .about-contact,
+    .payment-page .payment-heading,
+    .payment-page .payment-card,
+    .faq-intro,
+    .faq-category {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+
+    @keyframes reveal-up {
+      from {
+        opacity: 0.35;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+/* Staggered delay for gallery items when scroll-driven animations are unsupported:
+   content remains fully visible; no dependency on JS. */
+
+/* ----- Header subtle elevation on scroll is handled by existing sticky styles ----- */
+
+/* ----- Prevent hover transforms from causing overflow ----- */
+.art,
+.commission-poster,
+.payment-page .payment-card,
+.about-social-card {
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .art:hover,
+  .commission-poster:hover,
+  .gallery-page .art:hover {
+    z-index: 2;
+  }
+}
+
+
 /* ============================================================
    19. REDUCED MOTION
    ============================================================ */
@@ -2781,13 +3220,25 @@ th, td { text-align: left; padding: .6rem 0; border-bottom: 1px solid var(--line
   ::view-transition-old(root),
   ::view-transition-new(root) { animation: none; }
   .home-hero-decoration { animation: none; }
-  .about-photo { transition: none; }
-  .about-photo:hover { transform: none; }
+  .about-photo:hover,
+  .home-profile-frame:hover,
+  .art:hover,
+  .gallery-page .art:hover,
+  .commission-poster:hover,
+  .payment-page .payment-card:hover,
+  .about-social-card:hover,
+  .social-links a:hover,
+  .logo:hover,
+  header.site nav a:hover,
+  .filters button:hover {
+    transform: none !important;
+  }
   .gallery-page [data-gallery] > .art:nth-child(3n + 2),
   .gallery-page [data-gallery] > .art:nth-child(2n) { transform: none; }
   .lb[open], .lb button, .lb-image, .lb-caption { animation: none; transition: none; }
   .faq-answer { animation: none; }
   .payment-page .payment-card { transition: none; }
+  header.site nav a::after { transition: none; width: 0; }
 }
 
 /* ============================================================
@@ -2796,10 +3247,14 @@ th, td { text-align: left; padding: .6rem 0; border-bottom: 1px solid var(--line
 
 @media (min-width: 901px) {
   .gallery-page [data-gallery] > .art:nth-child(3n + 2) { transform: translateY(8px); }
-  .gallery-page [data-gallery] > .art:nth-child(3n + 2):hover { transform: translateY(2px); }
+  .gallery-page [data-gallery] > .art:nth-child(3n + 2):hover {
+    transform: translateY(0) scale(1.01) rotate(-.35deg);
+  }
 }
 
 @media (min-width: 561px) and (max-width: 900px) {
   .gallery-page [data-gallery] > .art:nth-child(2n) { transform: translateY(6px); }
-  .gallery-page [data-gallery] > .art:nth-child(2n):hover { transform: translateY(1px); }
+  .gallery-page [data-gallery] > .art:nth-child(2n):hover {
+    transform: translateY(-1px) scale(1.01) rotate(-.35deg);
+  }
 }
