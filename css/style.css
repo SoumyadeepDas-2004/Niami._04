@@ -303,7 +303,8 @@ header.site {
   margin: 12px auto 0;
   border: 1px solid rgba(190, 215, 230, .65);
   border-radius: 999px;
-  background: rgba(248, 252, 255, .88);
+  /* background: rgba(248, 252, 255, .88); */
+  background: rgba(237, 248, 255, 0.86);
   box-shadow: 0 8px 28px rgba(91, 125, 150, .10);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -4144,10 +4145,14 @@ a {
 }
 
 ::selection {
-  color: #51465f;
-  background: #f7cbd8;
+  color: #456F91;
+  background: #D9EAF1;
 }
 
+::-moz-selection {
+  color: #456F91;
+  background: #D9EAF1;
+}
 :focus-visible {
   outline: 3px solid var(--cute-pink-deep);
   outline-offset: 4px;
@@ -4195,7 +4200,7 @@ header.site nav a {
 
 header.site nav a:hover,
 header.site nav a[aria-current="page"] {
-   background: #ebf7ff;
+   background: #ddf0fd;
   color: #527A96;
   border: 0;
   transform: translateY(-1px);
