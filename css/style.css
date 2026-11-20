@@ -2434,7 +2434,7 @@ header.site nav a[aria-current="page"] {
   place-items: center;
   border-radius: 50%;
   background: #fff7d6;
-  color: #8c9bb6;
+  color: #5b636f;
   font-size: 1.35rem;
 }
 .faq-item[open] summary {
