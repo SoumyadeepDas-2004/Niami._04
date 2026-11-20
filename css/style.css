@@ -446,7 +446,8 @@ header.site nav a:hover,
 header.site nav a[aria-current="page"] {
   /* background: #ddf0fd;
   color: #527A96; */
-  background: #C5D7E0;
+  background: rgba(120, 190, 200, 0.30); 
+  /* background: rgba(120, 190, 200, 0.10); */
   color: #354F70;
   transform: translateY(-1px);
 }
@@ -2386,8 +2387,15 @@ header.site nav a[aria-current="page"] {
   border-radius: 28px;
   box-shadow: 0 8px 24px rgba(38, 63, 89, .09);
   background: var(--card-surface);
+  transition: transform 0.35s ease,
+            box-shadow 0.35s ease,
+            border-color 0.35s ease;
 }
-
+.faq-category:hover {
+  transform: translateY(-5px);
+  border-color: #91AFC0;
+  box-shadow: 0 18px 42px rgba(38, 63, 89, 0.18);
+}
 .faq-category h2 {
   font-size: 2rem;
   margin: 0 0 18px;
@@ -2404,11 +2412,13 @@ header.site nav a[aria-current="page"] {
   padding: 17px 42px 17px 4px;
   color: #354F70;
   font-family: var(--cute-font);
-  font-size: 1.03rem;
   font-weight: 700;
   line-height: 1.5;
   list-style: none;
   cursor: pointer;
+   
+   transition: color 0.25s ease, background 0.25s ease;
+    border-radius: 8px;
 }
 
 .faq-item summary::-webkit-details-marker { display: none; }
@@ -2423,30 +2433,49 @@ header.site nav a[aria-current="page"] {
   width: 30px; height: 30px;
   place-items: center;
   border-radius: 50%;
-  background: #FFF0BF;
-  color: #647697;
+  background: #fff7d6;
+  color: #8c9bb6;
   font-size: 1.35rem;
-  transition: transform .25s cubic-bezier(.22, 1, .36, 1), background .2s ease, color .2s ease;
 }
-
+.faq-item[open] summary {
+  color: #456B89;
+  background: rgba(190, 210, 220, 0.20);
+  border-radius: 8px 8px 0 0;
+}
 .faq-item[open] summary::after {
   content: "−";
 }
 
 .faq-item summary:hover {
-  color: #43618a;
+  /* color: #43618a; */
+   background: 	rgba(120, 190, 200, 0.10);
+  color: #456B89;
 }
 
 .faq-answer {
-  max-width: 720px;
+  max-width: 820px;
   padding: 0 38px 18px 4px;
   color: #354F70;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.8;
-  animation: faq-reveal .2s ease;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.85;
+  
+  /* animation: faq-reveal .2s ease; */
+}
+.faq-item[open] .faq-answer {
+  animation: faq-reveal 0.45s ease-out both;
 }
 
+@keyframes faq-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .faq-answer p {
   margin: 0 0 .8rem;
   color: inherit;
@@ -2865,7 +2894,9 @@ header.site nav a::after {
   }
 
   header.site nav a:hover {
-    transform: translateY(-1px);
+     background: #E2EDF3;
+  color: #456B89;
+  transform: translateY(-2px);
   }
 }
 
