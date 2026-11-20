@@ -1,10 +1,3 @@
-             
-             
-             
-             /* Main File refrence to GPTs */
-
-
-
 /*
   NIAMI._04 — CENTRALIZED STYLESHEET
   Shared design tokens centralize recurring typography, spacing, radii,
@@ -4692,23 +4685,6 @@ a.btn:focus-visible {
   margin: 14px 0 0;
   color: #8e5d79;
   font-size: clamp(2.5rem, 5.5vw, 4.3rem);
-}
-
-.commission-status,
-.commissions-page .commission-status {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  margin: 0 auto;
-  padding: 8px 17px;
-  border: 1px solid #b7d9c6;
-  border-radius: 999px;
-  background: #e8f6ed;
-  color: #4d8764;
-  font-size: .9rem;
-  font-weight: 900;
-  box-shadow: 0 5px 14px rgba(77, 135, 100, .09);
 }
 
 .commission-gallery {
