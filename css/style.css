@@ -4082,9 +4082,9 @@ html {
 body {
   color: var(--cute-ink);
   background:
-    radial-gradient(ellipse at 8% 12%, rgba(247, 203, 216, .34), transparent 28rem),
-    radial-gradient(ellipse at 92% 28%, rgba(222, 213, 244, .38), transparent 30rem),
-    radial-gradient(ellipse at 48% 92%, rgba(217, 238, 227, .34), transparent 32rem),
+    radial-gradient(ellipse at 8% 12%, rgba(255, 248, 220, .30), transparent 28rem),
+    radial-gradient(ellipse at 92% 28%, rgba(255, 252, 235, .38), transparent 30rem),
+    radial-gradient(ellipse at 48% 92%, rgba(250, 246, 225, .30), transparent 32rem),
     var(--cute-paper);
   font-family: var(--cute-font);
   font-size: 1rem;
@@ -5534,19 +5534,19 @@ section.faq-page {
 /* FAQ — gentle lilac panels with blush interaction details */
 .faq-intro {
   border: 1px solid var(--line);
-  /* background: linear-gradient(
+  background: linear-gradient(
     135deg,
     var(--color-cream) 0%,
     var(--color-cream-light) 50%,
     var(--color-white) 100%
-  ); */
-background: linear-gradient(
+  );
+/* background: linear-gradient(
   135deg,
   #E5EFFB 0%,
   #F0F1F5 20%,
   /* #FFF3D9 60% */
   #FFFCF5 60%
-);
+); */
 }
 
 .faq-intro h1,
