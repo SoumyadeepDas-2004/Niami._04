@@ -297,13 +297,16 @@ section h2:first-child {
 
 header.site {
   position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(212, 226, 232, .65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
-  box-shadow: var(--shadow-header);
+  top: 12px;
+  z-index: 30;
+  width: min(calc(100% - 28px), 1220px);
+  margin: 12px auto 0;
+  border: 1px solid rgba(190, 215, 230, .65);
+  border-radius: 999px;
+  background: rgba(248, 252, 255, .88);
+  box-shadow: 0 8px 28px rgba(91, 125, 150, .10);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 header .wrap {
@@ -960,22 +963,6 @@ td {
 
 /* 16. FOOTER */
 
-footer.site {
-  background: linear-gradient(
-  180deg,
-  var(--color-blue-75) 0%,
-  var(--color-blue-100) 55%,
-  var(--footer-bg) 100%
-);
-  border-top: 1px solid var(--line);
-  padding: .8rem 0;
-  font-size: var(--font-size-compact);
-  color: var(--color-text);
-}
-
-footer.site a {
-  text-decoration: none;
-}
 /* 17. LIGHTBOX — ADVANCED RESPONSIVE VIEWER */
 
 body:has(dialog[open]) {
@@ -4081,11 +4068,17 @@ html {
 
 body {
   color: var(--cute-ink);
-  background:
-    radial-gradient(ellipse at 8% 12%, rgba(190, 215, 245, .38), transparent 28rem),
-    radial-gradient(ellipse at 92% 28%, rgba(215, 230, 248, .38), transparent 30rem),
-    radial-gradient(ellipse at 48% 92%, rgba(200, 222, 244, .32), transparent 32rem),
-    #F8FAFD;
+  /* background: linear-gradient(
+    135deg,
+    #EAF4F8 0%,
+    #E2EFF5 50%,
+    #D9EAF1 100%
+); */
+background:
+    radial-gradient(ellipse at 8% 12%, rgba(234, 244, 248, .38), transparent 28rem),
+    radial-gradient(ellipse at 92% 28%, rgba(226, 239, 245, .38), transparent 30rem),
+    radial-gradient(ellipse at 48% 92%, rgba(217, 234, 241, .34), transparent 32rem),
+    #FAFCFC;
   font-family: var(--cute-font);
   font-size: 1rem;
   line-height: 1.72;
@@ -4162,19 +4155,7 @@ a {
 }
 
 /* Header — soft floating navigation bar */
-header.site {
-  position: sticky;
-  top: 12px;
-  z-index: 30;
-  width: min(calc(100% - 28px), 1220px);
-  margin: 12px auto 0;
-  border: 1px solid rgba(234, 221, 232, .9);
-  border-radius: 999px;
-  background: rgba(255, 250, 247, .88);
-  box-shadow: 0 8px 28px rgba(104, 78, 111, .09);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
+
 
 header.site .wrap {
   width: 100%;
@@ -4185,7 +4166,7 @@ header.site .wrap {
 }
 
 .logo {
-  color: #b66f91;
+  color: var(--color-primary);
   font-family: var(--cute-display);
   font-size: clamp(1.65rem, 3vw, 2.15rem);
   line-height: 1;
@@ -4206,7 +4187,7 @@ header.site nav a {
   padding: 8px 14px;
   border: 0;
   border-radius: 999px;
-  color: var(--cute-muted);
+  color: rgb(115, 146, 176);
   font-size: .91rem;
   font-weight: 800;
   transition: color .2s ease, background .2s ease, transform .2s ease;
@@ -4214,8 +4195,8 @@ header.site nav a {
 
 header.site nav a:hover,
 header.site nav a[aria-current="page"] {
-  color: #85546f;
-  background: var(--cute-pink-soft);
+   background: #ebf7ff;
+  color: #527A96;
   border: 0;
   transform: translateY(-1px);
 }
@@ -4742,7 +4723,12 @@ a.btn:focus-visible {
   padding: clamp(22px, 4vw, 42px);
   border: 1px solid #eadde8;
   border-radius: 32px;
-  background: linear-gradient(145deg, #fff 0%, #fff5f7 52%, #f7f3ff 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 50%,
+    var(--color-white) 100%
+  );
   box-shadow: var(--cute-shadow);
 }
 
@@ -5125,9 +5111,10 @@ background: linear-gradient(
 footer.site {
   margin-top: 40px;
   padding: 24px 0;
-  border-top: 1px solid #eadde8;
-  background: rgba(255, 245, 248, .86);
-  color: #887990;
+  border-top: 1px solid rgba(190, 215, 230, .65);
+   background: rgba(237, 248, 255, 0.86);
+  color:  #7892AA;
+  font-size: 14px;
 }
 
 footer.site .wrap {
@@ -5136,13 +5123,15 @@ footer.site .wrap {
 }
 
 footer.site a {
-  color: #a96e8d;
+  color: #668EAD;
   font-weight: 900;
   text-decoration: none;
+  font-size: inherit;
+
 }
 
 footer.site a:hover {
-  color: #85516e;
+  color: #527FA0;
   text-decoration: underline;
 }
 
