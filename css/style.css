@@ -3183,6 +3183,7 @@ main.commissions-page {
   margin: 1rem 0 .8rem;
   font-size: var(--font-size-title-fluid-wide);
   color: var(--color-text);
+
 }
 
 .commission-hero p {
@@ -3716,6 +3717,7 @@ main > .about-page {
     var(--color-cream-light) 50%,
     var(--color-white) 100%
   );
+
   border: 1px solid var(--color-blue-200);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
@@ -4481,7 +4483,15 @@ a.btn:focus-visible {
 .faq-intro {
   text-align: center;
 }
-
+/* Consistent hero heading colour across pages */
+.home-introduction h1,
+.gallery-hero h1,
+.commission-hero h1,
+.payment-heading h1,
+.faq-intro h1,
+.about-content h1 {
+  color: var(--color-primary);
+}
 .gallery-hero {
   padding-bottom: 28px;
 }
@@ -4683,7 +4693,7 @@ a.btn:focus-visible {
 
 .commission-hero h1 {
   margin: 14px 0 0;
-  color: #8e5d79;
+  color: var(--color-primary);
   font-size: clamp(2.5rem, 5.5vw, 4.3rem);
 }
 
@@ -4807,9 +4817,16 @@ a.btn:focus-visible {
   max-width: 1040px;
   padding: clamp(22px, 4vw, 48px);
   gap: clamp(26px, 5vw, 60px);
-  border: 1px solid #eadde8;
+  /* border: 1px solid #eadde8; */
+  border: 1px solid var(--line);
   border-radius: 38px;
-  background: linear-gradient(135deg, #fff0f4 0%, #fffaf7 50%, #f2edff 100%);
+  /* background: linear-gradient(135deg, #fff0f4 0%, #fffaf7 50%, #f2edff 100%); */
+background: linear-gradient(
+  135deg,
+  var(--color-cream) 0%,
+  var(--color-cream-light) 50%,
+  var(--color-white) 100%
+);
   box-shadow: var(--cute-shadow);
 }
 
@@ -4941,18 +4958,8 @@ a.btn:focus-visible {
   padding-block: clamp(42px, 6vw, 76px);
 }
 
-.payment-page .payment-heading {
-  max-width: 940px;
-  margin-bottom: 34px;
-  padding: clamp(28px, 5vw, 52px);
-  border: 1px solid #eadde8;
-  border-radius: 38px;
-  background: linear-gradient(135deg, #fff0f4 0%, #fffaf7 52%, #f4efff 100%);
-  box-shadow: var(--cute-shadow);
-}
-
 .payment-page .payment-heading h1 {
-  color: #8e5d79;
+  color: var(--color-primary);
   font-size: clamp(2.7rem, 6vw, 4.5rem);
 }
 
@@ -5411,10 +5418,10 @@ section.faq-page {
 }
 
 /* About — soft lavender and blush accents */
-.about-card {
+/* .about-card {
   background: linear-gradient(135deg, #f8eff8 0%, #fff8f7 58%, #f0edff 100%);
   border-color: #e8d9ed;
-}
+} */
 
 .about-photo {
   border-color: #eadced;
@@ -5429,7 +5436,8 @@ section.faq-page {
 .about-content h1,
 .about-social-heading h2,
 .about-contact h2 {
-  color: #89628f;
+  color: var(--color-primary);
+
 }
 
 .about-divider {
@@ -5443,8 +5451,13 @@ section.faq-page {
 }
 
 .about-social-section {
-  border-color: #e8d9ed;
-  background: linear-gradient(135deg, #f5effb 0%, #fff8fa 100%);
+  border: 1px solid var(--line);
+  background: linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 50%,
+    var(--color-white) 100%
+  );
 }
 
 .about-social-card {
@@ -5463,20 +5476,20 @@ section.faq-page {
 }
 
 .about-contact {
-  border-color: #ead9e9;
-  background: linear-gradient(135deg, #f8eff8 0%, #fff8f0 100%);
+  border: 1px solid var(--line);
+  background: linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 50%,
+    var(--color-white) 100%
+  );
 }
 
-/* Payment — coordinated lavender/blush surfaces and readable accents */
-.payment-page .payment-heading {
-  border-color: #e8d9ed;
-  background: linear-gradient(135deg, #f7effa 0%, #fff8f7 58%, #f0edff 100%);
-}
 
 .payment-page .payment-heading h1,
 .payment-page .payment-card h2,
 .payment-page .payment-method h3 {
-  color: #89628f;
+  color: var(--color-primary);
 }
 
 .payment-page .payment-heading > p,
@@ -5520,13 +5533,26 @@ section.faq-page {
 
 /* FAQ — gentle lilac panels with blush interaction details */
 .faq-intro {
-  border-color: #e8d9ed;
-  background: linear-gradient(135deg, #f7effa 0%, #fff8f7 58%, #f0edff 100%);
+  border: 1px solid var(--line);
+  /* background: linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 50%,
+    var(--color-white) 100%
+  ); */
+background: linear-gradient(
+  135deg,
+  #E5EFFB 0%,
+  #F0F1F5 20%,
+  /* #FFF3D9 60% */
+  #FFFCF5 60%
+);
 }
 
 .faq-intro h1,
 .faq-category h2 {
-  color: #89628f;
+  
+color: var(--color-primary);
 }
 
 .faq-intro p {
@@ -5535,7 +5561,12 @@ section.faq-page {
 
 .faq-category {
   border-color: #e8dced;
-  background: rgba(255, 250, 253, .9);
+  background: linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 50%,
+    var(--color-white) 100%
+  );
 }
 
 .faq-item,
@@ -5554,7 +5585,7 @@ section.faq-page {
 
 .faq-item summary:hover,
 .faq-answer a {
-  color: #a15f8c;
+  color: #527FAF;
 }
 
 .faq-answer {
