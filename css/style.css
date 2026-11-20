@@ -4328,20 +4328,21 @@ a.btn:focus-visible {
   max-width: 1080px;
   margin-inline: auto;
   padding: clamp(28px, 5vw, 68px);
-  border: 1px solid #eadde8;
+  border: 1px solid rgba(166, 198, 220, .75);
   border-radius: 46px;
-  background:
+background:
     radial-gradient(circle at 12% 12%, rgba(255, 255, 255, .92) 0 7%, transparent 7.3%),
     radial-gradient(circle at 90% 85%, rgba(255, 255, 255, .70) 0 10%, transparent 10.3%),
-    linear-gradient(135deg, #fff0f4 0%, #f5efff 48%, #fff6df 100%);
-  box-shadow: 0 20px 55px rgba(121, 91, 125, .12);
+    linear-gradient(135deg, #D9EAF5 0%, #E8F1F5 55%, #FFFAE9 100%);
+
+box-shadow: 0 20px 55px rgba(91, 125, 150, .12);
 }
 
 .home-hero-card::before {
   content: "";
   position: absolute;
   inset: 14px;
-  border: 1px dashed rgba(180, 132, 160, .35);
+  border: 1px dashed rgba(166, 198, 220, .65);
   border-radius: 34px;
   pointer-events: none;
 }
@@ -4361,10 +4362,10 @@ a.btn:focus-visible {
   aspect-ratio: 1;
   margin-inline: auto;
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, .9);
+  border: 1px solid rgba(166, 198, 220, .9);
   border-radius: 42% 58% 52% 48% / 48% 42% 58% 52%;
-  background: linear-gradient(145deg, #fff 0%, #f7dce7 100%);
-  box-shadow: 0 16px 32px rgba(169, 103, 135, .18);
+  background: linear-gradient(145deg, #FFFFFF 0%, #DCEBF4 100%);
+box-shadow: 0 16px 32px rgba(91, 125, 150, .16);
   transform: rotate(-3deg);
 }
 
