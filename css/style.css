@@ -4082,10 +4082,10 @@ html {
 body {
   color: var(--cute-ink);
   background:
-    radial-gradient(ellipse at 8% 12%, rgba(255, 248, 220, .30), transparent 28rem),
-    radial-gradient(ellipse at 92% 28%, rgba(255, 252, 235, .38), transparent 30rem),
-    radial-gradient(ellipse at 48% 92%, rgba(250, 246, 225, .30), transparent 32rem),
-    var(--cute-paper);
+    radial-gradient(ellipse at 8% 12%, rgba(190, 215, 245, .38), transparent 28rem),
+    radial-gradient(ellipse at 92% 28%, rgba(215, 230, 248, .38), transparent 30rem),
+    radial-gradient(ellipse at 48% 92%, rgba(200, 222, 244, .32), transparent 32rem),
+    #F8FAFD;
   font-family: var(--cute-font);
   font-size: 1rem;
   line-height: 1.72;
