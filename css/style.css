@@ -2695,7 +2695,7 @@ footer.site a {
   font-size: inherit;
 }
 
-footer.site a:hover { color: #527FA0; text-decoration: underline; }
+footer.site a:hover { color: #507e9f; text-decoration: underline; }
 
 @media (max-width: 650px) {
   footer.site .wrap {
