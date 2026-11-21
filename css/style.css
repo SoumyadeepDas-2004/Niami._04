@@ -346,23 +346,6 @@ p { color: var(--cute-muted); }
 
 
 /* ============================================================
-   HANDWRITING ACCENTS (Caveat via --font-handwriting)
-   Decorative notes, captions, signatures, personal messages
-   ============================================================ */
-.home-intro-note,
-.commission-intro-note,
-.commission-poster-caption,
-.about-interests,
-.payment-note,
-.payment-reminder,
-.terms-footer-note,
-.art .cap i,
-.lb-caption,
-footer.site .wrap > span {
-  font-family: var(--font-handwriting);
-}
-
-/* ============================================================
    4. LAYOUT UTILITIES
    ============================================================ */
 
@@ -1803,7 +1786,7 @@ header.site nav a[aria-current="page"]:hover {
   display: block;
   margin-top: var(--space-6);
   color: var(--cute-pink-deep);
-  font-family: var(--font-handwriting);
+  font-family: var(--font-heading);
   font-size: var(--font-size-md);
 }
 
@@ -2215,7 +2198,7 @@ header.site nav a[aria-current="page"]:hover {
   .commissions-page .terms-footer-note {
     margin: 8px 0 0;
     color: var(--cute-pink-deep);
-    font-family: var(--font-handwriting);
+    font-family: var(--font-heading);
     font-size: var(--font-size-compact);
     text-align: center;
   }
