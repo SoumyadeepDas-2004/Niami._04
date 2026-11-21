@@ -409,7 +409,7 @@ header.site .wrap {
 .logo {
   font-family: var(--cute-display);
   font-size: clamp(1.65rem, 3vw, 2.15rem);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: .01em;
   text-decoration: none;
@@ -446,8 +446,8 @@ header.site nav a:hover,
 header.site nav a[aria-current="page"] {
   /* background: #ddf0fd;
   color: #527A96; */
-  background: rgba(120, 190, 200, 0.30); 
-  /* background: rgba(120, 190, 200, 0.10); */
+  /* background: rgba(120, 190, 200, 0.20);  */
+  background: rgba(120, 190, 200, 0.20);
   color: #354F70;
   transform: translateY(-1px);
 }
@@ -2378,7 +2378,7 @@ header.site nav a[aria-current="page"] {
 .faq-intro p {
   max-width: 570px;
   margin: 0 auto;
-  color: #456789;
+  color: #354F70;
   font: var(--font-size-lg)/var(--line-height-relaxed) var(--font-heading);
 }
 
