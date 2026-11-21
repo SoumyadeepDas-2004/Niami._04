@@ -345,24 +345,26 @@ scheduleScrollHighlight();
   const zoomOutButton = dialog.querySelector('.lb-zoom-out');
   const zoomResetButton = dialog.querySelector('.lb-zoom-reset');
 
-  // Controls stay in their current state until the user taps/clicks.
+  // Keep lightbox controls visible until the user toggles them.
   const showControls = () => {
     dialog.classList.remove('lb-controls-hidden');
   };
 
-  const hideControls = () => {
-    dialog.classList.add('lb-controls-hidden');
+  const toggleControls = () => {
+    if (dialog.classList.contains('lb-controls-hidden')) {
+      showControls();
+    } else {
+      dialog.classList.add('lb-controls-hidden');
+    }
   };
 
-  // Keyboard focus can reveal controls; pointer movement never does.
+  // Keyboard focus may reveal controls; pointer movement never does.
   dialog.addEventListener('focusin', showControls);
 
-  // Desktop: a single click reveals controls. A double-click hides them.
-  // Touch clicks are handled separately below to distinguish single/double taps.
+  // One click/tap on the artwork area toggles all controls.
   stage.addEventListener('click', event => {
     if (event.target.closest('button')) return;
-    if (event.pointerType === 'touch') return;
-    showControls();
+    toggleControls();
   });
 
   let currentList = [];
@@ -370,7 +372,6 @@ scheduleScrollHighlight();
   let openerElement = null;
   let imageRequestId = 0;
   let lastTouchTap = 0;
-  let touchTapTimer = null;
 
   // Zoom configuration
   const MIN_ZOOM = 1;
@@ -785,8 +786,6 @@ lightboxImage.style.cursor =
       const now = Date.now();
 
       if (lastTouchTap && now - lastTouchTap < 320) {
-        // Double-tap: retain the existing zoom gesture, then hide controls.
-        clearTimeout(touchTapTimer);
         lastTouchTap = 0;
 
         zoomAt(
@@ -795,19 +794,12 @@ lightboxImage.style.cursor =
           event.clientY
         );
 
-        hideControls();
+        showControls();
         gestureMoved = false;
         return;
       }
 
-      // Delay the single-tap reveal briefly so a second tap can be detected.
       lastTouchTap = now;
-      clearTimeout(touchTapTimer);
-      touchTapTimer = setTimeout(() => {
-        showControls();
-        lastTouchTap = 0;
-        touchTapTimer = null;
-      }, 320);
     }
 
     if (
@@ -843,14 +835,13 @@ lightboxImage.style.cursor =
     }
 
     event.preventDefault();
+    showControls();
 
     zoomAt(
       zoom === 1 ? 2.5 : 1,
       event.clientX,
       event.clientY
     );
-
-    hideControls();
   });
 
   // Keyboard navigation
@@ -891,8 +882,6 @@ lightboxImage.style.cursor =
   dialog.addEventListener('close', () => {
     pointers.clear();
     lastTouchTap = 0;
-    clearTimeout(touchTapTimer);
-    touchTapTimer = null;
     resetZoom();
 
     dialog.classList.remove('lb-controls-hidden');
