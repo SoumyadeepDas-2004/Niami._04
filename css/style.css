@@ -2336,6 +2336,7 @@ header.site nav a[aria-current="page"] {
   padding-bottom: clamp(3rem, 7vw, 5rem);
 }
 
+/* FAQ INTRO */
 .faq-intro {
   position: relative;
   overflow: hidden;
@@ -2352,7 +2353,8 @@ header.site nav a[aria-current="page"] {
 .faq-intro::before {
   content: "✦";
   position: absolute;
-  top: 20px; left: 30px;
+  top: 20px;
+  left: 30px;
   color: var(--color-blue-400);
   font-size: var(--font-size-2xl);
   opacity: .75;
@@ -2361,123 +2363,165 @@ header.site nav a[aria-current="page"] {
 .faq-intro::after {
   content: "♡";
   position: absolute;
-  right: 32px; bottom: 18px;
+  right: 32px;
+  bottom: 18px;
   color: var(--color-rose);
   font-size: var(--font-size-3xl);
   opacity: .8;
 }
 
-.faq-intro h1 { margin: 0 0 1rem; color: var(--color-primary); }
+.faq-intro h1 {
+  margin: 0 0 1rem;
+  color: var(--color-primary);
+}
+
 .faq-intro p {
-  font-size: 1.2rem;
-  line-height: 1.7;
   max-width: 570px;
   margin: 0 auto;
-  color: #526789;
+  color: #456789;
   font: var(--font-size-lg)/var(--line-height-relaxed) var(--font-heading);
 }
 
+/* FAQ CATEGORY */
 .faq-category {
   position: relative;
   overflow: hidden;
   max-width: 980px;
   margin: 0 auto 22px;
   padding: clamp(20px, 4vw, 34px);
-  border: 1px solid #C5D7E0;
+  border: 1px solid #B5CBD8;
   border-radius: 28px;
-  box-shadow: 0 8px 24px rgba(38, 63, 89, .09);
+  box-shadow: 0 8px 26px rgba(38, 63, 89, 0.11);
   background: var(--card-surface);
-  transition: transform 0.35s ease,
-            box-shadow 0.35s ease,
-            border-color 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+    counter-reset: faq-question;
 }
+
 .faq-category:hover {
   transform: translateY(-5px);
-  border-color: #91AFC0;
-  box-shadow: 0 18px 42px rgba(38, 63, 89, 0.18);
+  border-color: #789BB3;
+  box-shadow: 0 18px 42px rgba(38, 63, 89, 0.19);
 }
+
 .faq-category h2 {
-  font-size: 2rem;
   margin: 0 0 18px;
-  color: #526789;
+  color: #456789;
   font-size: clamp(1.55rem, 3vw, 2rem);
 }
 
-.faq-item { padding: 0; border-bottom: 1px solid #E8DDBF; }
-.faq-item:first-of-type { border-top: 1px solid #E8DDBF; }
+/* FAQ ITEMS */
+.faq-item {
+  counter-increment: faq-question;
+  padding: 0;
+  /* border-bottom: 1px solid #E8DDBF; */
+}
 
+/* .faq-item:first-of-type {
+  border-top: 1px solid #E8DDBF;
+} */
+
+/* FAQ QUESTIONS */
 .faq-item summary {
-   font-size: 1.12rem;
   position: relative;
-  padding: 17px 42px 17px 4px;
+  padding: 17px 42px 17px 10px;
   color: #354F70;
   font-family: var(--cute-font);
+  font-size: 1.12rem;
   font-weight: 700;
   line-height: 1.5;
   list-style: none;
   cursor: pointer;
-   
-   transition: color 0.25s ease, background 0.25s ease;
-    border-radius: 8px;
+  border-radius: 10px;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    border-radius 0.25s ease;
 }
 
-.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+/* Q1 Q2 styling */
+.faq-item summary::before {
+  content: "Q" counter(faq-question) ".";
+  display: inline-block;
+  margin-right: 12px;
+  color: #354F70;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
 
+/* PLUS / MINUS ICON */
 .faq-item summary::after {
   content: "+";
   position: absolute;
-  right: 4px;
   top: 50%;
-  transform: translateY(-50%);
+  right: 4px;
   display: grid;
-  width: 30px; height: 30px;
+  width: 30px;
+  height: 30px;
   place-items: center;
+  transform: translateY(-50%);
   border-radius: 50%;
-  background: #fff7d6;
-  color: #5b636f;
+  background: #FFF7D6;
+  color: #5B636F;
   font-size: 1.35rem;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
+
+/* OPENED QUESTION */
 .faq-item[open] summary {
-  color: #456B89;
-  background: rgba(190, 210, 220, 0.20);
-  border-radius: 8px 8px 0 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 85%,
+    var(--color-white) 100%
+  );
+  color: #354F70;
+  border-radius: 10px 10px 0 0;
 }
+
+.faq-item[open] {
+  border-bottom-color: #AFC5D2;
+}
+
 .faq-item[open] summary::after {
   content: "−";
 }
 
+/* HOVER QUESTION */
 .faq-item summary:hover {
-  /* color: #43618a; */
-   background: 	rgba(120, 190, 200, 0.10);
-  color: #456B89;
+  background: linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 85%,
+    var(--color-white) 100%
+  );
+  /* color: #456B89; */
+  transform: translateX(6px);
 }
 
+/* FAQ ANSWERS */
 .faq-answer {
   max-width: 820px;
-  padding: 0 38px 18px 4px;
+  margin: 12px 0 8px 14px;
+  padding: 4px 24px 8px 20px;
+  /* border-left: 3px solid #B5CBD8; */
   color: #354F70;
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  line-height: 1.85;
-  
-  /* animation: faq-reveal .2s ease; */
-}
-.faq-item[open] .faq-answer {
-  animation: faq-reveal 0.45s ease-out both;
+  line-height: 1.65;
 }
 
-@keyframes faq-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .faq-answer p {
-  margin: 0 0 .8rem;
+   margin: 0 0 1rem;
   color: inherit;
 }
 
@@ -2490,25 +2534,126 @@ header.site nav a[aria-current="page"] {
   text-underline-offset: .2em;
 }
 
-.faq-answer p { margin: 0 0 .8rem; }
-.faq-answer p:last-child { margin-bottom: 0; }
-.faq-answer a { color: #263F59;text-underline-offset: .2em; }
+/* ANSWER REVEAL ANIMATION */
+.faq-item[open] .faq-answer {
+  animation: faq-reveal 0.45s ease-out both;
+  /* border-left: 1px solid #B5CBD8; */
+}
 
+@keyframes faq-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* TABLETS AND SMALL LAPTOPS */
+@media (max-width: 1024px) {
+  .faq-intro,
+  .faq-category {
+    max-width: 900px;
+  }
+
+  .faq-intro {
+    padding: clamp(26px, 4vw, 42px);
+  }
+
+  .faq-category {
+    padding: 28px;
+  }
+}
+
+/* TABLETS */
+@media (max-width: 768px) {
+  .faq-page {
+    padding-block: 38px 48px;
+  }
+
+  .faq-intro {
+    margin-bottom: 28px;
+    padding: 32px 24px;
+    border-radius: 32px;
+  }
+
+  .faq-intro p {
+    font-size: 1.08rem;
+  }
+
+  .faq-category {
+    margin-bottom: 20px;
+    padding: 25px 22px;
+    border-radius: 26px;
+  }
+
+  .faq-category h2 {
+    font-size: 1.65rem;
+  }
+
+  .faq-item summary {
+    font-size: 1.05rem;
+    padding: 16px 40px 16px 8px;
+  }
+
+  .faq-answer {
+    font-size: 1rem;
+    padding-right: 30px;
+  }
+}
+
+/* MOBILE PHONES */
 @media (max-width: 560px) {
   .faq-intro {
     margin-bottom: var(--space-10);
     padding: 28px 19px;
     border-radius: 27px;
   }
-  .faq-intro::before { top: 10px; left: 12px; font-size: var(--font-size-lg); }
-  .faq-intro::after { right: 12px; bottom: 8px; font-size: var(--font-size-xl); }
+
+  .faq-intro::before {
+    top: 10px;
+    left: 12px;
+    font-size: var(--font-size-lg);
+  }
+
+  .faq-intro::after {
+    right: 12px;
+    bottom: 8px;
+    font-size: var(--font-size-xl);
+  }
+
+  .faq-intro p {
+    font-size: 1rem;
+  }
+
   .faq-category {
     margin-bottom: var(--space-6);
     padding: 21px 17px;
     border-radius: 24px;
   }
-  .faq-item summary { padding: 1rem 2rem 1rem 0; font-size: var(--font-size-md); }
-  .faq-answer { font-size: var(--font-size-compact); }
+
+  .faq-category h2 {
+    font-size: 1.45rem;
+  }
+
+  .faq-item summary {
+    padding: 1rem 2rem 1rem 0;
+    font-size: var(--font-size-md);
+  }
+
+  .faq-item summary:hover {
+    transform: translateX(3px);
+  }
+  .faq-answer {
+  margin-left: 8px;
+  padding-left: 14px;
+  padding-right: 4px;
+  font-size: var(--font-size-compact);
+}
 }
 
 /* ============================================================
@@ -3110,14 +3255,19 @@ footer.site a {
 }
 
 .faq-item summary::after {
-  transition:
-    transform var(--dur-med) var(--ease-out),
+   transition: transform 0.3s ease,
+              background 0.25s ease,
+              color 0.25s ease,
     background var(--dur-fast) ease,
     color var(--dur-fast) ease;
+     background: #FCECC0;
+  color: #456789;
 }
 
 .faq-item[open] summary::after {
   transform: translateY(-50%) rotate(180deg);
+   background: #789BB3;
+  color: #FFFFFF;
 }
 
 /* ----- Lightbox ----- */
