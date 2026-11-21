@@ -2463,36 +2463,9 @@ color: var(--color-ink);
 }
 
 /* MOBILE */
-@media (max-width: 650px) {
-  .commission-hero {
-    width: calc(100% - 32px);
-    padding: 2rem 1.25rem;
-    border-radius: 24px;
-  }
-
-  .commission-hero h1 {
-    font-size: var(--font-size-large-heading);
-  }
-
-  .commission-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-4);
-  }
-
-  .commission-poster-caption {
-    min-height: 64px;
-  }
-
-  .commission-contact-card {
-    width: calc(100% - 32px);
-    margin-inline: auto;
-    padding: 2rem 1.25rem;
-    border-radius: 24px;
-  }
-}
-
 /* SMALL MOBILE — ACCORDION TERMS */
 @media (max-width: 560px) {
+
   .commission-gallery {
     grid-template-columns: 1fr;
     max-width: 420px;
@@ -2516,75 +2489,113 @@ color: var(--color-ink);
     gap: var(--space-3);
   }
 
-  /* MOBILE TERMS — MATCH DESKTOP COLORS */
+  /* ACCORDION SECTIONS */
 
-.commissions-page .terms-group {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
+  .commissions-page .terms-group {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
 
-.commissions-page .terms-group summary {
-  color: var(--ink);
-  transition: background .2s ease;
-}
+  .commissions-page .terms-group summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    transition: background .2s ease;
+  }
 
+  .commissions-page .terms-group summary::-webkit-details-marker {
+    display: none;
+  }
 
-.commissions-page .terms-group summary span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--color-blue-100);
-  color: var(--color-ink);
-}
+  .commissions-page .terms-group summary::marker {
+    content: "";
+  }
 
-.commissions-page .terms-group summary::after {
-  content: none;
-  display: none;
-}
+  /* CIRCULAR SECTION NUMBER */
 
-.commissions-page .terms-group[open] summary::after {
-  content: "−";
-  color: var(--color-ink);
-}
+  .commissions-page .terms-group summary span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border-radius: 50%;
+    background: var(--color-blue-100);
+    color: var(--color-ink);
+  }
 
-.commissions-page .terms-group[open] summary {
-  /* background: var(--color-blue-100); */
-  border-bottom: 1px solid var(--line);
-}
+  /* NO ACCORDION ARROW */
 
-/* Remove default bullets and use section-wise numbering */
-.commissions-page .terms-group ul {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
-  counter-reset: subterm;
-}
+  .commissions-page .terms-group summary::after {
+    content: none;
+    display: none;
+  }
 
-.commissions-page .terms-group li {
-  list-style: none;
-  counter-increment: subterm;
-  position: relative;
-  padding-left: 42px;
-}
+  .commissions-page .terms-group[open] summary {
+    border-bottom: 1px solid var(--line);
+  }
 
-/* Number becomes the main list marker */
-.commissions-page .terms-group li::before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-weight: 700;
-  color: var(--color-ink);
-}
+  /* SECTION-WISE NUMBERING */
 
-.commissions-page .terms-group strong {
-  color: var(--ink);
-}
+  .commissions-page .terms-group ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin: 0;
+    padding: var(--space-4);
+    list-style: none;
+    counter-reset: subterm;
+  }
+
+  .commissions-page .terms-group li {
+    display: block;
+    position: relative;
+    counter-increment: subterm;
+    padding: 0 0 0 42px;
+    margin: 0;
+    list-style: none;
+    color: var(--color-slate);
+    font-size: var(--font-size-compact);
+    line-height: var(--line-height-body-wide);
+  }
+
+  /* NUMBER AND ANSWER ALIGNMENT */
+
+  .commissions-page .terms-group li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 34px;
+    text-align: left;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  .commissions-page .terms-group:nth-child(1) li::before {
+    content: "1." counter(subterm);
+  }
+
+  .commissions-page .terms-group:nth-child(2) li::before {
+    content: "2." counter(subterm);
+  }
+
+  .commissions-page .terms-group:nth-child(3) li::before {
+    content: "3." counter(subterm);
+  }
+
+  .commissions-page .terms-group strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* FOOTER NOTE */
 
   .commissions-page .terms-footer-note {
     margin: 8px 0 0;
