@@ -19,7 +19,7 @@
 
   /* Midnight Blue */
   --color-border: #DCE7EF;
-  --color-ink: #355e7e;
+  --color-ink: #416F96;
   --color-muted: #718096;
 
   /* Ocean Blue */
@@ -1190,7 +1190,7 @@ header.site a:focus-visible,
 .home-introduction h1 {
   margin: 0 0 16px;
   color: var(--ink);
-  font-size: clamp(3rem, 7vw, 5.3rem);
+    font-size: clamp(2.5rem, 5.5vw, 4.2rem);
   line-height: var(--line-height-display);
 }
 
