@@ -2530,9 +2530,6 @@ color: var(--color-ink);
   transition: background .2s ease;
 }
 
-/* .commissions-page .terms-group summary:hover {
-  background: var(--color-blue-100);
-} */
 
 .commissions-page .terms-group summary span {
   display: inline-flex;
@@ -2561,11 +2558,27 @@ color: var(--color-ink);
   border-bottom: 1px solid var(--line);
 }
 
-.commissions-page .terms-group li {
-  color: var(--color-slate);
+/* Remove default bullets and use section-wise numbering */
+.commissions-page .terms-group ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  counter-reset: subterm;
 }
 
+.commissions-page .terms-group li {
+  list-style: none;
+  counter-increment: subterm;
+  position: relative;
+  padding-left: 42px;
+}
+
+/* Number becomes the main list marker */
 .commissions-page .terms-group li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
   color: var(--color-ink);
 }
 
