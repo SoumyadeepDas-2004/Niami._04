@@ -575,7 +575,7 @@ button.btn {
 
   box-shadow:
     0 4px 0 var(--color-primary-hover),
-    0 7px 16px rgba(36, 59, 83, .14);
+    0 7px 16px rgba(25, 45, 70, 0.14);
 
   font-family: var(--font-body);
   font-size: .96rem;
@@ -607,6 +607,7 @@ button.btn:hover {
    box-shadow:
     0 6px 0 #566887,
     0 11px 20px rgba(36, 59, 83, .16);
+    border: 1px solid #687A9A;
  } 
 
 /* Primary Active / Pressed */
