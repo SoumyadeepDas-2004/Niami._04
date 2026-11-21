@@ -2515,7 +2515,7 @@ header.site nav a[aria-current="page"] {
   padding: 4px 24px 8px 20px;
   /* border-left: 3px solid #B5CBD8; */
   color: #354F70;
-  font-size: 8.1rem;
+  font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.65;
 }
@@ -2601,7 +2601,7 @@ header.site nav a[aria-current="page"] {
   }
 
   .faq-answer {
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding-right: 30px;
   }
 }
