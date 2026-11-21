@@ -2534,7 +2534,7 @@ color: var(--color-ink);
   /* NO ACCORDION ARROW */
 
   .commissions-page .terms-group summary::after {
-    content: none;
+    color: #477FAD;
     display: none;
   }
 
