@@ -3907,7 +3907,7 @@ body:has(dialog[open]) { overflow: hidden; }
   text-align: center;
   line-height: var(--line-height-normal);
   pointer-events: none;
-  /* text-shadow: 0 1px 5px var(--color-white); */
+  text-shadow: 0 1px 5px var(--color-white);
   transition: opacity .25s ease, visibility .25s ease;
 }
 
