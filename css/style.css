@@ -1252,8 +1252,8 @@ header.site a:focus-visible,
 }
 
 .home-decoration-three {
-  right: 35%;
-  bottom: 8%;
+  right: 5%;
+  bottom: 5%;
   color: var(--color-blue-200);
   font-size: 2.1rem;
   animation-delay: 1.2s;
@@ -1577,10 +1577,10 @@ header.site a:focus-visible,
   }
 
   .home-decoration-three {
-    right: 5%;
-    bottom: 10%;
-    font-size: var(--font-size-2xl);
-  }
+  right: 4%;
+  bottom: 4%;
+  font-size: var(--font-size-2xl);
+}
 
   .home-hero-bottom {
     gap: .65rem;
