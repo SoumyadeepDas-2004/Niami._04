@@ -2540,18 +2540,8 @@ color: var(--color-ink);
 }
 
 .commissions-page .terms-group summary::after {
-  content: "+";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-left: auto;
-  color: var(--color-ink);
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1;
+  content: none;
+  display: none;
 }
 
 .commissions-page .terms-group[open] summary::after {
