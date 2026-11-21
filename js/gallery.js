@@ -345,27 +345,12 @@ scheduleScrollHighlight();
   const zoomOutButton = dialog.querySelector('.lb-zoom-out');
   const zoomResetButton = dialog.querySelector('.lb-zoom-reset');
 
-  // Show and hide lightbox controls
+  // Keep lightbox controls visible until the user toggles them.
   const showControls = () => {
     dialog.classList.remove('lb-controls-hidden');
-    clearTimeout(controlsTimer);
-
-    if (!dialog.open) return;
-
-    controlsTimer = setTimeout(() => {
-      const keyboardFocusedControl = dialog.querySelector(
-        'button:focus-visible'
-      );
-
-      if (!keyboardFocusedControl) {
-        dialog.classList.add('lb-controls-hidden');
-      }
-    }, 2500);
   };
 
   const toggleControls = () => {
-    clearTimeout(controlsTimer);
-
     if (dialog.classList.contains('lb-controls-hidden')) {
       showControls();
     } else {
@@ -387,7 +372,6 @@ scheduleScrollHighlight();
   let currentIndex = 0;
   let openerElement = null;
   let imageRequestId = 0;
-  let controlsTimer = null;
   let lastTouchTap = 0;
 
   // Zoom configuration
@@ -899,7 +883,6 @@ lightboxImage.style.cursor =
 
   // Restore focus to the artwork or poster that opened the viewer.
   dialog.addEventListener('close', () => {
-    clearTimeout(controlsTimer);
     pointers.clear();
     lastTouchTap = 0;
     resetZoom();
