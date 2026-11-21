@@ -2596,21 +2596,33 @@ color: var(--color-ink);
 }
 
 /* Commission terms automatic numbers */
+/* Commission terms — section-wise numbering */
+.commission-terms-desktop .terms-group ul,
+.commission-terms-mobile .terms-group ul {
+  counter-reset: subterm;
+}
+
+.commission-terms-desktop .terms-group li,
+.commission-terms-mobile .terms-group li {
+  counter-increment: subterm;
+}
+
+/* Section 1 */
+.commission-terms-desktop .terms-group:nth-child(1) li::before,
+.commission-terms-mobile .terms-group:nth-child(1) li::before {
+  content: "1." counter(subterm);
+}
+
+/* Section 2 */
 .commission-terms-desktop .terms-group:nth-child(2) li::before,
 .commission-terms-mobile .terms-group:nth-child(2) li::before {
   content: "2." counter(subterm);
 }
 
+/* Section 3 */
 .commission-terms-desktop .terms-group:nth-child(3) li::before,
 .commission-terms-mobile .terms-group:nth-child(3) li::before {
   content: "3." counter(subterm);
-}
-.commissions-page .commission-contact {
-  padding-top: 0;
-}
-
-.commissions-page .commission-contact-card {
-  margin-top: 42px !important;
 }
 /* ============================================================
    12. ABOUT PAGE — BLUE & GOLD DESIGN
