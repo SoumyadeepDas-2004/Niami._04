@@ -345,50 +345,42 @@ scheduleScrollHighlight();
   const zoomOutButton = dialog.querySelector('.lb-zoom-out');
   const zoomResetButton = dialog.querySelector('.lb-zoom-reset');
 
-  // Reveal controls during interaction, then fade them after inactivity.
+  // Show and hide lightbox controls
   const showControls = () => {
-  dialog.classList.remove('lb-controls-hidden');
-  clearTimeout(controlsTimer);
+    dialog.classList.remove('lb-controls-hidden');
+    clearTimeout(controlsTimer);
 
-  if (!dialog.open) return;
+    if (!dialog.open) return;
 
-  const showControls = () => {
-  dialog.classList.remove('lb-controls-hidden');
-  clearTimeout(controlsTimer);
+    controlsTimer = setTimeout(() => {
+      const keyboardFocusedControl = dialog.querySelector(
+        'button:focus-visible'
+      );
 
-  if (!dialog.open) return;
+      if (!keyboardFocusedControl) {
+        dialog.classList.add('lb-controls-hidden');
+      }
+    }, 2500);
+  };
 
-  controlsTimer = setTimeout(() => {
-    const keyboardFocusedControl = dialog.querySelector(
-      'button:focus-visible'
-    );
+  const toggleControls = () => {
+    clearTimeout(controlsTimer);
 
-    if (!keyboardFocusedControl) {
+    if (dialog.classList.contains('lb-controls-hidden')) {
+      showControls();
+    } else {
       dialog.classList.add('lb-controls-hidden');
     }
-  }, 2500);
-};
+  };
 
-const toggleControls = () => {
-  clearTimeout(controlsTimer);
-
-  if (dialog.classList.contains('lb-controls-hidden')) {
-    showControls();
-  } else {
-    dialog.classList.add('lb-controls-hidden');
-  }
-};
-
+  // Mouse movement and keyboard focus reveal the controls.
   dialog.addEventListener('pointermove', showControls);
-
-stage.addEventListener('click', event => {
-  if (event.target.closest('button')) return;
-  toggleControls();
-});
   dialog.addEventListener('focusin', showControls);
-  dialog.addEventListener('focusout', () => {
-    // Allow focus to move between viewer controls before checking it.
-    requestAnimationFrame(showControls);
+
+  // One click/tap on the artwork area toggles all controls.
+  stage.addEventListener('click', event => {
+    if (event.target.closest('button')) return;
+    toggleControls();
   });
 
   let currentList = [];
@@ -827,7 +819,6 @@ lightboxImage.style.cursor =
       }
 
       lastTouchTap = now;
-      showControls();
     }
 
     if (
