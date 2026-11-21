@@ -2516,102 +2516,53 @@ color: var(--color-ink);
     gap: var(--space-3);
   }
 
-  .commissions-page .terms-group {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
+  /* MOBILE TERMS — MATCH DESKTOP COLORS */
 
-  .commissions-page .terms-group summary {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-4);
-    color: var(--ink);
-    font-family: var(--cute-font);
-    font-size: var(--font-size-body);
-    font-weight: 900;
-    cursor: pointer;
-    list-style: none;
-    transition: background .2s ease;
-  }
+.commissions-page .terms-group {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
 
-  .commissions-page .terms-group summary:hover {
-    background: var(--color-blue-50);
-  }
+.commissions-page .terms-group summary {
+  color: var(--ink);
+  transition: background .2s ease;
+}
 
-  .commissions-page .terms-group summary::-webkit-details-marker {
-    display: none;
-  }
+.commissions-page .terms-group summary:hover {
+  background: var(--color-blue-100);
+}
 
-  .commissions-page .terms-group summary span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--color-cream);
-    color: var(--cute-pink-deep);
-    font-size: var(--font-size-eyebrow);
-    font-weight: 700;
-  }
+.commissions-page .terms-group summary span {
+  background: var(--color-blue-100);
+  color: var(--color-ink);
+}
 
-  .commissions-page .terms-group summary::after {
-    content: "+";
-    margin-left: auto;
-    color: var(--hl);
-    font-size: var(--font-size-heading-md);
-    font-weight: 400;
-  }
+.commissions-page .terms-group summary::after {
+  color: var(--color-ink);
+}
 
-  .commissions-page .terms-group[open] summary::after {
-    content: "−";
-    color: var(--cute-pink-deep);
-  }
+.commissions-page .terms-group[open] summary::after {
+  color: var(--color-ink);
+}
 
-  .commissions-page .terms-group[open] summary {
-    background: var(--color-cream);
-    border-bottom: 1px solid var(--color-rose);
-  }
-
-  .commissions-page .terms-group ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    margin: 0;
-    padding: var(--space-4);
-    list-style: none;
-  }
-
-  .commissions-page .terms-group ul {
-  counter-reset: subterm;
+.commissions-page .terms-group[open] summary {
+  background: var(--color-blue-100);
+  border-bottom: 1px solid var(--line);
 }
 
 .commissions-page .terms-group li {
-  counter-increment: subterm;
-  position: relative;
-  padding: 0 0 0 38px;
   color: var(--color-slate);
-  font-size: var(--font-size-compact);
-  line-height: var(--line-height-body-wide);
 }
 
 .commissions-page .terms-group li::before {
-  content: "1." counter(subterm);
-  position: absolute;
-  left: 0;
-  top: 0;
   color: var(--color-ink);
-  font-weight: 700;
 }
 
-  .commissions-page .terms-group strong {
-    color: var(--ink);
-    font-weight: 700;
-  }
+.commissions-page .terms-group strong {
+  color: var(--ink);
+}
 
   .commissions-page .terms-footer-note {
     margin: 8px 0 0;
