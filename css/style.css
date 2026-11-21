@@ -2575,7 +2575,7 @@ color: var(--color-ink);
     font-weight: 700;
     color: var(--color-ink);
   }
-
+/* AUTOMATIC NUMBER IN MOBILE */
   .commissions-page .terms-group:nth-child(1) li::before {
     content: "1." counter(subterm);
   }
@@ -2653,6 +2653,21 @@ color: var(--color-ink);
 .commission-terms-desktop .terms-group:nth-child(3) li::before,
 .commission-terms-mobile .terms-group:nth-child(3) li::before {
   content: "3." counter(subterm);
+}
+/* CONSISTENT SPACING — TERMS TO CONTACT */
+
+.commissions-page .commission-information {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.commissions-page .commission-contact {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.commissions-page .commission-contact-card {
+  margin: 42px auto 0 !important;
 }
 /* ============================================================
    12. ABOUT PAGE — BLUE & GOLD DESIGN
