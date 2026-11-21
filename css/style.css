@@ -2689,7 +2689,7 @@ color: var(--color-ink);
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
   box-shadow: 0 10px 28px var(--color-overlay-soft);
-  background: var(--color-white);
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--bg) 58%, var(--color-cream) 100%);
 }
 
 /* PROFILE PHOTO */
@@ -2726,7 +2726,7 @@ color: var(--color-ink);
 
 .about-eyebrow {
   display: block;
-  color: var(--cute-pink-deep);
+  color: var(--color-ink);
   font-family: var(--cute-font);
   font-size: .78rem;
   font-weight: 900;
@@ -2760,7 +2760,7 @@ color: var(--color-ink);
 
 .about-description {
   max-width: 34rem;
-  color: var(--color-slate);
+  color: var(--color-ink);
   font-size: 1.08rem;
   line-height: var(--line-height-extra-loose);
 }
@@ -2771,8 +2771,8 @@ color: var(--color-ink);
   padding: 9px 15px;
   border: 1px solid var(--color-rose);
   border-radius: 999px;
-  background: var(--color-cream);
-  color: var(--cute-pink-deep);
+  background: #FFFBEA;
+  color: var(--color-ink);
   font-size: var(--font-size-compact);
   line-height: var(--line-height-loose);
 }
@@ -2791,7 +2791,7 @@ color: var(--color-ink);
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
   box-shadow: 0 10px 28px var(--color-overlay-soft);
-  background: var(--color-white);
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--bg) 58%, var(--color-cream) 100%);
 }
 
 .about-social-heading {
@@ -2882,7 +2882,7 @@ color: var(--color-ink);
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
   box-shadow: 0 10px 28px var(--color-overlay-soft);
-  background: linear-gradient(135deg, var(--bg) 0%, var(--color-white) 65%, var(--color-cream) 100%);
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--bg) 58%, var(--color-cream) 100%);
 }
 
 .about-contact h2 {
@@ -4068,11 +4068,14 @@ footer.site a:hover {
    ============================================================ */
 
 /* SOCIAL LINKS */
+/* SOCIAL LINKS — ICONS ONLY */
 .social-links {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-5-5);
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 28px;
   margin-top: 1.5rem;
 }
 
@@ -4083,11 +4086,12 @@ footer.site a:hover {
   flex: 0 0 44px;
   width: 44px;
   height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
   border-radius: 50%;
-  transition:
-    transform var(--transition-standard),
-    background-color var(--transition-standard),
-    box-shadow var(--transition-standard);
+  box-shadow: none;
+  transition: transform var(--transition-standard);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -4102,8 +4106,8 @@ footer.site a:hover {
 
 .social-links img {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
@@ -4229,6 +4233,7 @@ td {
     transform: none;
   }
 }
+
 /* ============================================================
    18. PAGE TRANSITIONS & KEYFRAMES
    ============================================================ */
