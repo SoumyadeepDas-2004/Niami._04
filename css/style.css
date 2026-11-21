@@ -2530,9 +2530,9 @@ color: var(--color-ink);
   transition: background .2s ease;
 }
 
-.commissions-page .terms-group summary:hover {
+/* .commissions-page .terms-group summary:hover {
   background: var(--color-blue-100);
-}
+} */
 
 .commissions-page .terms-group summary span {
   background: var(--color-blue-100);
@@ -2550,7 +2550,7 @@ color: var(--color-ink);
 }
 
 .commissions-page .terms-group[open] summary {
-  background: var(--color-blue-100);
+  /* background: var(--color-blue-100); */
   border-bottom: 1px solid var(--line);
 }
 
