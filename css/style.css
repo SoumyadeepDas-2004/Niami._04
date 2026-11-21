@@ -2535,6 +2535,13 @@ color: var(--color-ink);
 } */
 
 .commissions-page .terms-group summary span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
   background: var(--color-blue-100);
   color: var(--color-ink);
 }
