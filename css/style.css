@@ -25,9 +25,10 @@
 
   /* Ocean Blue */
   --color-accent: #477FAD;
-  --color-primary: #477FAD;
-  --color-primary-hover: #315F87;
-
+  /* --color-primary: #477FAD;
+  --color-primary-hover: #315F87; */
+ --color-primary: #7888AB;
+  --color-primary-hover: #6F809F;
   /* Muted Gold */
   --color-rose: #f2b69c;
   --color-rose-light: #FFF9F0;
@@ -603,10 +604,10 @@ button.btn:hover {
   background: var(--color-primary-hover);
   color: var(--color-white);
 
-  box-shadow:
-    0 6px 0 #243B53,
+   box-shadow:
+    0 6px 0 #5F7192,
     0 11px 20px rgba(36, 59, 83, .16);
-}
+ } 
 
 /* Primary Active / Pressed */
 .btn:active,
