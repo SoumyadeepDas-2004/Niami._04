@@ -358,8 +358,7 @@ scheduleScrollHighlight();
     }
   };
 
-  // Mouse movement and keyboard focus reveal the controls.
-  dialog.addEventListener('pointermove', showControls);
+  // Keyboard focus may reveal controls; pointer movement never does.
   dialog.addEventListener('focusin', showControls);
 
   // One click/tap on the artwork area toggles all controls.
@@ -707,8 +706,6 @@ lightboxImage.style.cursor =
   // Pointer move: pan or pinch zoom
   stage.addEventListener('pointermove', event => {
     if (!pointers.has(event.pointerId)) return;
-
-    showControls();
 
     pointers.set(event.pointerId, {
       x: event.clientX,
