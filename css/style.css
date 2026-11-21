@@ -30,7 +30,7 @@
  --color-primary: #7888AB;
   --color-primary-hover: #6F809F;
   /* Muted Gold */
-  --color-rose: #f2b69c;
+  --color-rose: #A9D5EC;
   --color-rose-light: #FFF9F0;
 
   /* Ivory */
@@ -1362,7 +1362,7 @@ header.site a:focus-visible,
   padding: clamp(2rem, 5vw, 3.5rem);
   overflow: hidden;
   text-align: center;
-  background: var(--color-white);
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--bg) 58%, var(--color-cream) 100%);
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
   box-shadow: 0 10px 28px var(--color-overlay-soft);
@@ -1425,7 +1425,7 @@ header.site a:focus-visible,
 }
 
 /* COMMISSION CTA */
-.home-page .home-commission {
+/* .home-page .home-commission {
   padding: 0 0 clamp(3.5rem, 7vw, 5.5rem);
 }
 
@@ -1469,7 +1469,7 @@ header.site a:focus-visible,
 .home-commission-decoration span:nth-child(2) {
   color: var(--color-rose);
   font-size: var(--font-size-3xl);
-}
+} */
 
 /* TABLET */
 @media (max-width: 900px) {
@@ -1842,7 +1842,8 @@ header.site a:focus-visible,
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
   box-shadow: 0 10px 28px var(--color-overlay-soft);
-  background: var(--card-surface);
+  /* background: var(--card-surface); */
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--bg) 58%, var(--color-cream) 100%);
 }
 
 .gallery-page .gallery-hero .wrap::before {
@@ -1872,7 +1873,7 @@ header.site a:focus-visible,
 }
 
 .gallery-page .gallery-hero h1 .heart {
-  color: var(--color-rose);
+  color: transparent;
   font-family: var(--cute-font);
 }
 
@@ -2095,7 +2096,8 @@ header.site a:focus-visible,
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
   box-shadow: 0 10px 28px var(--color-overlay-soft);
-  background: linear-gradient(135deg, var(--color-blue-50) 0%, var(--color-white) 55%, var(--color-cream) 100%);
+  /* background: linear-gradient(135deg, var(--color-blue-50) 0%, var(--color-white) 55%, var(--color-cream) 100%); */
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--bg) 58%, var(--color-cream) 100%);
 }
 
 .commission-hero::before {
@@ -3032,12 +3034,7 @@ header.site a:focus-visible,
   text-align: center;
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
-  background: linear-gradient(
-    135deg,
-    var(--color-blue-50) 0%,
-    var(--color-white) 55%,
-    var(--color-cream) 100%
-  );
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--bg) 58%, var(--color-cream) 100%);
   box-shadow: 0 10px 28px var(--color-overlay-soft);
 }
 
@@ -3086,6 +3083,7 @@ header.site a:focus-visible,
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
   align-items: stretch;
+  
 }
 
 .payment-page .payment-card {
@@ -3377,12 +3375,7 @@ header.site a:focus-visible,
   text-align: center;
   border: 1px solid var(--line);
   border-radius: var(--radius-2xl);
-  background: linear-gradient(
-    135deg,
-    var(--color-blue-50) 0%,
-    var(--color-white) 55%,
-    var(--color-cream) 100%
-  );
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--bg) 58%, var(--color-cream) 100%);
   box-shadow: 0 10px 28px var(--color-overlay-soft);
 }
 
