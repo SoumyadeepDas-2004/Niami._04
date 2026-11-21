@@ -6,101 +6,101 @@
      BRAND PALETTE — OCEAN BLUE × POWDER BLUE × IVORY
      ============================================================ */
 
- /* Powder Blue */
---color-blue-25: #F5F8FA;
---color-blue-50: #EAF1F5;
---color-blue-75: #E2EDF3;
---color-blue-100: #D7E7F0;
---color-blue-200: #B9D9EA;
---color-blue-300: #A5CBE0;
---color-blue-350: #91BBD5;
---color-blue-400: #78A9C9;
---color-blue-450: #6597BB;
+  /* Powder Blue */
+  --color-blue-25: #F5F8FA;
+  --color-blue-50: #EAF1F5;
+  --color-blue-75: #E2EDF3;
+  --color-blue-100: #D7E7F0;
+  --color-blue-200: #B9D9EA;
+  --color-blue-300: #A5CBE0;
+  --color-blue-350: #91BBD5;
+  --color-blue-400: #78A9C9;
+  --color-blue-450: #6597BB;
 
-/* Midnight Blue — Fixed Darkest Blue */
---color-border: #DCE7EF;
---color-ink: #477FAD;
---color-muted: #718096;
+  /* Midnight Blue */
+  --color-border: #DCE7EF;
+  --color-ink: #355e7e;
+  --color-muted: #718096;
 
-/* Ocean Blue */
---color-accent: #477FAD;
---color-primary: #477FAD;
---color-primary-hover: #6597BB;
+  /* Ocean Blue */
+  --color-accent: #477FAD;
+  --color-primary: #477FAD;
+  --color-primary-hover: #315F87;
 
-/* Muted Gold */
---color-rose: #D6B875;
---color-rose-light: #FFF9F0;
+  /* Muted Gold */
+  --color-rose: #D6B875;
+  --color-rose-light: #FFF9F0;
 
-/* Ivory */
---color-cream: #FFF9F0;
---color-cream-light: #F5F8FA;
+  /* Ivory */
+  --color-cream: #FFF9F0;
+  --color-cream-light: #F5F8FA;
 
-/* Neutrals */
---color-white: #FFFFFF;
---color-slate: #6597BB;
---color-success: #287548;
---color-danger: #A33B32;
---color-placeholder: #E6EAF0;
---color-skeleton: #E6EAF0;
+  /* Neutrals */
+  --color-white: #FFFFFF;
+  --color-slate: #44566C;
+  --color-success: #287548;
+  --color-danger: #A33B32;
+  --color-placeholder: #E6EAF0;
+  --color-skeleton: #E6EAF0;
 
-/* Shared Card Surface */
---card-surface: linear-gradient(
-  135deg,
-  var(--color-cream) 0%,
-  var(--color-cream-light) 50%,
-  var(--color-white) 100%
-);
+  /* Shared Card Surface */
+  --card-surface: linear-gradient(
+    135deg,
+    var(--color-cream) 0%,
+    var(--color-cream-light) 50%,
+    var(--color-white) 100%
+  );
 
-/* Semantic Aliases */
---bg: var(--color-blue-25);
---ink: var(--color-ink);
---mute: var(--color-muted);
---line: var(--color-border);
---hl: var(--color-accent);
---card-bg: var(--color-white);
---footer-bg: var(--color-ink);
---button-primary: var(--color-primary);
---button-primary-hover: var(--color-primary-hover);
---button-secondary: var(--color-blue-200);
---button-secondary-hover: var(--color-blue-300);
+  /* Semantic Aliases */
+  --bg: var(--color-blue-25);
+  --ink: var(--color-ink);
+  --mute: var(--color-muted);
+  --line: var(--color-border);
+  --hl: var(--color-accent);
+  --card-bg: var(--color-white);
+  --footer-bg: var(--color-ink);
+  --button-primary: var(--color-primary);
+  --button-primary-hover: var(--color-primary-hover);
+  --button-secondary: var(--color-blue-200);
+  --button-secondary-hover: var(--color-blue-300);
 
-/* Status */
---color-status-open-bg: #E2EEE6;
---color-status-open-text: #477FAD;
---color-status-open-border: #A5CBE0;
+  /* Status */
+  --color-status-open-bg: #E2EEE6;
+  --color-status-open-text: #315E43;
+  --color-status-open-border: #8EAE9A;
 
-/* Semantic Roles */
---color-background: var(--bg);
---color-surface: var(--card-bg);
---color-surface-raised: var(--color-white);
---color-text: var(--ink);
---color-text-muted: var(--mute);
---color-text-inverse: var(--color-white);
---color-border-subtle: rgba(220, 231, 239, .8);
---color-border-strong: var(--color-border);
---color-overlay: rgba(71, 127, 173, .72);
---color-overlay-soft: rgba(71, 127, 173, .35);
---color-focus: var(--hl);
+  /* Semantic Roles */
+  --color-background: var(--bg);
+  --color-surface: var(--card-bg);
+  --color-surface-raised: var(--color-white);
+  --color-text: var(--ink);
+  --color-text-muted: var(--mute);
+  --color-text-inverse: var(--color-white);
+  --color-border-subtle: rgba(220, 231, 239, .8);
+  --color-border-strong: var(--color-border);
+  --color-overlay: rgba(36, 59, 83, .72);
+  --color-overlay-soft: rgba(36, 59, 83, .35);
+  --color-focus: var(--hl);
 
-/* ============================================================
-   CUTE THEME — REASSIGNED TO THE BRAND PALETTE
-   ============================================================ */
+  /* ============================================================
+     CUTE THEME — REASSIGNED TO THE BRAND PALETTE
+     ============================================================ */
 
---cute-ink: #477FAD;
---cute-muted: #718096;
+  --cute-ink: #243B53;
+  --cute-muted: #718096;
 
---cute-pink: #D6B875;
---cute-pink-deep: #D6B875;
---cute-pink-soft: #FFF9F0;
+  --cute-pink: #D6B875;
+  --cute-pink-deep: #B99A59;
+  --cute-pink-soft: #FFF9F0;
 
---cute-lilac: #B9D9EA;
---cute-lilac-soft: #EAF1F5;
+  --cute-lilac: #B9D9EA;
+  --cute-lilac-soft: #EAF1F5;
 
---cute-butter: #FFF9F0;
---cute-mint: #DCE7EF;
---cute-paper: #F5F8FA;
---cute-white: #FFFFFF;
---cute-line: #DCE7EF;
+  --cute-butter: #FFF9F0;
+  --cute-mint: #DCE7EF;
+  --cute-paper: #F5F8FA;
+  --cute-white: #FFFFFF;
+  --cute-line: #DCE7EF;
 
   --cute-shadow: 0 12px 32px rgba(36, 59, 83, .10);
   --cute-shadow-hover: 0 18px 42px rgba(36, 59, 83, .16);
