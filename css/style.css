@@ -2552,42 +2552,42 @@ color: var(--color-ink);
     counter-reset: subterm;
   }
 
+  .commissions-page .terms-group li {
+    display: block;
+    position: relative;
+    counter-increment: subterm;
+    padding: 0 0 0 32px;
+    margin: 0;
+    list-style: none;
+    color: var(--color-slate);
+    font-size: var(--font-size-compact);
+    line-height: var(--line-height-body-wide);
+  }
+
   /* NUMBER AND ANSWER ALIGNMENT */
-.commissions-page .terms-group li {
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  column-gap: 7px;
-  align-items: start;
-  counter-increment: subterm;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  color: var(--color-slate);
-  font-size: var(--font-size-compact);
-  line-height: var(--line-height-body-wide);
-}
 
-.commissions-page .terms-group li::before {
-  position: static;
-  width: auto;
-  text-align: left;
-  font-weight: 700;
-  color: var(--color-ink);
-  line-height: inherit;
-}
+  .commissions-page .terms-group li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 28px;
+    text-align: left;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
 
-/* SECTION-WISE NUMBERING */
-.commissions-page .terms-group:nth-child(1) li::before {
-  content: "1." counter(subterm);
-}
+  .commissions-page .terms-group:nth-child(1) li::before {
+    content: "1." counter(subterm);
+  }
 
-.commissions-page .terms-group:nth-child(2) li::before {
-  content: "2." counter(subterm);
-}
+  .commissions-page .terms-group:nth-child(2) li::before {
+    content: "2." counter(subterm);
+  }
 
-.commissions-page .terms-group:nth-child(3) li::before {
-  content: "3." counter(subterm);
-}
+  .commissions-page .terms-group:nth-child(3) li::before {
+    content: "3." counter(subterm);
+  }
+
   .commissions-page .terms-group strong {
     color: var(--ink);
     font-weight: 700;
