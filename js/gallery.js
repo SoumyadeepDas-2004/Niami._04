@@ -293,7 +293,7 @@ scheduleScrollHighlight();
         image: image ? (image.currentSrc || image.src) : '',
         title: image?.alt || `Commission poster ${index + 1}`,
         alt: image?.alt || `Commission poster ${index + 1}`,
-        category: 'Commission poster'
+        category: ''
       };
     }
   );
