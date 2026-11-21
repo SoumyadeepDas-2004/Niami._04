@@ -1719,6 +1719,27 @@ header.site a:focus-visible,
   .art:hover .frame img { transform: scale(1.045); }
 }
 
+/* Mobile scroll-focus artwork effect */
+@media (hover: none) and (pointer: coarse) {
+  .art {
+    transition:
+      transform .35s ease,
+      box-shadow .35s ease,
+      border-color .35s ease;
+  }
+
+  .art.scroll-focused {
+    transform: scale(1.025);
+    border-color: #557d9a;
+    box-shadow: var(--cute-shadow-hover);
+  }
+
+  .art.scroll-focused .frame img {
+    transform: scale(1.035);
+  }
+}
+
+
 .art:focus-visible { outline: 3px solid var(--hl); outline-offset: 4px; }
 
 .art-skeleton {
