@@ -1774,10 +1774,14 @@ header.site a:focus-visible,
 }
 
 @media (max-width: 560px) {
-  [data-featured], [data-preview], [data-gallery] {
+  [data-featured],
+  [data-preview],
+  [data-gallery] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-4);
+    column-gap: var(--space-5);
+    row-gap: var(--space-4);
   }
+
   .art .cap {
     flex-direction: column;
     align-items: flex-start;
@@ -1785,7 +1789,10 @@ header.site a:focus-visible,
     gap: var(--space-1);
     min-height: 64px;
   }
-  .art .cap i { text-align: left; }
+
+  .art .cap i {
+    text-align: left;
+  }
 }
 
 @media (max-width: 359px) {
