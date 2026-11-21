@@ -3832,7 +3832,7 @@ body:has(dialog[open]) { overflow: hidden; }
   transform: translateX(-50%);
   padding: .45rem .8rem;
   border-radius: var(--radius-pill);
-  background: var(--color-white);
+  background: rgba(255, 255, 255, 0.55);
   color: var(--color-slate);
   border: 1px solid var(--line);
   font-size: var(--font-size-small);
@@ -3850,7 +3850,8 @@ body:has(dialog[open]) { overflow: hidden; }
   justify-content: center;
   border: 1px solid var(--line);
   border-radius: var(--radius-circle);
-  background: var(--color-white);
+  /* background: var(--color-white); */
+  background: rgba(255, 255, 255, 0.55);
   color: var(--color-slate);
   cursor: pointer;
   backdrop-filter: blur(12px);
