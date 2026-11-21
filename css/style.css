@@ -225,17 +225,40 @@
   --radius-circle: 50%;
 
   /* Shadows */
-  --shadow-button: 0 8px 20px rgba(36, 59, 83, .32);
-  --shadow-button-secondary: 0 6px 16px rgba(36, 59, 83, .22);
-  --shadow-button-hover: 0 12px 24px rgba(36, 59, 83, .25);
-  --shadow-button-ghost-hover: 0 12px 24px rgba(36, 59, 83, .18);
-  --shadow-card: 0 5px 18px rgba(36, 59, 83, .07);
-  --shadow-card-soft: 0 5px 18px rgba(36, 59, 83, .07);
-  --shadow-card-hover: 0 12px 16px rgba(36, 59, 83, .28);
-  --shadow-header: 0 3px 12px rgba(36, 59, 83, .09);
-  --shadow-focus: 0 0 0 3px rgba(71, 127, 173, .2);
-  --shadow-artwork-rest: 0 7px 18px rgba(36, 59, 83, .11), 0 2px 5px rgba(36, 59, 83, .05);
-  --shadow-artwork-hover: 0 16px 30px rgba(36, 59, 83, .18), 0 4px 10px rgba(36, 59, 83, .07);
+--shadow-button:
+  0 6px 16px rgba(36, 59, 83, .18);
+
+--shadow-button-secondary:
+  0 4px 12px rgba(36, 59, 83, .12);
+
+--shadow-button-hover:
+  0 10px 22px rgba(36, 59, 83, .20);
+
+--shadow-button-ghost-hover:
+  0 8px 20px rgba(36, 59, 83, .12);
+
+--shadow-card:
+  0 5px 18px rgba(36, 59, 83, .07);
+
+--shadow-card-soft:
+  0 5px 18px rgba(36, 59, 83, .05);
+
+--shadow-card-hover:
+  0 12px 26px rgba(36, 59, 83, .14);
+
+--shadow-header:
+  0 3px 12px rgba(36, 59, 83, .09);
+
+--shadow-focus:
+  0 0 0 3px rgba(71, 127, 173, .25);
+
+--shadow-artwork-rest:
+  0 7px 18px rgba(36, 59, 83, .11),
+  0 2px 5px rgba(36, 59, 83, .05);
+
+--shadow-artwork-hover:
+  0 16px 30px rgba(36, 59, 83, .18),
+  0 4px 10px rgba(36, 59, 83, .07);
 
   /* Motion */
   --transition-fast: .2s ease;
@@ -249,11 +272,14 @@
 }
 
 
+
 /* ============================================================
    2. RESET & BASE
    ============================================================ */
 
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -261,23 +287,39 @@ html {
   scroll-padding-top: 90px;
   background: var(--cute-paper);
   overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  width: 100%;
+  min-width: 320px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 0;
   color: var(--cute-ink);
-  font-family: var(--cute-font);
-  font-size: 1rem;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+
   background:
-    radial-gradient(ellipse at 8% 12%, var(--color-blue-200), transparent 28rem),
-    radial-gradient(ellipse at 92% 28%, var(--line), transparent 30rem),
-    radial-gradient(ellipse at 48% 92%, var(--color-blue-200), transparent 32rem),
+    radial-gradient(
+      ellipse at 8% 12%,
+      rgba(185, 217, 234, .38),
+      transparent 28rem
+    ),
+    radial-gradient(
+      ellipse at 92% 28%,
+      rgba(220, 231, 239, .45),
+      transparent 30rem
+    ),
+    radial-gradient(
+      ellipse at 48% 92%,
+      rgba(185, 217, 234, .28),
+      transparent 32rem
+    ),
     var(--bg);
 }
 
@@ -288,21 +330,37 @@ body::before {
   z-index: -1;
   pointer-events: none;
   opacity: .20;
-  background-image: radial-gradient(var(--color-overlay-soft) .65px, transparent .65px);
+  background-image: radial-gradient(
+    var(--color-overlay-soft) .65px,
+    transparent .65px
+  );
   background-size: 19px 19px;
 }
 
-main, main#main, main.home-page, main.gallery-page, main.commissions-page {
+main,
+main#main,
+main.home-page,
+main.gallery-page,
+main.commissions-page {
   flex: 1;
   background: transparent;
   min-width: 0;
   width: 100%;
 }
 
-img { display: block; max-width: 100%; height: auto; }
+/* Images and responsive media */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
-/* Prevent media and embeds from causing horizontal scroll */
-img, video, iframe, embed, object { max-width: 100%; }
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+}
 
 a {
   color: inherit;
@@ -310,55 +368,96 @@ a {
   text-underline-offset: .22em;
 }
 
-::selection { color: var(--ink); background: var(--color-blue-200); }
-::-moz-selection { color: var(--ink); background: var(--color-blue-200); }
+/* Text selection */
+::selection {
+  color: var(--ink);
+  background: var(--color-blue-200);
+}
 
+::-moz-selection {
+  color: var(--ink);
+  background: var(--color-blue-200);
+}
+
+/* Keyboard accessibility */
 :focus-visible {
-  outline: 3px solid var(--color-rose);
+  outline: 3px solid var(--color-primary);
   outline-offset: 4px;
   border-radius: 8px;
 }
+
 
 /* ============================================================
    3. TYPOGRAPHY
    ============================================================ */
 
-h1, h2, h3, .payment-method h3, .faq-item summary {
-  color: var(--cute-ink);
-  font-family: var(--cute-display);
+/* Artistic Headings — Alkatra */
+h1,
+h2,
+h3,
+.payment-method h3,
+.faq-item summary {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
   font-weight: 500;
   letter-spacing: .01em;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 6vw, 4.6rem);
-  line-height: 1.08;
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  line-height: var(--line-height-display);
   margin: 0 0 .6em;
 }
 
 h2 {
-  font-size: clamp(1.7rem, 3.5vw, 2.55rem);
-  line-height: 1.2;
+  font-size: clamp(1.6rem, 3.5vw, 2.55rem);
+  line-height: var(--line-height-heading);
   margin: 1.4em 0 .6em;
 }
 
-p { color: var(--cute-muted); }
+h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  line-height: var(--line-height-heading);
+}
+
+/* Body Text — Nunito */
+p {
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+}
+
+/* Handwritten Decorative Typography — Caveat */
+.handwritten,
+.artist-signature,
+.artwork-note {
+  font-family: var(--font-handwriting);
+  font-weight: 500;
+  line-height: 1.3;
+}
 
 
 /* ============================================================
    4. LAYOUT UTILITIES
    ============================================================ */
 
+/* Main Content Container */
 .wrap {
-  width: min(100% - 40px, 1160px);
-  max-width: 1160px;
+  width: min(100% - 40px, var(--content-width));
+  max-width: var(--content-width);
   margin-inline: auto;
   padding-inline: 0;
 }
 
-section { padding: clamp(2.5rem, 7vw, 5.5rem) 0; }
-section h2:first-child { margin-top: 0; }
+/* Section Spacing */
+section {
+  padding-block: clamp(2.5rem, 7vw, 5.5rem);
+}
 
+section h2:first-child {
+  margin-top: 0;
+}
+
+/* Flexible Row Layout */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -369,27 +468,84 @@ section h2:first-child { margin-top: 0; }
   margin: 2rem auto 0;
 }
 
+/* Responsive Split Layout */
 .split {
   display: grid;
-  gap: var(--space-12);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(1.5rem, 4vw, var(--space-12));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 320px), 1fr)
+  );
 }
 
-.prose { max-width: 40rem; }
-.prose.c { margin: 0 auto 1.5rem; }
-.cta { border-top: 1px solid var(--line); text-align: center; }
-.msg { color: var(--color-text-muted); }
-.gap { margin-top: var(--space-10); }
+/* Reading Width */
+.prose {
+  max-width: var(--content-width-reading);
+}
+
+.prose.c {
+  margin: 0 auto 1.5rem;
+}
+
+/* Call To Action */
+.cta {
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+/* Supporting Message */
+.msg {
+  color: var(--color-text-muted);
+}
+
+/* Vertical Spacing Utility */
+.gap {
+  margin-top: var(--space-10);
+}
+
 
 /* ============================================================
    5. ACCESSIBILITY
    ============================================================ */
 
-.skip { position: absolute; left: -999px; }
-.skip:focus {
-  left: 1rem; top: 1rem;
-  background: var(--color-text); color: var(--color-white);
-  padding: .5rem 1rem; z-index: 99;
+/* Skip Navigation Link */
+.skip {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  z-index: 9999;
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+/* Reveal Skip Link on Keyboard Focus */
+.skip:focus,
+.skip:focus-visible {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  outline: 3px solid var(--color-blue-200);
+  outline-offset: 3px;
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
 
 
@@ -397,112 +553,219 @@ section h2:first-child { margin-top: 0; }
    7. BUTTONS
    ============================================================ */
 
-.btn, .btn.ghost, a.btn, button.btn {
+/* Primary Buttons */
+.btn,
+a.btn,
+button.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+
   min-height: 48px;
   padding: 12px 23px;
+
   border: 1px solid transparent;
-  border-radius: 999px;
-  background: var(--color-blue-400);
+  border-radius: var(--radius-pill);
+
+  background: var(--color-primary);
   color: var(--color-white);
-  box-shadow: 0 7px 0 var(--color-primary-hover), 0 12px 22px var(--color-blue-400);
-  font-family: var(--cute-font);
+
+  box-shadow:
+    0 4px 0 var(--color-primary-hover),
+    0 7px 16px rgba(36, 59, 83, .14);
+
+  font-family: var(--font-body);
   font-size: .96rem;
-  font-weight: 900;
+  font-weight: var(--font-weight-bold);
   line-height: 1.2;
+
   text-decoration: none;
   cursor: pointer;
+
   -webkit-tap-highlight-color: transparent;
+
   transition:
     transform .22s cubic-bezier(.22, 1, .36, 1),
     box-shadow .22s cubic-bezier(.22, 1, .36, 1),
     background .2s ease,
-    border-color .2s ease;
+    border-color .2s ease,
+    color .2s ease;
 }
 
-.btn:hover, a.btn:hover, button.btn:hover {
-  transform: translateY(-3px);
-  background: var(--color-blue-450);
+/* Primary Hover */
+.btn:hover,
+a.btn:hover,
+button.btn:hover {
+  transform: translateY(-2px);
+
+  background: var(--color-primary-hover);
   color: var(--color-white);
-  box-shadow: 0 9px 0 var(--color-primary-hover), 0 16px 26px var(--color-blue-400);
+
+  box-shadow:
+    0 6px 0 #243B53,
+    0 11px 20px rgba(36, 59, 83, .16);
 }
 
-.btn:active, a.btn:active, button.btn:active {
+/* Primary Active / Pressed */
+.btn:active,
+a.btn:active,
+button.btn:active {
   transform: translateY(3px);
-  box-shadow: 0 3px 0 var(--color-primary-hover);
+
+  box-shadow:
+    0 1px 0 var(--color-primary-hover);
 }
 
-.btn.ghost, a.btn.ghost, button.btn.ghost {
+/* Secondary / Ghost Buttons */
+.btn.ghost,
+a.btn.ghost,
+button.btn.ghost {
   border-color: var(--color-blue-100);
+
   background: var(--color-blue-50);
-  color: var(--color-slate);
-  box-shadow: 0 6px 0 var(--color-blue-100), 0 10px 18px var(--color-blue-400);
+  color: var(--color-ink);
+
+  box-shadow:
+    0 3px 0 var(--color-blue-100),
+    0 6px 14px rgba(36, 59, 83, .07);
 }
 
-.btn.ghost:hover, a.btn.ghost:hover, button.btn.ghost:hover {
-  border-color: var(--color-blue-200);
-  background: var(--color-blue-50);
+/* Secondary Hover */
+.btn.ghost:hover,
+a.btn.ghost:hover,
+button.btn.ghost:hover {
+  border-color: var(--color-blue-300);
+
+  background: var(--color-blue-100);
   color: var(--color-primary-hover);
-  box-shadow: 0 8px 0 var(--color-blue-200), 0 14px 24px var(--color-blue-400);
+
+  box-shadow:
+    0 5px 0 var(--color-blue-200),
+    0 9px 18px rgba(36, 59, 83, .10);
 }
 
-.btn:focus-visible, button:focus-visible, a.btn:focus-visible {
-  outline: 3px solid var(--color-blue-300);
+/* Secondary Active */
+.btn.ghost:active,
+a.btn.ghost:active,
+button.btn.ghost:active {
+  transform: translateY(2px);
+
+  box-shadow:
+    0 1px 0 var(--color-blue-200);
+}
+
+/* Keyboard Accessibility */
+.btn:focus-visible,
+button:focus-visible,
+a.btn:focus-visible {
+  outline: 3px solid var(--color-primary);
   outline-offset: 4px;
 }
 
-.link { text-underline-offset: .25em; }
+/* Disabled Buttons */
+.btn:disabled,
+button.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
 
+/* Text Links */
+.link {
+  text-underline-offset: .25em;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  a.btn,
+  button.btn {
+    transition: none;
+  }
+
+  .btn:hover,
+  a.btn:hover,
+  button.btn:hover,
+  .btn:active,
+  a.btn:active,
+  button.btn:active {
+    transform: none;
+  }
+}
 
 /* ============================================================
    6. HEADER & NAVIGATION — BLUE & GOLD DESIGN
    ============================================================ */
 
+
+/* ============================================================
+   6. HEADER & NAVIGATION
+   ============================================================ */
+
+/* MAIN HEADER */
 header.site {
   position: sticky;
   top: 12px;
   z-index: 30;
+
   width: min(calc(100% - 28px), 1220px);
   margin: 12px auto 0;
+
   border: 1px solid var(--color-border-subtle);
-  border-radius: 999px;
-  background: var(--bg);
-  box-shadow: 0 8px 28px var(--color-overlay-soft);
+  border-radius: var(--radius-pill);
+
+  background: rgba(245, 248, 250, .88);
+
+  box-shadow:
+    0 6px 22px rgba(36, 59, 83, .09);
+
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
 
+/* HEADER INNER WRAPPER */
 header.site .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width: 100%;
   min-height: 70px;
   height: auto;
+
   padding: 8px 24px;
   gap: 20px;
 }
 
-/* LOGO */
+/* ============================================================
+   LOGO — ALKATRA
+   ============================================================ */
+
 .logo {
-  font-family: var(--cute-display);
+  font-family: var(--font-display);
   font-size: clamp(1.65rem, 3vw, 2.15rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: .01em;
+
   text-decoration: none;
-  color: var(--ink);
+  color: var(--color-ink);
+
   white-space: nowrap;
 }
 
-/* DESKTOP NAVIGATION */
+/* ============================================================
+   DESKTOP NAVIGATION — NUNITO
+   ============================================================ */
+
 header.site nav ul {
   display: flex;
   align-items: center;
   gap: 5px;
+
   list-style: none;
   margin: 0;
   padding: 0;
@@ -512,14 +775,21 @@ header.site nav a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   min-height: 44px;
   padding: 8px 14px;
+
   border: 0;
-  border-radius: 999px;
-  color: var(--mute);
+  border-radius: var(--radius-pill);
+
+  color: var(--color-muted);
+
+  font-family: var(--font-body);
   font-size: .91rem;
-  font-weight: 800;
+  font-weight: 700;
+
   text-decoration: none;
+
   transition:
     color .2s ease,
     background .2s ease,
@@ -529,14 +799,17 @@ header.site nav a {
 
 header.site nav a:hover {
   background: var(--color-blue-200);
-  color: var(--ink);
+  color: var(--color-ink);
   transform: translateY(-1px);
 }
 
+/* ACTIVE NAVIGATION */
 header.site nav a[aria-current="page"] {
-  background: var(--ink);
+  background: var(--color-primary);
   color: var(--color-white);
-  box-shadow: inset 0 -3px 0 var(--color-rose);
+
+  box-shadow:
+    0 3px 8px rgba(36, 59, 83, .12);
 }
 
 header.site nav a[aria-current="page"]:hover {
@@ -544,7 +817,10 @@ header.site nav a[aria-current="page"]:hover {
   color: var(--color-white);
 }
 
-/* HIDE MOBILE ELEMENTS ON DESKTOP */
+/* ============================================================
+   DESKTOP / MOBILE VISIBILITY
+   ============================================================ */
+
 .menu-btn {
   display: none;
   background: none;
@@ -560,8 +836,13 @@ header.site nav a[aria-current="page"]:hover {
   display: none;
 }
 
-/* MOBILE NAVIGATION */
+/* ============================================================
+   MOBILE NAVIGATION
+   ============================================================ */
+
 @media (max-width: 720px) {
+
+  /* MOBILE HEADER */
   header.site {
     top: 8px;
     width: calc(100% - 18px);
@@ -583,14 +864,20 @@ header.site nav a[aria-current="page"]:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    flex-shrink: 0;
     width: 44px;
     height: 44px;
     padding: 0;
-    border: 1px solid var(--line);
+
+    border: 1px solid var(--color-border);
     border-radius: 50%;
+
     background: var(--color-blue-200);
-    color: var(--ink);
+    color: var(--color-ink);
+
     cursor: pointer;
+
     transition:
       background .2s ease,
       border-color .2s ease,
@@ -598,51 +885,82 @@ header.site nav a[aria-current="page"]:hover {
   }
 
   .sidebar-toggle:hover {
-    background: var(--color-cream);
-    border-color: var(--color-rose);
+    background: var(--color-blue-300);
+    border-color: var(--color-blue-400);
     transform: scale(1.04);
   }
 
   /* SIDEBAR OVERLAY */
   .sidebar-overlay {
     display: block;
+
     position: fixed;
     inset: 0;
     z-index: 40;
+
     background: var(--color-overlay-soft);
+
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
+
     opacity: 0;
     visibility: hidden;
-    transition: opacity .3s ease, visibility .3s ease;
+
+    transition:
+      opacity .3s ease,
+      visibility .3s ease;
   }
 
   /* MOBILE SIDEBAR */
   .mobile-sidebar {
     display: block;
+
     position: fixed;
     top: 0;
     left: 0;
     z-index: 41;
+
     width: min(300px, 85vw);
     height: 100vh;
     height: 100dvh;
+
     padding: var(--space-6);
+
+    border: 1px solid var(--color-border);
     border-radius: 0 26px 26px 0;
-    border: 1px solid var(--line);
+
     background:
-      radial-gradient(circle at 90% 8%, var(--color-rose), transparent 10rem),
-      linear-gradient(160deg, var(--bg) 0%, var(--color-white) 65%, var(--color-cream) 100%);
-    box-shadow: 18px 0 50px var(--color-overlay-soft);
+      radial-gradient(
+        circle at 90% 8%,
+        rgba(185, 217, 234, .45),
+        transparent 10rem
+      ),
+      linear-gradient(
+        160deg,
+        var(--bg) 0%,
+        var(--color-white) 65%,
+        var(--color-cream) 100%
+      );
+
+    box-shadow:
+      12px 0 35px rgba(36, 59, 83, .12);
+
     transform: translateX(-100%);
-    transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+
+    transition:
+      transform .35s cubic-bezier(.22, 1, .36, 1);
+
     overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
+  /* SIDEBAR NAVIGATION */
   .mobile-sidebar ul {
     display: flex;
     flex-direction: column;
     gap: 0;
+
     list-style: none;
     margin: 2rem 0 0;
     padding: 0;
@@ -650,13 +968,20 @@ header.site nav a[aria-current="page"]:hover {
 
   .mobile-sidebar li a {
     display: block;
+
     margin-block: 3px;
     padding: 1rem .8rem;
+
     border: 0;
     border-radius: 15px;
+
     color: var(--color-slate);
-    font-weight: 800;
+
+    font-family: var(--font-body);
+    font-weight: 700;
+
     text-decoration: none;
+
     transition:
       background .2s ease,
       color .2s ease,
@@ -664,40 +989,54 @@ header.site nav a[aria-current="page"]:hover {
   }
 
   .mobile-sidebar li a:hover {
-    background: var(--color-blue-200);
-    color: var(--ink);
+    background: var(--color-blue-100);
+    color: var(--color-ink);
     padding-left: 1.1rem;
   }
 
+  /* ACTIVE SIDEBAR LINK */
   .mobile-sidebar li a[aria-current="page"] {
-    color: var(--ink);
-    background: var(--color-cream);
-    box-shadow: inset 3px 0 0 var(--color-rose);
-    font-weight: 900;
+    color: var(--color-primary-hover);
+    background: var(--color-blue-100);
+
+    box-shadow:
+      inset 3px 0 0 var(--color-primary);
+
+    font-weight: 800;
   }
 
-  /* CLOSE BUTTON */
+  /* SIDEBAR CLOSE BUTTON */
   .sidebar-close {
     display: block;
+
     width: 44px;
     height: 44px;
     margin-left: auto;
     padding: .25rem .5rem;
-    border: 1px solid var(--line);
+
+    border: 1px solid var(--color-border);
     border-radius: 50%;
+
     background: var(--color-blue-200);
-    color: var(--ink);
+    color: var(--color-ink);
+
     font-size: var(--font-size-3xl);
     cursor: pointer;
-    transition: background .2s ease, transform .2s ease;
+
+    transition:
+      background .2s ease,
+      transform .2s ease;
   }
 
   .sidebar-close:hover {
-    background: var(--color-cream);
+    background: var(--color-blue-300);
     transform: rotate(90deg);
   }
 
-  /* OPEN SIDEBAR STATES */
+  /* ==========================================================
+     OPEN SIDEBAR STATES
+     ========================================================== */
+
   body.sidebar-open .mobile-sidebar {
     transform: translateX(0);
   }
@@ -709,10 +1048,22 @@ header.site nav a[aria-current="page"]:hover {
 
   body.sidebar-open {
     overflow: hidden;
+    touch-action: none;
   }
 }
 
-/* ACCESSIBILITY */
+/* ============================================================
+   ACCESSIBILITY & REDUCED MOTION
+   ============================================================ */
+
+header.site a:focus-visible,
+.sidebar-toggle:focus-visible,
+.sidebar-close:focus-visible,
+.mobile-sidebar a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sidebar-toggle,
   .sidebar-close,
@@ -722,7 +1073,15 @@ header.site nav a[aria-current="page"]:hover {
   header.site nav a {
     transition: none;
   }
+
+  .sidebar-toggle:hover,
+  .sidebar-close:hover,
+  .mobile-sidebar li a:hover,
+  header.site nav a:hover {
+    transform: none;
+  }
 }
+
 
 /* ============================================================
    8. HOMEPAGE — OCEAN BLUE & IVORY DESIGN
@@ -3527,10 +3886,15 @@ body:has(dialog[open]) { overflow: hidden; }
 footer.site {
   margin-top: 40px;
   padding: 24px 0;
-  border-top: 1px solid var(--color-blue-200);
+
+  border-top: 1px solid var(--color-border);
+
   background: var(--color-blue-50);
   color: var(--color-slate);
+
+  font-family: var(--font-body);
   font-size: 14px;
+  line-height: 1.6;
 }
 
 footer.site .wrap {
@@ -3539,18 +3903,32 @@ footer.site .wrap {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  width: min(100% - 40px, 1160px);
+
+  width: min(100% - 40px, var(--content-width));
+  max-width: var(--content-width);
+
   gap: 12px 24px;
 }
 
 footer.site a {
-  color: var(--color-blue-450);
-  font-weight: 900;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-weight: 700;
   text-decoration: none;
   font-size: inherit;
+
+  transition: color .2s ease;
 }
 
-footer.site a:hover { color: var(--color-primary-hover); text-decoration: underline; }
+footer.site a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+/* ============================================================
+   RESPONSIVE FOOTER
+   ============================================================ */
 
 @media (max-width: 650px) {
   footer.site .wrap {
@@ -3560,16 +3938,38 @@ footer.site a:hover { color: var(--color-primary-hover); text-decoration: underl
     text-align: center;
     gap: var(--space-2);
   }
-  footer.site .wrap > span { text-align: center; margin-left: 0; }
+
+  footer.site .wrap > span {
+    text-align: center;
+    margin-left: 0;
+  }
 }
+
+/* ============================================================
+   SMALL MOBILE SCREENS
+   ============================================================ */
 
 @media (max-width: 560px) {
-  .wrap, footer.site .wrap { width: min(100% - 28px, 1160px); }
+  .wrap,
+  footer.site .wrap {
+    width: min(100% - 28px, var(--content-width));
+  }
 }
 
+/* ============================================================
+   EXTRA SMALL SCREENS
+   ============================================================ */
+
 @media (max-width: 360px) {
-  .wrap, footer.site .wrap { width: min(100% - 20px, 1160px); }
-  header.site { width: calc(100% - 12px); }
+  .wrap,
+  footer.site .wrap {
+    width: min(100% - 20px, var(--content-width));
+  }
+
+  header.site {
+    width: calc(100% - 12px);
+  }
+
   .home-hero-card,
   .gallery-page .gallery-hero .wrap,
   .commission-hero,
@@ -3586,36 +3986,110 @@ footer.site a:hover { color: var(--color-primary-hover); text-decoration: underl
    17. SOCIAL LINKS & MISC
    ============================================================ */
 
+/* SOCIAL LINKS */
 .social-links {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-5-5);
   margin-top: 1.5rem;
 }
 
 .social-links a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px; height: 44px;
-  transition: transform var(--transition-standard);
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition:
+    transform var(--transition-standard),
+    background-color var(--transition-standard),
+    box-shadow var(--transition-standard);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.social-links a:hover { transform: translateY(-4px); }
-.social-links img { width: 28px; height: 28px; object-fit: contain; }
+.social-links a:hover {
+  transform: translateY(-4px);
+}
 
-details { border-bottom: 1px solid var(--line); padding: .9rem 0; }
-summary { cursor: pointer; font: var(--font-size-lead) var(--font-heading); }
+.social-links a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
 
-table { border-collapse: collapse; width: 100%; }
-th, td { text-align: left; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+.social-links img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
 
-.page-head { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
+
+/* DETAILS & SUMMARY */
+details {
+  padding: .9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+summary {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lead);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+
+/* TABLES */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: .75rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: var(--color-ink);
+  font-weight: 800;
+}
+
+td {
+  color: var(--color-text-muted);
+}
+
+
+/* PAGE HEADINGS */
+.page-head {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+}
 
 .page-head .prose {
+  width: 100%;
   max-width: 780px;
+  min-width: 0;
   margin-inline: auto;
-  padding: clamp(32px, 6vw, 64px);
+  padding: clamp(28px, 6vw, 64px);
   border: 1px solid var(--line);
   border-radius: 38px;
   background: var(--card-surface);
@@ -3623,18 +4097,57 @@ th, td { text-align: left; padding: .6rem 0; border-bottom: 1px solid var(--line
   text-align: center;
 }
 
-.page-head .prose h1 { color: var(--ink); }
-
-.ph {
-  aspect-ratio: 4 / 5;
-  background: var(--color-placeholder);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: var(--space-4);
-  color: var(--color-text-muted);
+.page-head .prose h1 {
+  color: var(--ink);
 }
 
+
+/* IMAGE PLACEHOLDERS */
+.ph {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  padding: var(--space-4);
+  background: var(--color-placeholder);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 650px) {
+  .page-head .prose {
+    border-radius: 28px;
+  }
+
+  th,
+  td {
+    padding: .65rem .5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-head .prose {
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+}
+
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .social-links a {
+    transition: none;
+  }
+
+  .social-links a:hover {
+    transform: none;
+  }
+}
 /* ============================================================
    18. PAGE TRANSITIONS & KEYFRAMES
    ============================================================ */
@@ -3677,13 +4190,14 @@ th, td { text-align: left; padding: .6rem 0; border-bottom: 1px solid var(--line
 }
 
 
+
 /* ============================================================
    19. INTERACTION POLISH
    Micro-interactions, hover depth, focus clarity, and motion.
-   No colour or layout changes — transforms & opacity only.
+   Preserve the existing colour palette and layout.
    ============================================================ */
 
-/* Shared motion tokens (timing only) */
+/* Shared motion tokens */
 :root {
   --ease-out: cubic-bezier(.22, 1, .36, 1);
   --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
@@ -3692,9 +4206,12 @@ th, td { text-align: left; padding: .6rem 0; border-bottom: 1px solid var(--line
   --dur-slow: .4s;
 }
 
+
 /* ----- Navigation ----- */
+
 header.site nav a {
   position: relative;
+  transition: transform var(--dur-med) var(--ease-out);
 }
 
 header.site nav a::after {
@@ -3708,7 +4225,9 @@ header.site nav a::after {
   background: currentColor;
   opacity: .55;
   transform: translateX(-50%);
-  transition: width var(--dur-med) var(--ease-out), opacity var(--dur-fast) ease;
+  transition:
+    width var(--dur-med) var(--ease-out),
+    opacity var(--dur-fast) ease;
   pointer-events: none;
 }
 
@@ -3720,9 +4239,23 @@ header.site nav a::after {
   }
 
   header.site nav a:hover {
-     background: var(--color-blue-75);
-  color: var(--color-primary-hover);
-  transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+
+  .logo:hover {
+    transform: scale(1.03);
+  }
+
+  .sidebar-toggle:hover {
+    transform: scale(1.06);
+  }
+
+  .sidebar-close:hover {
+    transform: rotate(90deg) scale(1.05);
+  }
+
+  .mobile-sidebar li a:hover {
+    transform: translateX(4px);
   }
 }
 
@@ -3730,49 +4263,32 @@ header.site nav a:active {
   transform: translateY(0) scale(.97);
 }
 
-/* Logo micro-interaction */
-.logo {
-  transition: transform var(--dur-med) var(--ease-out), opacity var(--dur-fast) ease;
-}
 
-@media (hover: hover) and (pointer: fine) {
-  .logo:hover {
-    transform: scale(1.03);
-  }
+/* ----- Logo ----- */
+
+.logo {
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    opacity var(--dur-fast) ease;
 }
 
 .logo:active {
   transform: scale(.98);
 }
 
-/* Sidebar toggle */
-.sidebar-toggle {
+
+/* ----- Sidebar ----- */
+
+.sidebar-toggle,
+.sidebar-close {
   transition:
     transform var(--dur-med) var(--ease-out),
     background var(--dur-fast) ease,
     border-color var(--dur-fast) ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .sidebar-toggle:hover {
-    transform: scale(1.06);
-  }
-}
-
 .sidebar-toggle:active {
   transform: scale(.94);
-}
-
-.sidebar-close {
-  transition:
-    transform var(--dur-med) var(--ease-out),
-    background var(--dur-fast) ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .sidebar-close:hover {
-    transform: rotate(90deg) scale(1.05);
-  }
 }
 
 .sidebar-close:active {
@@ -3787,33 +4303,23 @@ header.site nav a:active {
     padding-left var(--dur-med) var(--ease-out);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .mobile-sidebar li a:hover {
-    transform: translateX(4px);
-  }
-}
-
 .mobile-sidebar li a:active {
   transform: translateX(2px) scale(.98);
 }
 
-/* ----- Buttons ----- */
-.btn, .btn.ghost, a.btn, button.btn {
-  position: relative;
-  overflow: hidden;
+
+/* ----- Cards & Artwork ----- */
+
+.art,
+.gallery-page .art,
+.commission-poster,
+.payment-page .payment-card,
+.about-social-card,
+.about-photo,
+.home-profile-frame {
+  transition: transform var(--dur-med) var(--ease-out);
 }
 
-/* Soft press ripple-free feedback */
-.btn:active,
-a.btn:active,
-button.btn:active,
-.btn.ghost:active,
-a.btn.ghost:active,
-button.btn.ghost:active {
-  transform: translateY(2px) scale(.97);
-}
-
-/* ----- Cards & artwork ----- */
 @media (hover: hover) and (pointer: fine) {
   .art:hover,
   .gallery-page .art:hover {
@@ -3850,7 +4356,6 @@ button.btn.ghost:active {
   }
 }
 
-/* Active / pressed feedback on clickable cards */
 .art:active,
 .gallery-page .art:active,
 .commission-poster:active {
@@ -3858,7 +4363,9 @@ button.btn.ghost:active {
   transition-duration: .12s;
 }
 
-/* Smooth image zoom baseline */
+
+/* ----- Image Zoom ----- */
+
 .art .frame img,
 .commission-poster img,
 .about-photo img,
@@ -3866,8 +4373,11 @@ button.btn.ghost:active {
   transition: transform .5s var(--ease-out);
 }
 
-/* ----- Social icons ----- */
+
+/* ----- Social Icons ----- */
+
 .social-links a,
+.social-links img,
 .about-social-card img {
   transition:
     transform var(--dur-med) var(--ease-spring),
@@ -3888,7 +4398,9 @@ button.btn.ghost:active {
   transform: translateY(-1px) scale(.95);
 }
 
-/* ----- Filters ----- */
+
+/* ----- Gallery Filters ----- */
+
 .filters button,
 .gallery-page .filters button {
   transition:
@@ -3910,7 +4422,9 @@ button.btn.ghost:active {
   transform: scale(.96);
 }
 
-/* ----- Links & text links ----- */
+
+/* ----- Links ----- */
+
 .home-text-link,
 .link,
 .payment-page .payment-email a,
@@ -3930,28 +4444,27 @@ footer.site a {
   }
 }
 
+
 /* ----- FAQ ----- */
+
 .faq-item summary {
   transition: color var(--dur-fast) ease;
 }
 
 .faq-item summary::after {
-   transition: transform 0.3s ease,
-              background 0.25s ease,
-              color 0.25s ease,
+  transition:
+    transform .3s var(--ease-out),
     background var(--dur-fast) ease,
     color var(--dur-fast) ease;
-     background: var(--color-cream);
-  color: var(--color-primary-hover);
 }
 
 .faq-item[open] summary::after {
   transform: translateY(-50%) rotate(180deg);
-   background: var(--color-blue-400);
-  color: var(--color-white);
 }
 
+
 /* ----- Lightbox ----- */
+
 .lb[open] {
   animation: lb-enter .3s var(--ease-out) both;
 }
@@ -3962,28 +4475,32 @@ footer.site a {
     opacity .25s ease;
 }
 
-.lb button:hover {
-  transform: scale(1.08);
+.lb button {
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lb button:hover {
+    transform: scale(1.08);
+  }
+
+  .lb-x:hover {
+    transform: rotate(90deg) scale(1.08);
+  }
 }
 
 .lb button:active {
   transform: scale(.92);
 }
 
-.lb-x:hover {
-  transform: rotate(90deg) scale(1.08);
-}
-
 @keyframes lb-enter {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* ----- Status badges & small UI ----- */
+
+/* ----- Status Badges ----- */
+
 .commission-status {
   transition:
     transform var(--dur-med) var(--ease-out),
@@ -3996,7 +4513,9 @@ footer.site a {
   }
 }
 
-/* ----- Download / utility buttons ----- */
+
+/* ----- Download Buttons ----- */
+
 .payment-page .download-qr-btn {
   transition:
     background var(--dur-fast) ease,
@@ -4013,7 +4532,9 @@ footer.site a {
   transform: scale(.94);
 }
 
-/* ----- Form controls (if present) ----- */
+
+/* ----- Form Controls ----- */
+
 input,
 textarea,
 select {
@@ -4026,9 +4547,11 @@ select {
 input:focus,
 textarea:focus,
 select:focus {
-  outline: none;
   box-shadow: 0 0 0 3px var(--color-blue-400);
 }
+
+
+/* ----- Keyboard Focus ----- */
 
 input:focus-visible,
 textarea:focus-visible,
@@ -4037,11 +4560,13 @@ button:focus-visible,
 a:focus-visible,
 .art:focus-visible,
 .commission-poster:focus-visible {
-  outline: 3px solid var(--cute-pink-deep);
+  outline: 3px solid var(--color-primary);
   outline-offset: 3px;
 }
 
-/* ----- Scroll reveal (progressive, non-blocking) ----- */
+
+/* ----- Scroll Reveal ----- */
+
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .home-hero-card,
@@ -4068,31 +4593,28 @@ a:focus-visible,
 
     @keyframes reveal-up {
       from {
-        opacity: 0.35;
-        transform: translateY(18px);
+        opacity: .35;
+        translate: 0 18px;
       }
+
       to {
         opacity: 1;
-        transform: translateY(0);
+        translate: 0 0;
       }
     }
   }
 }
 
-/* Staggered delay for gallery items when scroll-driven animations are unsupported:
-   content remains fully visible; no dependency on JS. */
 
-/* ----- Header subtle elevation on scroll is handled by existing sticky styles ----- */
-
-/* ----- Prevent hover transforms from causing overflow ----- */
-.art,
-.commission-poster,
-.payment-page .payment-card,
-.about-social-card {
-  will-change: transform;
-}
+/* ----- Hover Stacking ----- */
 
 @media (hover: hover) and (pointer: fine) {
+  .art,
+  .commission-poster,
+  .gallery-page .art {
+    position: relative;
+  }
+
   .art:hover,
   .commission-poster:hover,
   .gallery-page .art:hover {
@@ -4102,21 +4624,36 @@ a:focus-visible,
 
 
 /* ============================================================
-   19. REDUCED MOTION
+   20. EDITORIAL STAGGER
+   Wide and medium screens
+   ============================================================ */
+
+@media (min-width: 901px) {
+  .gallery-page [data-gallery] > .art:nth-child(3n + 2) {
+    translate: 0 8px;
+  }
+}
+
+@media (min-width: 561px) and (max-width: 900px) {
+  .gallery-page [data-gallery] > .art:nth-child(2n) {
+    translate: 0 6px;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
   }
-  ::view-transition-old(root),
-  ::view-transition-new(root) { animation: none; }
-  .home-hero-decoration { animation: none; }
+
   .about-photo:hover,
   .home-profile-frame:hover,
   .art:hover,
@@ -4127,31 +4664,18 @@ a:focus-visible,
   .social-links a:hover,
   .logo:hover,
   header.site nav a:hover,
-  .filters button:hover {
+  .filters button:hover,
+  .payment-page .download-qr-btn:hover,
+  .lb button:hover {
     transform: none !important;
   }
-  .gallery-page [data-gallery] > .art:nth-child(3n + 2),
-  .gallery-page [data-gallery] > .art:nth-child(2n) { transform: none; }
-  .lb[open], .lb button, .lb-image, .lb-caption { animation: none; transition: none; }
-  .faq-answer { animation: none; }
-  .payment-page .payment-card { transition: none; }
-  header.site nav a::after { transition: none; width: 0; }
-}
 
-/* ============================================================
-   20. EDITORIAL STAGGER (wide screens)
-   ============================================================ */
-
-@media (min-width: 901px) {
-  .gallery-page [data-gallery] > .art:nth-child(3n + 2) { transform: translateY(8px); }
-  .gallery-page [data-gallery] > .art:nth-child(3n + 2):hover {
-    transform: translateY(0) scale(1.01) rotate(-.35deg);
+  .gallery-page [data-gallery] > .art {
+    translate: none !important;
   }
-}
 
-@media (min-width: 561px) and (max-width: 900px) {
-  .gallery-page [data-gallery] > .art:nth-child(2n) { transform: translateY(6px); }
-  .gallery-page [data-gallery] > .art:nth-child(2n):hover {
-    transform: translateY(-1px) scale(1.01) rotate(-.35deg);
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
   }
 }
