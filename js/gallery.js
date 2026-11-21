@@ -352,6 +352,12 @@ scheduleScrollHighlight();
 
   if (!dialog.open) return;
 
+  const showControls = () => {
+  dialog.classList.remove('lb-controls-hidden');
+  clearTimeout(controlsTimer);
+
+  if (!dialog.open) return;
+
   controlsTimer = setTimeout(() => {
     const keyboardFocusedControl = dialog.querySelector(
       'button:focus-visible'
@@ -363,8 +369,22 @@ scheduleScrollHighlight();
   }, 2500);
 };
 
+const toggleControls = () => {
+  clearTimeout(controlsTimer);
+
+  if (dialog.classList.contains('lb-controls-hidden')) {
+    showControls();
+  } else {
+    dialog.classList.add('lb-controls-hidden');
+  }
+};
+
   dialog.addEventListener('pointermove', showControls);
-  dialog.addEventListener('pointerdown', showControls);
+
+stage.addEventListener('click', event => {
+  if (event.target.closest('button')) return;
+  toggleControls();
+});
   dialog.addEventListener('focusin', showControls);
   dialog.addEventListener('focusout', () => {
     // Allow focus to move between viewer controls before checking it.
@@ -670,8 +690,6 @@ lightboxImage.style.cursor =
   // Pointer down: start drag, swipe or pinch
   stage.addEventListener('pointerdown', event => {
     if (!['touch', 'pen', 'mouse'].includes(event.pointerType)) return;
-
-    showControls();
 
     if (event.pointerType !== 'mouse') {
       event.preventDefault();
